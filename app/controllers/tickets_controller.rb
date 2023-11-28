@@ -16,7 +16,7 @@ class TicketsController < ApplicationController
     @ticket = Ticket.new(ticket_params)
     @ticket.user = current_user
     if @ticket.save
-      #redirect_to path
+      redirect_to tickets_path
     else
       render :new, status: :unprocessable_entity
     end
@@ -25,7 +25,7 @@ class TicketsController < ApplicationController
   def destroy
     @ticket = Ticket.find(params[:id])
     @ticket.destroy
-    # redirect_to path
+    redirect_to tickets_path
   end
 
   private

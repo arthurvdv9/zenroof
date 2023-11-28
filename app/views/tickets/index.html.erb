@@ -2,9 +2,10 @@
               <h2><%= ticket.title %> in <%= ticket.location %> 📍</h2>
               <p><%= ticket.description %> to
               <p>Status: <%= ticket.status %></p>
-              <p>Status: <%= ticket.priority %></p>
+              <p>Priority: <%= ticket.priority %></p>
             </div>
             <div class="ticket-actions">
               <%= link_to "Edit", edit_ticket_path(ticket), class: "btn btn-primary" %>
               <%= link_to "Delete", ticket, method: :delete, data: { confirm: "Are you sure?" }, class: "btn btn-danger" %>
+              </div>
       <% end %>
