@@ -1,7 +1,10 @@
-<!-- app/views/tickets/_ticket.html.erb -->
+<%= render partial: 'ticket', locals: { ticket: ticket } %>
+
 <div class="ticket">
-  <h3><%= ticket.title %></h3>
-  <p><strong>Description:</strong> <%= ticket.description %></p>
-  <p><strong>Status:</strong> <%= ticket.status %></p>
-  <p><strong>Priority:</strong> <%= ticket.priority %></p>
+  <ul>
+    <li><%= ticket.title %></li>
+    <li><strong>Description:</strong> <%= ticket.description %></li>
+    <li><strong>Status:</strong> <%= ticket.status %></li>
+    <li><strong>Priority:</strong> <%= ticket.priority %></li>
+  </ul>
 </div>
