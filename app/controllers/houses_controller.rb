@@ -1,9 +1,12 @@
 class HousesController < ApplicationController
   before_action :set_house, only: [:show]
 
+  def index
+    @houses = House.all
+  end
+
   def new
     @house = House.new
-
   end
 
   def create
@@ -25,6 +28,5 @@ class HousesController < ApplicationController
   def house_params
     params.require(:house).permit(:address, :name, :capacity)
   end
-
 
 end
