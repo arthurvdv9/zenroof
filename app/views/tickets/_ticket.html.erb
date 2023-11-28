@@ -1,10 +1,11 @@
-<%= render partial: 'ticket', locals: { ticket: ticket } %>
 
+<% #@tickets.each do |ticket| %>
 <div class="ticket">
   <ul>
-    <li><%= ticket.title %></li>
-    <li><strong>Description:</strong> <%= ticket.description %></li>
-    <li><strong>Status:</strong> <%= ticket.status %></li>
-    <li><strong>Priority:</strong> <%= ticket.priority %></li>
-  </ul>
-</div>
+    <li><%= #ticket.title %></#li>
+    <li><strong>Description:</strong> <%=# ticket.description %></#li>
+    <li><strong>Status:</strong> <%= #ticket.status %></li>
+    <li><strong>Priority:</#strong> <%=#ticket.priority %></li>
+  </#ul>
+</#div>
+<% end %> %>
