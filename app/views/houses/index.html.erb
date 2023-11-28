@@ -4,7 +4,7 @@
 
     <div class="card">
     <%# ## House card%>
-      <%= link_to boat_path(boat) do %>
+      <%= link_to house_path(house) do %>
 
         <% if house.photo.attached? %>
           <%= cl_image_tag house.photo.key, height: 300, width: 400, crop: :fill %>
