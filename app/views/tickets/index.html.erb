@@ -1,0 +1,5 @@
+<h1>Ticket List</h1>
+
+<% @tickets.each do |ticket| %>
+  <%= render partial: 'ticket', locals: { ticket: ticket } %>
+<% end %>
