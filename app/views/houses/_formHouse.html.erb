@@ -1,0 +1,9 @@
+<div class="">
+    <%= simple_form_for(@house) do |f| %>
+      <%= f.input :name %>
+      <%= f.input :address %>
+      <%= f.input :capacity %>
+      <%= f.input :photo, as: :file %>
+      <%= f.submit "Save", class: "btn btn-flat" %>
+    <% end %>
+</div>
