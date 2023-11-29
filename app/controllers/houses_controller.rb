@@ -23,6 +23,7 @@ class HousesController < ApplicationController
     else
       render :new, status: :unprocessable_entity
     end
+    
   end
 
 
