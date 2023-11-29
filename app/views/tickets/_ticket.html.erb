@@ -1,13 +1,10 @@
-<p>test</p>
 <% @tickets.each do |ticket| %>
-<div class="ticket">
-  <ul>
-    <li><%= ticket.title %></li>
-    <li><strong>Description:</strong> <%=ticket.description %></li>
-    <li><strong>Status:</strong> <%= ticket.status %></li>
-    <li><strong>Priority:</strong> <%=ticket.priority %></li>
-  </ul>
-</div>
+  <div class="ticket">
+      <strong>Title:<%= link_to "#{ticket.title}", ticket_path(ticket)%></strong>
+      <strong>Description:</strong> <%=ticket.description %>
+      <strong>Status:</strong> <%= ticket.status %>
+      <strong>Priority:</strong> <%=ticket.priority %>
+  </div>
 <% end %>
 
 

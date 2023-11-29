@@ -1,6 +1,9 @@
 <h2><%= @ticket.title %></h2>
 <p><%= @ticket.description %></p>
 <p><%= @ticket.status %></p>
+
+
+
 <p><%= @ticket.priority%></p>
 
 <% if @ticket.photos.attached? %>
@@ -9,5 +12,5 @@
   <% end %>
 <% end %>
 
-<%# <%= link_to "Edit",
-  tickets_path %> 
+<%# <%= link_to "back",
+  tickets_path %>
