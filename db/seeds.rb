@@ -15,7 +15,7 @@ House.destroy_all
 User.destroy_all
 
 puts "Creating user"
-user = User.create!(email:"a.vdv@gmail.com",  password: "123456")
+user = User.create!(email:"a.vdv@gmail.com", password: "123456")
 puts "User Created"
 
 puts "Creating house"
@@ -30,7 +30,7 @@ puts "Room created"
 
 puts "Creating ticket"
 file = URI.open("https://images.unsplash.com/photo-1605281317010-fe5ffe798166?q=80&w=2044&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D")
-ticket = Ticket.create!(title:"Hello", description: "blablablabla", status: "pending", priority: "high", room_id: user.room.id)
+ticket = Ticket.create!(title:"Hello", description: "blablablabla", status: "pending", priority: "high", room_id: user.rooms[0].id)
 ticket.photos.attach(io: file, filename: "nes.png", content_type: "image/png")
 ticket.save
 
