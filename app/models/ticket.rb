@@ -1,4 +1,4 @@
 class Ticket < ApplicationRecord
-  belongs_to :rooms
+  belongs_to :room
   has_many_attached :photos
 end
