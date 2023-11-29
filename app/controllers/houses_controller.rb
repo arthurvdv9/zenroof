@@ -1,5 +1,5 @@
 class HousesController < ApplicationController
-  before_action :set_house, only: [:show]
+  # before_action :set_house, only: [:show]
 
   def index
     @houses = House.all
@@ -19,13 +19,28 @@ class HousesController < ApplicationController
     @house.user = current_user
 
     if @house.save
-      redirect_to dashboard_path
+      redirect_to houses_path
     else
       render :new, status: :unprocessable_entity
     end
-    
+
   end
 
+  def edit
+    @house = House.find(house_params)
+  end
+
+  def update
+    @house = House.find(house_params)
+    @house.update(params[:house])
+    redirect_to houses_path
+  end
+
+  def destroy
+    @house = House.find(params[:id])
+    @house.destroy
+    redirect_to houses_edit_path, status: :see_other
+  end
 
   private
 
