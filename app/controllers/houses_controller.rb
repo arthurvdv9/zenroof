@@ -17,14 +17,20 @@ class HousesController < ApplicationController
 
     # connect
     @house.user = current_user
+    @room = Room.new
 
     if @house.save
-      redirect_to houses_path
+      respond_to do |format|
+        format.html { redirect_to new_house_room_path(@house) }
+        format.text { render partial: "houses/formRoom", locals: { house: @house, room: @room }, formats: [:html] }
+      end
+
     else
       render :new, status: :unprocessable_entity
     end
 
   end
+
 
   def edit
     @house = House.find(params[:id])

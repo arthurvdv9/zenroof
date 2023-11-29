@@ -7,7 +7,7 @@ Rails.application.routes.draw do
   get "/history", to: "pages#history", as: "history"
 
   resources :houses do
-    resources :rooms, only: [:create, :edit]
+    resources :rooms, only: [:new, :create, :edit]
   end
 
   resources :rooms, except: [:create, :edit] do

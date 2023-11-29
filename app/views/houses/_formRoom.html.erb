@@ -1,0 +1,12 @@
+
+
+<div class="">
+    <%# <%= simple_form_for(@room) do |f| %>
+      <%= simple_form_for [house, room] do |f| %>
+
+      <%= f.input :number %>
+
+      <%# <%= f.input :user, collection: User.all, prompt: "Select User" %>
+      <%= f.submit "Save", class: "btn btn-flat" %>
+    <% end %>
+</div>
