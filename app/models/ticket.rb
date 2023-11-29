@@ -6,5 +6,7 @@ class Ticket < ApplicationRecord
 
   belongs_to :user
   belongs_to :rooms
+  belongs_to :user
+  belongs_to :room
   has_many_attached :photos
 end
