@@ -1,0 +1,7 @@
+<p>test</p>
+<%# <%= render partial: 'formHouse' %>
+
+<%= link_to "Delete",
+  house_path(@house),
+  data: {turbo_method: :delete, turbo_confirm: "Are you sure?"}
+%>
