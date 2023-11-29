@@ -1,0 +1,16 @@
+<h2><%= @ticket.title %></h2>
+<p><%= @ticket.description %></p>
+<p><%= @ticket.status %></p>
+
+
+
+<p><%= @ticket.priority%></p>
+
+<% if @ticket.photos.attached? %>
+  <%  @ticket.photos.each do |photo| %>
+          <%= cl_image_tag photo.key, height: 300, width: 400, crop: :fill %>
+  <% end %>
+<% end %>
+
+<%# <%= link_to "back",
+  tickets_path %>
