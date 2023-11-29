@@ -5,7 +5,7 @@ class Ticket < ApplicationRecord
   validates :priority, presence: true
 
   belongs_to :user
-  belongs_to :rooms
+  belongs_to :room
   belongs_to :user
   belongs_to :room
   has_many_attached :photos

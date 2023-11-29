@@ -39,7 +39,11 @@ class HousesController < ApplicationController
   def update
     @house = House.find(params[:id])
     @house.update(house_params)
-    redirect_to houses_path
+    @room = Room.new
+    respond_to do |format|
+      format.html { redirect_to new_house_room_path(@house) }
+      format.text { render partial: "houses/formRoom", locals: { house: @house, room: @room }, formats: [:html] }
+    end
   end
 
   def destroy

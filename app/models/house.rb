@@ -2,13 +2,12 @@ class House < ApplicationRecord
 
   validates :name, presence: true
   validates :address, presence: true, uniqueness: true
-  validates :description, presence: true, length: { minimum: 10 }
   validates :capacity, presence: true, numericality: { only_integer: true }, inclusion: { in: 1..100 }
 
   has_many :rooms, dependent: :destroy
   has_many :tickets, through: :room
   has_many :rooms
-  
+
   belongs_to :user
   has_one_attached :photo
 end
