@@ -19,7 +19,9 @@ user = User.create!(email:"a.vdv@gmail.com",  password: "123456")
 puts "User Created"
 
 puts "Creating house"
+file = URI.open("https://thumbor.forbes.com/thumbor/fit-in/900x510/https://www.forbes.com/home-improvement/wp-content/uploads/2022/07/download-23.jpg")
 house = House.create!(address:"Rue de la paix", name: "Maison de la paix", capacity: 5, user_id: user.id)
+house.photo.attach(io: file, filename: "nes.png", content_type: "image/png")
 puts "House created"
 
 puts "Creating room"
