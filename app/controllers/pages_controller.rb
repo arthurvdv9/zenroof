@@ -1,6 +1,10 @@
 class PagesController < ApplicationController
   skip_before_action :authenticate_user!, only: [ :home ]
 
+  def history
+    @tickets = Ticket.all
+  end
+
   def home
   end
 
