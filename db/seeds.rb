@@ -9,9 +9,9 @@
 #   end
 
 puts "Clearing db..."
+Ticket.destroy_all
 Room.destroy_all
 House.destroy_all
-Ticket.destroy_all
 User.destroy_all
 
 puts "Creating user"
