@@ -3,19 +3,23 @@
   <% @houses.each do |house| %>
 
     <div class="card">
-    <%# ## House card%>
+      <%# House card %>
       <%= link_to house_path(house) do %>
 
         <% if house.photo.attached? %>
           <%= cl_image_tag house.photo.key, height: 300, width: 400, crop: :fill %>
         <% end %>
 
-        <div class="hous-infos p-3">
+        <div class="house-infos p-3">
           <h2><%= house.name.capitalize %></h2>
           <p><%= house.address.capitalize %></p>
         </div>
 
+      <% end %>
+
     </div>
 
-<% end %>
+  <% end %>
+
+  <%# <%= render partial: 'ticket' %> 
 </div>
