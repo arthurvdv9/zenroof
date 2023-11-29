@@ -1,16 +1,11 @@
 import { Controller } from "@hotwired/stimulus"
 
-
-
-// Connects to data-controller="create-house"
+// Connects to data-controller="create-room"
 export default class extends Controller {
   static targets = ["form"]
 
-  connect() {
 
-  }
-
-  createHouse(event) {
+  createRoom(event) {
     event.preventDefault()
     const url = this.formTarget.action
     fetch(url, {
@@ -27,4 +22,5 @@ export default class extends Controller {
 
 
   }
+
 }
