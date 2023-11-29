@@ -19,15 +19,34 @@ class HousesController < ApplicationController
     @house.user = current_user
 
     if @house.save
-      redirect_to dashboard_path
+      redirect_to houses_path
     else
       render :new, status: :unprocessable_entity
     end
-    
+
   end
 
+  def edit
+    @house = House.find(params[:id])
+  end
+
+  def update
+    @house = House.find(params[:id])
+    @house.update(house_params)
+    redirect_to houses_path
+  end
+
+  def destroy
+    @house = House.find(params[:id])
+    @house.destroy
+    redirect_to houses_edit_path, status: :see_other
+  end
 
   private
+
+  def set_house
+    @house = House.find(params[:id])
+  end
 
   def house_params
     params.require(:house).permit(:address, :name, :capacity, :photo)
