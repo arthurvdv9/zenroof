@@ -6,7 +6,7 @@ Rails.application.routes.draw do
   get "/dashboard", to: "user#dashboard", as: "dashboard"
 
   resources :houses do
-    resources :rooms, only: [:create, :edit]
+    resources :rooms, only: [:new, :create, :edit]
   end
 
   resources :rooms, except: [:create, :edit] do

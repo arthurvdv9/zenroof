@@ -17,6 +17,7 @@ class HousesController < ApplicationController
 
     # connect
     @house.user = current_user
+    @room = @house.room
 
     if @house.save
       redirect_to houses_path
