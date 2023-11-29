@@ -1,5 +1,7 @@
-<div class="">
-    <%= simple_form_for(@house) do |f| %>
+<div data-controller="create-house" >
+    <%= simple_form_for @house,
+        html: { data: {create_house_target: "form",
+        action: "submit->create-house#createHouse"}} do |f| %>
       <%= f.input :name %>
       <%= f.input :address %>
       <%= f.input :capacity %>

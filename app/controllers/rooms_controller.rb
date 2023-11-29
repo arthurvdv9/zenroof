@@ -6,13 +6,13 @@ class RoomsController < ApplicationController
   end
 
   def create
+    # we need the correspondent house where this is nested:
     @house = House.find(params[:house_id])
 
     @room = Room.new(room_params)
 
-    # connect
-    @room.user = current_user
     @room.house = @house
+    @room.user = current_user
 
     if @room.save
       redirect_to houses_path
