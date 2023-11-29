@@ -1,5 +1,5 @@
 class HousesController < ApplicationController
-  # before_action :set_house, only: [:show]
+  before_action :set_house, only: [:show]
 
   def index
     @houses = House.all
@@ -28,12 +28,12 @@ class HousesController < ApplicationController
   end
 
   def edit
-    @house = House.find(house_params)
+    @house = House.find(params[:id])
   end
 
   def update
-    @house = House.find(house_params)
-    @house.update(params[:house])
+    @house = House.find(params[:id])
+    @house.update(house_params)
     redirect_to houses_path
   end
 
@@ -44,6 +44,10 @@ class HousesController < ApplicationController
   end
 
   private
+
+  def set_house
+    @house = House.find(params[:id])
+  end
 
   def house_params
     params.require(:house).permit(:address, :name, :capacity, :photo)
