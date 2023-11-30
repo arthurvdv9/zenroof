@@ -1,0 +1,11 @@
+<div class="card card-body mb-3">
+  <p>Room Number: <%= room.number %></p>
+
+  <% room.tickets.each do |ticket| %>
+    <p>Title: <%= ticket.title %></p>
+    <p>Description: <%= ticket.description %></p>
+    <p>Status: <%= ticket.status %></p>
+    <p>Priority: <%= ticket.priority %></p>
+  <% end %>
+
+</div>

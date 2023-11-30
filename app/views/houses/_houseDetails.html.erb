@@ -1,0 +1,42 @@
+<div data-controller="create-room" class="col-md-4">
+
+  <% if @house.photo.attached? %>
+
+    <div class="text-center mb-3">
+      <%= cl_image_tag @house.photo.key, height: 200, width: 266, crop: :fill %>
+    </div>
+
+  <% end %>
+
+  <!-- Show House Details Button -->
+  <button class="btn btn-primary mb-3" type="button" data-bs-toggle="collapse" data-bs-target="#houseInfo" aria-expanded="false" aria-controls="houseInfo">
+    Show House Details
+  </button>
+
+  <!-- House Details (Collapsible) -->
+  <div class="collapse" id="houseInfo">
+    <div class="card card-body">
+      <p>Name: <%= @house.name %></p>
+      <p>Address: <%= @house.address %></p>
+      <p>Capacity: <%= @house.capacity %></p>
+      <p>Number of rooms: <%= @house.rooms.count %></p>
+    </div>
+  </div>
+</div>
+
+<%# room list %>
+<div class="col-md-8">
+  <div data-create-room-target="list">
+    <% house.rooms.each do |room| %>
+      <%= render "rooms/roomDetails", room: room, ticket: @ticket %>
+    <% end %>
+  </div>
+</div>
+
+<%= link_to "Edit House", edit_house_path(house) %>
+
+<%= link_to "Add Room", new_house_room_path(house), data: { action: "click->create-room#displayForm" } %>
+
+<div data-create-room-target="formContainer" class="d-none">
+  <div><%= render "formRoom", house: house, room: room %></div>
+</div>
