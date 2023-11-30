@@ -10,8 +10,16 @@ class PagesController < ApplicationController
 
   def dashboard
     @houses = House.where(user_id: current_user)
-    @tickets = Ticket.where(room_id: current_user.rooms[0].id)
 
-    
+
+
+
+
+    @tickets = current_user.rooms[0].present? ? Ticket.where(room_id: current_user.rooms[0].id) : []
+
+
   end
+
+
+
 end
