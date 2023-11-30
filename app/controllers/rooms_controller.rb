@@ -8,26 +8,30 @@ class RoomsController < ApplicationController
   def create
     # we need the correspondent house where this is nested:
     @house = House.find(params[:house_id])
+    @user = params[:room][:user].empty? ? current_user : User.find(params[:room][:user].to_i)
 
     @room = Room.new(room_params)
 
     @room.house = @house
-    @room.user = current_user
+    @room.user = @user
 
     if @room.save
       respond_to do |format|
         format.html { redirect_to new_house_room_path(@house) }
-        format.text { render partial: "houses/formRoom", locals: { house: @house, room: Room.new }, formats: [:html] }
+        format.text { render partial: "rooms/roomDetails", locals: { room: @room }, formats: [:html] }
       end
     else
-      render :new, status: :unprocessable_entity
-    end
+      respond_to do |format|
+        format.html { render :new, status: :unprocessable_entity }
+        format.text { render partial: "rooms/roomDetails", locals: { room: @room }, formats: [:html] }
+      end
 
+    end
   end
 
   private
 
   def room_params
-    params.require(:room).permit(:number)
+    params.require(:room).permit(:number, :user_id)
   end
 end

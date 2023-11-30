@@ -1,4 +1,4 @@
-<% @tickets.each do |ticket| %>
+<% @roomstickets.each do |ticket| %>
   <div class="ticket">
       <strong>Title:<%= link_to "#{ticket.title}", ticket_path(ticket)%></strong>
       <strong>Description:</strong> <%=ticket.description %>
@@ -6,6 +6,3 @@
       <strong>Priority:</strong> <%=ticket.priority %>
   </div>
 <% end %>
-
-
-<%# this file has to be in the houses file to be able to render in houses.index %>

@@ -1,16 +1,17 @@
-<div data-controller="create-room">
+<div>
     <%# <%= simple_form_for(@room) do |f| %>
     <%= simple_form_for [house, room],
         html: { data: {create_room_target: "form",
         action: "submit->create-room#createRoom"}} do |f| %>
 
       <%= f.input :number %>
+      <%= f.input :user, collection: User.all, label_method: :email, value_method: :id%>
 
       <%# <%= f.input :user, collection: User.all, prompt: "Select User" %>
       <%= f.submit "Add room", class: "btn btn-flat" %>
     <% end %>
 
     <%# button: TODO (Jo): this button needs to be or inside the form or other thing, so it wont get render every time we add a room %>
-    <%= link_to "Save", houses_path %>
+    <%# <%= link_to "Save", houses_path %> 
 
 </div>

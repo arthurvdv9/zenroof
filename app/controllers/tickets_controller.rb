@@ -2,7 +2,7 @@ class TicketsController < ApplicationController
   before_action :set_ticket, only: [:show]
 
   def index
-    @tickets = Ticket.all
+    @tickets = current_user.tickets
   end
 
   def show
@@ -14,7 +14,7 @@ class TicketsController < ApplicationController
 
   def create
     @ticket = Ticket.new(ticket_params)
-    @ticket.user = current_user
+    @ticket.room = Room.find(params[:room_id])
     if @ticket.save
       redirect_to tickets_path
     else
