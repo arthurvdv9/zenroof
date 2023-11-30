@@ -1,0 +1,23 @@
+<div data-controller="create-room">
+  <h2><%= house.name %></h2>
+  <p><%= house.address %></p>
+  <p><%= house.capacity %></p>
+  <% if house.photo.attached? %>
+            <%= cl_image_tag house.photo.key, height: 300, width: 400, crop: :fill %>
+  <% end %>
+
+  <div data-create-room-target="list">
+    <% house.rooms.each do |room|%>
+        <%= render "rooms/roomDetails", room: room %>
+    <% end %>
+  </div>
+
+  <%= link_to "Edit House", edit_house_path(house)%>
+
+  <%= link_to "Add Room", new_house_room_path(house), data: { action: "click->create-room#displayForm" } %>
+
+  <div data-create-room-target="formContainer" class="d-none">
+  <div ><%= render "formRoom", house: house, room: room %></div>
+  </div>
+
+</div>

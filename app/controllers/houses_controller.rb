@@ -6,6 +6,7 @@ class HousesController < ApplicationController
   end
 
   def show
+    @room = Room.new
   end
 
   def new
@@ -21,8 +22,8 @@ class HousesController < ApplicationController
 
     if @house.save
       respond_to do |format|
-        format.html { redirect_to new_house_room_path(@house) }
-        format.text { render partial: "houses/formRoom", locals: { house: @house, room: @room }, formats: [:html] }
+        format.html { redirect_to house_path(@house) }
+        format.text { render partial: "houses/houseDetails", locals: { house: @house, room: @room }, formats: [:html] }
       end
 
     # else
@@ -41,8 +42,8 @@ class HousesController < ApplicationController
     @house.update(house_params)
     @room = Room.new
     respond_to do |format|
-      format.html { redirect_to new_house_room_path(@house) }
-      format.text { render partial: "houses/formRoom", locals: { house: @house, room: @room }, formats: [:html] }
+      format.html { redirect_to house_path(@house) }
+      format.text { render partial: "houses/houseDetails", locals: { house: @house, room: @room }, formats: [:html] }
     end
   end
 

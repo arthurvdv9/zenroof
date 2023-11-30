@@ -17,7 +17,7 @@ class RoomsController < ApplicationController
     if @room.save
       respond_to do |format|
         format.html { redirect_to new_house_room_path(@house) }
-        format.text { render partial: "houses/formRoom", locals: { house: @house, room: Room.new }, formats: [:html] }
+        format.text { render partial: "rooms/roomDetails", locals: { room: @room }, formats: [:html] }
       end
     else
       render :new, status: :unprocessable_entity

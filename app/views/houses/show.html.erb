@@ -1,9 +1,3 @@
-<h2><%= @house.name %></h2>
-<p><%= @house.address %></p>
-<p><%= @house.capacity %></p>
-<% if @house.photo.attached? %>
-          <%= cl_image_tag @house.photo.key, height: 300, width: 400, crop: :fill %>
-<% end %>
-
-<%= link_to "Edit",
-  edit_house_path(@house)%>
+<div class="container">
+  <%= render "houseDetails", house: @house, room: @room %>
+</div>
