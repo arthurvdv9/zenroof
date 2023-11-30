@@ -13,12 +13,15 @@ class TicketsController < ApplicationController
   end
 
   def create
+    @room = Room.find(params[:room_id])
     @ticket = Ticket.new(ticket_params)
-    @ticket.room = Room.find(params[:room_id])
+    @ticket.room = @room
+    @ticket.status = "pending"
+
     if @ticket.save
-      redirect_to tickets_path
+      redirect_to dashboard_path
     else
-      render :new, status: :unprocessable_entity
+      render "pages/dashboard", status: :unprocessable_entity
     end
   end
 
