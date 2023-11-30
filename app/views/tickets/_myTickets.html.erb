@@ -1,3 +1,4 @@
+
 <% @tickets.each do |ticket| %>
   <div class="ticket">
       <strong>Title:<%= link_to "#{ticket.title}", ticket_path(ticket)%></strong>
@@ -6,6 +7,3 @@
       <strong>Priority:</strong> <%=ticket.priority %>
   </div>
 <% end %>
-
-
-<%# this file has to be in the houses file to be able to render in houses.index %>

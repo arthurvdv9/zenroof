@@ -2,7 +2,7 @@
 
 <% @tickets.each do |ticket| %>
   <% if ticket.status == "solved" %>
-    <%= render partial: '/tickets/ticket' %>
+    <%= render partial: '/tickets/myTickets' %>
   <% end %>
 
 <% end %>

@@ -2,7 +2,7 @@ class HousesController < ApplicationController
   before_action :set_house, only: [:show]
 
   def index
-    @houses = House.all
+    @houses = current_user.houses
   end
 
   def show
@@ -50,7 +50,7 @@ class HousesController < ApplicationController
   def destroy
     @house = House.find(params[:id])
     @house.destroy
-    redirect_to houses_edit_path, status: :see_other
+    redirect_to houses_path, status: :see_other
   end
 
   private
