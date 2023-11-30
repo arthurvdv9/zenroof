@@ -13,12 +13,18 @@
         <div class="house-infos p-3">
           <h2><%= house.name.capitalize %></h2>
           <p><%= house.address.capitalize %></p>
+          <% number_tickets = 0 %>
+          <% house.rooms.each do |room| %>
+            <% number_tickets += room.tickets.count %>
+          <% end %>
+          <p>tickets: <%= number_tickets %></p>
         </div>
 
       <% end %>
 
     </div>
-
+    <%# render ticket of that specific house %>
+    <%# <%= render partial: "tickets/roomTickets" %>
   <% end %>
 
 </div>
