@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
   devise_for :users
-  root to: "pages#home"
+  root to: "pages#dashboard"
   get "up" => "rails/health#show", as: :rails_health_check
 
   get "/dashboard", to: "pages#dashboard", as: "dashboard"
