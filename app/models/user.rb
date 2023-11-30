@@ -8,6 +8,6 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
   has_many  :houses
-  has_many  :tickets, through: :rooms
   has_many  :rooms
+  has_many  :tickets, through: :rooms
 end
