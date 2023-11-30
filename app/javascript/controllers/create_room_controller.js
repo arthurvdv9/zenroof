@@ -14,6 +14,7 @@ export default class extends Controller {
     })
     .then(response => response.text())
     .then((data) => {
+      console.log(data)
       this.formTarget.reset()
       this.listTarget.insertAdjacentHTML("beforeend", data)
     })
