@@ -6,5 +6,6 @@
       <strong>Description:</strong> <%=ticket.description %>
       <strong>Status:</strong> <%= ticket.status %>
       <strong>Priority:</strong> <%=ticket.priority %>
-  </div>
+<%= button_to 'Delete', ticket_path(ticket), method: :delete, data: { turbo_method: :delete, turbo_confirm: "Are you sure?" }, class: 'btn btn-danger' %>
+      </div>
 <% end %>
