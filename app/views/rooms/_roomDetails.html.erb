@@ -1,5 +1,5 @@
 <div class="card card-body mb-3">
-  <p>Room Number: <%= room.number %></p>
+  <p>Room Number: <%= room.number %>: <%= room.user.email %></p>
 
   <% room.tickets.each do |ticket| %>
     <p>Title: <%= ticket.title %></p>

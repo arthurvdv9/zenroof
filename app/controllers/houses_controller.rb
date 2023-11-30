@@ -26,8 +26,8 @@ class HousesController < ApplicationController
         format.text { render partial: "houses/houseDetails", locals: { house: @house, room: @room }, formats: [:html] }
       end
 
-    # else
-    #   render :new, status: :unprocessable_entity
+    else
+      render :new, status: :unprocessable_entity
     end
 
   end
