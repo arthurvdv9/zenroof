@@ -1,0 +1,30 @@
+<div class="container">
+  <div class="p-5">
+    <h3 class="">Tickets</h3>
+    <%= simple_form_for [@room,@ticket] do |f| %>
+
+      <div class="col-3 mt-4">
+        <%= f.input :title, as: :string %>
+      </div>
+
+      <div class="col-6 mt-8">
+        <%= f.input :description, as: :string %>
+      </div>
+
+      <div class="col-3 mt-4">
+        <%= f.input :status, collection: ["Pending", "Ongoing", "Resolved"]%>
+      </div>
+
+      <div class="col-3 mt-4">
+        <%= f.input :priority, collection: ["Low", "Medium", "High"] %>
+      </div>
+
+      <div class="row">
+        <div class="col-3 mt-4 mb-6">
+          <%= f.submit "Create a Ticket!", class: "Mbtn-flat" %>
+        </div>
+      </div>
+
+    <% end %>
+  </div>
+</div>
