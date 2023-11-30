@@ -1,6 +1,6 @@
 <div class="edit-status-form" style="display: none;">
   <%= form_with(model: @ticket, url: ticket_path(@ticket), local: true, method: :patch) do |form| %>
-    <%= form.select :status, options_for_select(['Pending', 'In Progress', 'Completed']), {}, class: 'status-select' %>
+    <%= form.select :status, options_for_select(['Pending', 'In progress', 'Fixed']), {}, class: 'status-select' %>
     <%= form.submit 'Update' %>
   <% end %>
 </div>
