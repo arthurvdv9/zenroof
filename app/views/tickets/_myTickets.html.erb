@@ -1,5 +1,5 @@
 
-<% @tickets.each do |ticket| %>
+<% tickets.each do |ticket| %>
   <div class="ticket">
       <p><%= ticket.room.user.email %></p>
       <strong>Title:<%= link_to "#{ticket.title}", ticket_path(ticket)%></strong>

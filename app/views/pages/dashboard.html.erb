@@ -14,16 +14,25 @@
 <%# what happens when you click on the %>
 
   <div class="tab-content" id="myTabContent">
-    
+
   <%# tenant view %>
       <div class="tab-pane fade show active" id="tenant" role="tabpanel" aria-labelledby="tenant-tab">
-          <%= render partial: "tickets/myTickets" %>
+        <%# toggle the form via button %>
+
+        <div data-controller="toggle" class="mt-5">
+          <button data-action="click->toggle#fire" class="btn btn-outline-primary">Add a new ticket</button>
+          <div data-toggle-target="togglableElement" class="d-none">
+            <%= render 'tickets/newTicket', ticket: @ticket%>
+          </div>
+        </div>
+
+          <%= render "tickets/myTickets", tickets: @tickets %>
       </div>
 
       <%# owner view %>
       <div class="tab-pane fade" id="owner" role="tabpanel" aria-labelledby="owner-tab">
           <%# render the search bar here %>
-          <%= render partial: "houses/houseList" %>
+          <%= render "houses/houseList" %>
       </div>
   </div>
 
