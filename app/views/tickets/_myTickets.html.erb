@@ -1,6 +1,7 @@
 
-<div class="">
+<div class="wrapper">
   <% unless @room.nil? %>
+
     <% @room.tickets.each do |ticket| %>
       <div class="ticket">
           <strong>Title:<%= link_to "#{ticket.title}", ticket_path(ticket)%></strong>
@@ -21,6 +22,7 @@
           </p>
         <% end %>
       </div>
+    </div>
     <% end %>
   <% else %>
     <p>There are no tickets yet</p>
