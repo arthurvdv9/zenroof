@@ -2,7 +2,7 @@ class PagesController < ApplicationController
   skip_before_action :authenticate_user!, only: [ :home ]
 
   def history
-    @tickets = Ticket.where(room_id: current_user.rooms[0].id)
+    @tickets = Ticket.where(room_id: current_user.room.id)
   end
 
   def home
@@ -13,8 +13,8 @@ class PagesController < ApplicationController
     @ticket = Ticket.new
     @tickets = current_user.room.present? ? Ticket.where(room_id: current_user.room.id) : []
 
-    # @is_user_owner = current_user.houses.size > 0
-    # @is_user_tenant = @is_user_owner ? is_owner_also_tenant : true
+    @is_user_owner = current_user.houses.size > 0
+    @room = current_user.room
     # @room_id = @is_user_owner ? retrieve_tenant_room : current_user.rooms[0]
   end
 

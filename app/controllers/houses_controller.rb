@@ -7,6 +7,7 @@ class HousesController < ApplicationController
 
   def show
     @room = Room.new
+    @house = House.find(params[:id])
   end
 
   def new
@@ -50,13 +51,13 @@ class HousesController < ApplicationController
   def destroy
     @house = House.find(params[:id])
     @house.destroy
-    redirect_to houses_path, status: :see_other
+    redirect_to dashboard_path, status: :see_other
   end
 
   private
 
   def set_house
-    @house = House.find(params[:id])
+    @house = House.where(user_id: current_user)
   end
 
   def house_params
