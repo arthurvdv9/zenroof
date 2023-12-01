@@ -16,7 +16,7 @@ class PagesController < ApplicationController
     @is_user_owner = current_user.houses.size > 0
     @is_user_tenant = @is_user_owner ? is_owner_also_tenant : true
     @room_id = @is_user_owner ? retrieve_tenant_room : current_user.rooms[0]
-    @room = Room.find(@room_id)
+    @room = Room.find_by(id: @room_id)
   end
 
   private
