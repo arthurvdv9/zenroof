@@ -1,9 +1,9 @@
-<p>test</p>
 <%= render partial: 'formHouse' %>
+<div class="container">
+  <%= link_to "Delete",
+    house_path(@house),
+    data: {turbo_method: :delete, turbo_confirm: "Are you sure?"}
+  %>
 
-<%= link_to "Delete",
-  house_path(@house),
-  data: {turbo_method: :delete, turbo_confirm: "Are you sure?"}
-%>
-
-<%= link_to "Back",  house_path%>
+  <%= link_to "Back",  house_path%>
+</div>

@@ -1,4 +1,4 @@
-<div>
+<div class="container">
     <%# <%= simple_form_for(@room) do |f| %>
     <%= simple_form_for [house, room],
         html: { data: {create_room_target: "form",
@@ -12,6 +12,6 @@
     <% end %>
 
     <%# button: TODO (Jo): this button needs to be or inside the form or other thing, so it wont get render every time we add a room %>
-    <%# <%= link_to "Save", houses_path %> 
+    <%# <%= link_to "Save", houses_path %>
 
 </div>

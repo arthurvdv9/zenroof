@@ -1,4 +1,4 @@
-<div data-controller="create-house" >
+<div class="container" data-controller="create-house" >
     <%= simple_form_for @house,
         html: { data: {create_house_target: "form",
         action: "submit->create-house#createHouse"}} do |f| %>
