@@ -12,7 +12,7 @@ class PagesController < ApplicationController
     @houses = House.where(user_id: current_user)
     @ticket = Ticket.new
     @tickets = current_user.room.present? ? Ticket.where(room_id: current_user.room.id) : []
-
+    binding.pry
     # @is_user_owner = current_user.houses.size > 0
     # # @is_user_tenant = @is_user_owner ? is_owner_also_tenant : true
     @is_user_owner = current_user.houses.size > 0
