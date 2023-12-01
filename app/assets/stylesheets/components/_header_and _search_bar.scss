@@ -1,37 +1,37 @@
-.welcome-card {
-  overflow: hidden;
-  height: 240px;
-  background: #12D08E;
-  box-shadow: 0 0 15px rgba(0,0,0,0.2);
+.app-header {
+  height: 78px;
+  background-color: #4CAF50;
+  color: white;
   display: flex;
+}
+
+.user-select {
+  width: 50%;
+  height: 100%;
+  font-family: Montserrat;
+  font-size: 32px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: normal;
+  display: flex;
+  justify-content: center;
   align-items: center;
 }
 
-.welcome-card-avatar {
-  width: 56px;
-  border-radius: 50%;
+.owner-select {
+  background: #12D08E;
+  color: #FFF;
 }
 
-.welcome-card-infos h2 {
-  font-size: 16px;
-  font-weight: bold;
-  margin: 0;
+.tenant-select {
+  background: #FFF;
+  color: #FF7522;
 }
 
-.welcome-card-infos p {
-  font-size: 12px;
-  line-height: 1.4;
-  opacity: .7;
-  margin-bottom: 0;
-  margin-top: 8px;
-}
 
-.card-product .card-product-infos {
-  padding: 16px;
-}
+
 
 .search_bar {
-width: 378px;
-height: 57px;
-flex-shrink: 0;
+width: 80%;
+margin: 0 auto;
 }
