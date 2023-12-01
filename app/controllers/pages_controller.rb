@@ -13,10 +13,10 @@ class PagesController < ApplicationController
     @ticket = Ticket.new
     @tickets = current_user.room.present? ? Ticket.where(room_id: current_user.room.id) : []
 
-    @is_user_owner = current_user.houses.size > 0
-    @is_user_tenant = @is_user_owner ? is_owner_also_tenant : true
-    @room_id = @is_user_owner ? retrieve_tenant_room : current_user.rooms[0]
-    @room = Room.find_by(id: @room_id)
+    # @is_user_owner = current_user.houses.size > 0
+    # # @is_user_tenant = @is_user_owner ? is_owner_also_tenant : true
+    # @room_id = @is_user_owner ? retrieve_tenant_room : current_user.rooms[0]
+    # @room = Room.find_by(id: @room_id)
   end
 
   private
@@ -27,11 +27,11 @@ class PagesController < ApplicationController
   #   houses_rooms_ids - rooms_ids
   # end
 
-  # def is_owner_also_tenant
+  #  def is_owner_also_tenant
   #   list_tenant_rooms_for_owner.size > 0
   # end
 
   # def retrieve_tenant_room
-  #   list_tenant_rooms_for_owner[0]
+  #  list_tenant_rooms_for_owner[0]
   # end
 end

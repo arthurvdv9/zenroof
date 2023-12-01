@@ -24,6 +24,12 @@ house = House.create!(address:"Rue de la paix", name: "Maison de la paix", capac
 house.photo.attach(io: file, filename: "nes.png", content_type: "image/png")
 puts "House created"
 
+puts "Creating house"
+file = URI.open("https://thumbor.forbes.com/thumbor/fit-in/900x510/https://www.forbes.com/home-improvement/wp-content/uploads/2022/07/download-23.jpg")
+house = House.create!(address:"Porto", name: "portadsadsadsads", capacity: 10, user_id: user.id)
+house.photo.attach(io: file, filename: "nes.png", content_type: "image/png")
+puts "House created"
+
 puts "Creating room"
 room = Room.create!(number: 1, user_id: user.id, house_id: house.id)
 puts "Room created"

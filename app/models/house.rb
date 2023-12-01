@@ -1,4 +1,5 @@
 class House < ApplicationRecord
+  include PgSearch::Model
 
   validates :name, presence: true
   validates :address, presence: true, uniqueness: true
