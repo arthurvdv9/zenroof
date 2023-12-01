@@ -8,7 +8,6 @@
       <li class="nav-item" role="presentation">
           <a class="nav-link" id="owner-tab" data-bs-toggle="tab" href="#owner" role="tab" aria-controls="owner" aria-selected="false">Owner</a>
       </li>
-
   </ul>
 
   <%# what happens when you click on the tab%>
@@ -26,8 +25,6 @@
           <%= render 'tickets/newTicket', ticket: @ticket%>
         </div>
       </div>
-
-
         <div class="m-4">
           <%= render "tickets/myTickets", tickets: @tickets %>
         </div>
@@ -39,9 +36,7 @@
     <div class="tab-content" id="myTabContent">
 
     <%# owner view %>
-
       <div class="tab-pane fade" id="owner" role="tabpanel" aria-labelledby="owner-tab">
-
         <div class="row justify-content-center">
           <div class="col-sm-8 my-3">
             <%= form_with url: houses_path, method: :get, class: "d-flex" do %>
@@ -54,11 +49,8 @@
             <% end %>
           </div>
         </div>
-
-          <%= render "houses/houseList" %>
+        <%= render "houses/houseList" %>
       </div>
     </div>
-
   </div>
-
 </div>
