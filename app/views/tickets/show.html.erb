@@ -1,14 +1,14 @@
-<div class="container">
+<div class="container p-3 m-5">
 
-<h2><%= @ticket.title %></h2>
-<p><%= @ticket.description %></p>
-<p><%= @ticket.status %></p>
-<p><%= @ticket.priority%></p>
+  <h2><%= @ticket.title %></h2>
+  <p><%= @ticket.description %></p>
+  <p><%= @ticket.status %></p>
+  <p><%= @ticket.priority%></p>
 
-<% if @ticket.photos.attached? %>
-  <%  @ticket.photos.each do |photo| %>
-    <%= cl_image_tag photo.key, height: 300, width: 400, crop: :fill %>
+  <% if @ticket.photos.attached? %>
+    <%  @ticket.photos.each do |photo| %>
+      <%= cl_image_tag photo.key, width: 300, crop: :fill %>
+    <% end %>
   <% end %>
-<% end %>
 
 </div>

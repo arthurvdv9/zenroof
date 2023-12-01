@@ -1,4 +1,4 @@
-<div class="container">
+<div class="m-3 mt-5">
   <%# the two buttons to change view %>
   <ul class="nav nav-tabs" id="myTab" role="tablist">
       <li class="nav-item" role="presentation">
@@ -19,17 +19,24 @@
       <%# render the search bar here %>
 
       <%# toggle the form via button %>
-      <div data-controller="toggle" class="mt-5">
-        <button data-action="click->toggle#fire" class="btn btn-outline-primary">Add a new ticket</button>
+      <div data-controller="toggle" class="">
+        <button data-action="click->toggle#fire" class="btn btn-outline-primary m-3">Add a new ticket</button>
+
         <div data-toggle-target="togglableElement" class="d-none">
           <%= render 'tickets/newTicket', ticket: @ticket%>
         </div>
       </div>
 
-        <%= render "tickets/myTickets", tickets: @tickets %>
-        <a href="/history" class="btn btn-primary">Go to History</a>
 
+        <div class="m-4">
+          <%= render "tickets/myTickets", tickets: @tickets %>
+        </div>
+
+        <a href="/history" class="btn btn-primary">Go to History</a>
     </div>
+
+
+
 
     <%# owner view %>
     
