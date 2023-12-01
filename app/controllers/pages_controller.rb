@@ -2,7 +2,7 @@ class PagesController < ApplicationController
   skip_before_action :authenticate_user!, only: [ :home ]
 
   def history
-    @tickets = Ticket.where(room_id: current_user.room.id)
+    @tickets = current_user.room.present? ? Ticket.where(room_id: current_user.room.id) : []
   end
 
   def home
