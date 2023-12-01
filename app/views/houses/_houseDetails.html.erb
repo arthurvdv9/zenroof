@@ -38,6 +38,8 @@
 
   <%= link_to "Add Room", new_house_room_path(house), data: { action: "click->create-room#displayForm" } %>
 
+  <%= link_to "Back", dashboard_path(house) %>
+
   <div data-create-room-target="formContainer" class="d-none">
     <div><%= render "formRoom", house: house, room: room %></div>
   </div>
