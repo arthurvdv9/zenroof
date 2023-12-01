@@ -16,6 +16,7 @@
 
     <%# tenant view %>
     <div class="tab-pane fade show active" id="tenant" role="tabpanel" aria-labelledby="tenant-tab">
+      <%# render the search bar here %>
 
       <%# toggle the form via button %>
       <div data-controller="toggle" class="">
@@ -26,15 +27,19 @@
         </div>
       </div>
 
+
         <div class="m-4">
           <%= render "tickets/myTickets", tickets: @tickets %>
         </div>
+
+        <a href="/history" class="btn btn-primary">Go to History</a>
     </div>
 
 
 
 
     <%# owner view %>
+    
     <div class="tab-pane fade" id="owner" role="tabpanel" aria-labelledby="owner-tab">
 
       <%# render the search bar here %>
