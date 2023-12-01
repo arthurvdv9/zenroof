@@ -15,7 +15,7 @@ House.destroy_all
 User.destroy_all
 
 puts "Creating user"
-user = User.create!(email:"a.vdv@gmail.com", password: "123456")
+user = User.create!(first_name: "Arthur", last_name: "arthurito", email:"a.vdv@gmail.com", password: "123456")
 puts "User Created"
 
 puts "Creating house"
