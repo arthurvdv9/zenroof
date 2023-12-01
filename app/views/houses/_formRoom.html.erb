@@ -8,7 +8,10 @@
       <%= f.input :user, collection: User.all, label_method: :email, value_method: :id%>
 
       <%# <%= f.input :user, collection: User.all, prompt: "Select User" %>
-      <%= f.submit "Add room", class: "btn btn-flat" %>
+      <%= f.submit "Add room", class: "btn btn-flat",
+      data: {
+        create_room_target: "button"
+      }%>
     <% end %>
 
     <%# button: TODO (Jo): this button needs to be or inside the form or other thing, so it wont get render every time we add a room %>
