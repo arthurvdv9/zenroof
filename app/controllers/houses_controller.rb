@@ -3,6 +3,10 @@ class HousesController < ApplicationController
 
   def index
     @houses = current_user.houses
+    if params[:query].present?
+      sql_subquery = "name ILIKE :query OR address ILIKE :query"
+      @house = @houses.where(sql_subquery, query: "%#{params[:query]}%")
+    end
   end
 
   def show
