@@ -1,24 +1,28 @@
 
 <div class="">
-  <% @room.tickets.each do |ticket| %>
-    <div class="ticket">
-        <strong>Title:<%= link_to "#{ticket.title}", ticket_path(ticket)%></strong>
-        <strong>Description:</strong> <%=ticket.description %>
-        <strong>Status:</strong> <%= ticket.status %>
-        <strong>Priority:</strong> <%=ticket.priority %>
+  <% unless @room.nil? %>
+    <% @room.tickets.each do |ticket| %>
+      <div class="ticket">
+          <strong>Title:<%= link_to "#{ticket.title}", ticket_path(ticket)%></strong>
+          <strong>Description:</strong> <%=ticket.description %>
+          <strong>Status:</strong> <%= ticket.status %>
+          <strong>Priority:</strong> <%=ticket.priority %>
 
-    <div class="ticket card p-3 rounded">
-      <%# link around all elements of each ticket, so its all clicklable %>
-      <%= link_to ticket_path(ticket) do %>
-        <p>
-          <strong>Email:</strong><%= ticket.room.user.email %> <br>
-          <strong>Title:</strong><%= ticket.title %><br>
-          <strong>Description:</strong> <%=ticket.description %> <br>
-          <strong>Status:</strong> <%= ticket.status %> <br>
-          <strong>Priority:</strong> <%=ticket.priority %> <br>
-          <%= button_to 'Cancel ticket', ticket_path(ticket), method: :delete, data: { turbo_method: :delete, turbo_confirm: "Are you sure?" }, class: 'btn btn-warning' %>
-        </p>
-      <% end %>
-    </div>
+      <div class="ticket card p-3 rounded">
+        <%# link around all elements of each ticket, so its all clicklable %>
+        <%= link_to ticket_path(ticket) do %>
+          <p>
+            <strong>Email:</strong><%= ticket.room.user.email %> <br>
+            <strong>Title:</strong><%= ticket.title %><br>
+            <strong>Description:</strong> <%=ticket.description %> <br>
+            <strong>Status:</strong> <%= ticket.status %> <br>
+            <strong>Priority:</strong> <%=ticket.priority %> <br>
+            <%= button_to 'Cancel ticket', ticket_path(ticket), method: :delete, data: { turbo_method: :delete, turbo_confirm: "Are you sure?" }, class: 'btn btn-warning' %>
+          </p>
+        <% end %>
+      </div>
+    <% end %>
+  <% else %>
+    <p>There are no tickets yet</p>
   <% end %>
 </div>
