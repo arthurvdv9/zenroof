@@ -15,11 +15,16 @@
         <%= f.input :priority, collection: ["Low", "Medium", "High"] %>
       </div>
 
+      <div class="col-3 mt-4">
+      <%= f.input :photos, as: :file, input_html: { multiple: true } %>
+      </div>
+
       <div class="row">
         <div class="col-3 mt-4 mb-6">
           <%= f.submit "Create a Ticket!", class: "Mbtn-flat" %>
         </div>
       </div>
+
 
     <% end %>
   </div>
