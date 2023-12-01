@@ -18,11 +18,13 @@ class RoomsController < ApplicationController
     if @room.save
       respond_to do |format|
         format.html { redirect_to new_house_room_path(@house) }
+        format.json # Follows the classic Rails flow and look for a create.json view
         format.text { render partial: "rooms/roomDetails", locals: { room: @room }, formats: [:html] }
       end
     else
       respond_to do |format|
         format.html { render :new, status: :unprocessable_entity }
+        format.json # Follows the classic Rails flow and look for a create.json view
         format.text { render partial: "rooms/roomDetails", locals: { room: @room }, formats: [:html] }
       end
 

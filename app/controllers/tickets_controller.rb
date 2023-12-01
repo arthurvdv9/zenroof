@@ -2,7 +2,7 @@ class TicketsController < ApplicationController
   before_action :set_ticket, only: [:show]
 
   def index
-    @tickets = current_user.tickets
+    @tickets = current_user.room.tickets
   end
 
   def show
@@ -17,7 +17,6 @@ class TicketsController < ApplicationController
     @ticket = Ticket.new(ticket_params)
     @ticket.room = @room
     @ticket.status = "pending"
-
     if @ticket.save
       redirect_to dashboard_path
     else
@@ -28,7 +27,7 @@ class TicketsController < ApplicationController
   def destroy
     @ticket = Ticket.find(params[:id])
     @ticket.destroy
-    redirect_to tickets_path
+    redirect_to dashboard_path
   end
 
   private
