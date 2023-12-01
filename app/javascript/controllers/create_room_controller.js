@@ -9,14 +9,19 @@ export default class extends Controller {
     const url = this.formTarget.action
     fetch(url, {
       method: "POST",
-      headers: { "Accept": "text/plain" },
+      headers: { "Accept": "application/json" },
       body: new FormData(this.formTarget)
     })
-    .then(response => response.text())
+    .then(response => response.json())
     .then((data) => {
-      console.log(data)
-      this.formTarget.reset()
-      this.listTarget.insertAdjacentHTML("beforeend", data)
+      // console.log(data)
+      // this.formTarget.reset()
+      // this.listTarget.insertAdjacentHTML("beforeend", data)
+
+      if (data.inserted_item) {
+        this.listTarget.insertAdjacentHTML("beforeend", data.inserted_item)
+      }
+      this.formTarget.outerHTML = data.form
     })
   }
 
