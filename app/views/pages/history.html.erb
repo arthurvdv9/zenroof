@@ -1,8 +1,11 @@
-<h1>This are past solved tickets</h1>
+<div class="container">
 
-<% @tickets.each do |ticket| %>
-  <% if ticket.status == "solved" %>
-    <%= render partial: '/tickets/myTickets' %>
+  <h1>This are past solved tickets</h1>
+
+  <% @tickets.each do |ticket| %>
+    <% if ticket.status == "solved" %>
+      <%= render partial: '/tickets/myTickets' %>
+    <% end %>
   <% end %>
 
-<% end %>
+</div>
