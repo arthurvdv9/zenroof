@@ -22,18 +22,20 @@
         <button data-action="click->toggle#fire" class="btn btn-outline-primary m-3">Add a new ticket</button>
 
         <div data-toggle-target="togglableElement" class="d-none">
+          <%# render new ticket form: %>
           <%= render 'tickets/newTicket', ticket: @ticket%>
         </div>
       </div>
 
       <div class="m-4">
+        <%# render tickets list %>
         <%= render "tickets/myTickets", tickets: @tickets %>
       </div>
 
         <a href="/history" class="btn btn-primary">Go to History</a>
       </div>
 
-    <%# owner view %>
+    <%# --- owner view %>
     <div class="tab-pane fade" id="owner" role="tabpanel" aria-labelledby="owner-tab">
 
       <div class="row justify-content-center">
@@ -44,10 +46,13 @@
                   class: "form-control",
                   placeholder: "Search for a house or an address!"
               %>
+
             <%= submit_tag "Search", name: "", class: "btn btn-primary" %>
           <% end %>
         </div>
       </div>
+
+      <%# render houses list %>
       <%= render "houses/houseList" %>
     </div>
 
