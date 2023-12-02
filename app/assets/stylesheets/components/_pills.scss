@@ -2,7 +2,7 @@
 .owner_status_pills, .renter_status_pills {
   // width: 86px;
   // height: 25px;
-  flex-shrink: 0;
+  // flex-shrink: 0;
   border-radius: 30px;
   text-align: center;
   font-family: Roboto;
@@ -10,14 +10,13 @@
   font-style: normal;
   font-weight: 800;
   line-height: normal;
-  width: 64px;
-  height: 23.529px;
+  // width: 64px;
+  // height: 23.529px;
+  padding: 10px;
   }
 
 .renter_fixed_pills, .owner_fixed_pills {
   background: #ffffff;
-  border-radius: 30px;
-  padding: 7px;
 
 }
 
@@ -29,20 +28,14 @@
 .renter_pending_pills {
   background: #12D08E;
   color:#ffffff;
-  border-radius: 30px;
-  padding: 7px;
 }
 
 .renter_fixed_pills {
 color: #FF7522;
-border-radius: 30px;
-padding: 7px;
 
 }
 
 .owner_fixed_pills {
 color: #12D08E;
-border-radius: 30px;
-padding: 7px;
 
 }
