@@ -17,6 +17,9 @@
           </p>
         <% end %>
 
+        <%= render "tickets/bootstrapTicketsList", tickets: @tickets %>
+
+
         <%= button_to 'Cancel ticket', ticket_path(ticket), method: :delete, data: { turbo_method: :delete, turbo_confirm: "Are you sure?" }, class: 'btn btn-warning' %>
       </div>
 

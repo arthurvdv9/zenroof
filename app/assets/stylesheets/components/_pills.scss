@@ -1,7 +1,7 @@
 
-.owner_status_pills .renter_status_pills {
-  width: 86px;
-  height: 25px;
+.owner_status_pills, .renter_status_pills {
+  // width: 86px;
+  // height: 25px;
   flex-shrink: 0;
   border-radius: 30px;
   text-align: center;
@@ -12,27 +12,37 @@
   line-height: normal;
   width: 64px;
   height: 23.529px;
-  flex-shrink: 0;
   }
 
-.renter_fixed_pills .owner_fixed_pills {
+.renter_fixed_pills, .owner_fixed_pills {
   background: #ffffff;
-  }
+  border-radius: 30px;
+  padding: 7px;
+
+}
 
 .owner_pending_pills {
-background:#FF7522;
-color:#ffffff;
+  background:#FF7522;
+  color:#ffffff;
 }
 
 .renter_pending_pills {
-background: #12D08E;
-color:#ffffff;
+  background: #12D08E;
+  color:#ffffff;
+  border-radius: 30px;
+  padding: 7px;
 }
 
 .renter_fixed_pills {
 color: #FF7522;
+border-radius: 30px;
+padding: 7px;
+
 }
 
 .owner_fixed_pills {
 color: #12D08E;
+border-radius: 30px;
+padding: 7px;
+
 }
