@@ -28,15 +28,16 @@ class HousesController < ApplicationController
     if @house.save
       respond_to do |format|
         format.html { redirect_to house_path(@house) }
-        format.text { render partial: "houses/houseDetails", locals: { house: @house, room: @room }, formats: [:html] }
+        format.json
       end
 
-    else
-      render :new, status: :unprocessable_entity
+      else
+      respond_to do |format|
+        format.html { render :new, status: :unprocessable_entity }
+        format.json
+      end
     end
-
   end
-
 
   def edit
     @house = House.find(params[:id])
