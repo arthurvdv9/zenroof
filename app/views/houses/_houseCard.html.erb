@@ -1,0 +1,20 @@
+<%# based on product card UI KIT %>
+
+
+<div class="card-product">
+  <% if house.photo.attached? %>
+    <%= cl_image_tag house.photo.key, height: 300, width: 400, crop: :fill %>
+  <% end %>
+  <div class="card-product-infos">
+    <h2><%= house.name.capitalize %></h2>
+    <p><%= house.address.capitalize %></p>
+    <div class="card-trip-user">
+      <% number_tickets = 0 %>
+      <% house.rooms.each do |room| %>
+        <% number_tickets += room.tickets.count %>
+      <% end %>
+      <p><%= number_tickets %></p>
+
+    </div>
+  </div>
+</div>
