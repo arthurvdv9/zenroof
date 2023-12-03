@@ -8,13 +8,15 @@
   <div class="card-product-infos">
     <h2><%= house.name.capitalize %></h2>
     <p><%= house.address.capitalize %></p>
-    <div class="card-trip-user">
-      <% number_tickets = 0 %>
-      <% house.rooms.each do |room| %>
-        <% number_tickets += room.tickets.count %>
-      <% end %>
-      <p><%= number_tickets %></p>
 
-    </div>
+    <% number_tickets = 0 %>
+    <% house.rooms.each do |room| %>
+      <% number_tickets += room.tickets.count %>
+    <% end %>
+
+
   </div>
+
+  <div class="Mycard-trip-user text-center"><%= number_tickets %></div>
+
 </div>

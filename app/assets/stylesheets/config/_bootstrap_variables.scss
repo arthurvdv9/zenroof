@@ -28,10 +28,12 @@ $border-radius-sm: 2px;
 
 $theme-colors: (
  "our-back-green": $our-back-green,
- "our-back-orange": $our-back-orange
+ "our-back-orange": $our-back-orange,
+ "our-orange": $our-orange
 );
 
 
 .nav-tabs .nav-link.active, .nav-tabs .nav-item.show .nav-link {
   border-color: transparent;
+  color: black;
 }
