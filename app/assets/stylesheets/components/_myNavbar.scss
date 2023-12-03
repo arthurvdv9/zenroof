@@ -9,14 +9,14 @@
 
 }
 
-.nav--icons {
-}
+// .nav--icons {
+// }
+
 .nav--icons ul {
   display: flex;
  list-style-type: none;
 //  flex-wrap: nowrap;
  justify-content: space-evenly;
-//  padding: 0;
  margin: 0;
  align-items: center;
 
@@ -32,39 +32,13 @@
  justify-content: center;
  align-items: center;
 
-//  border-radius: 3em;
  padding: 0.75em 1.25em;
  margin: 10px;
-//  transition: 0.6s ease-in-out;
-
-
 
 
   span {
   display: inline-block;
-//  overflow: hidden;
-//  padding-left: 0.5em;
   padding-top: 6px;
-
-
-//  transform: translate3d(-0.5em, 0, 0);
-//  transition: opacity 0.6s, max-width 0.6s, transform 0.6s;
-//  transition-timing-function: ease-in-out;
   }
-
-
-  // &:active span{
-  //   opacity: 1;
-  //   max-width: 50px;
-  //   transform: translate3d(0, 0, 0);
-
-  // }
-
-// .nav--icons ul li .myNavlink.is-active {
-//  color: #fff;
-//  background-color: #000;
-// }
-
-//
 
 }
