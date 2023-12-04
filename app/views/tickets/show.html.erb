@@ -12,9 +12,9 @@
         <button class="renter_status_pills renter_pending_pills"><%= @ticket.status %></button>
 
         <% if @ticket.status == 'Pending' %>
-          <%= form.hidden_field :status, value: 'In progress' %>
+          <%= form.hidden_field :status, value: 'Ongoing' %>
 
-        <% elsif @ticket.status == 'In progress' %>
+        <% elsif @ticket.status == 'Ongoing' %>
           <%= form.hidden_field :status, value: 'Fixed' %>
 
         <% else %>

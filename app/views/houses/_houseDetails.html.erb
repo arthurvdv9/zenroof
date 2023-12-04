@@ -1,4 +1,4 @@
-<div class="container" data-controller="create-room">
+<div class="container bg-our-back-green" data-controller="create-room">
   <div  class="col-md-4">
 
     <% if @house.photo.attached? %>
@@ -25,11 +25,39 @@
     </div>
   </div>
 
-  <%# room list %>
+  <%# enter rooms %>
   <div class="col-md-8">
     <div data-create-room-target="list">
       <% house.rooms.each do |room| %>
-        <%= render "rooms/roomDetails", room: room, ticket: @ticket %>
+
+        <%# ticket-list %>
+        <div class="list-group list-group-flush" style= "border-color: #E0702D">
+
+          <% unless @room.nil? %>
+            <% room.tickets.each do |ticket| %>
+
+              <%= link_to ticket_path(ticket), class:"list-group-item list-group-item-action flex-column align-items-start bg-our-back-green", style:"border-color: #E0702D" do %>
+
+                <div class="d-flex w-100 justify-content-between">
+                  <h5 class="mb-1 mt-2"><strong><%= ticket.title %></strong></h5>
+
+                  <small class="mb-1 mt-2 status-pills status-owner-<%= ticket.status.split(" ").join.downcase %> "><%= ticket.status%></small>
+
+                </div>
+                <p class="mb-1"><%=ticket.description %></p>
+
+              <% end %>
+
+            <% end %>
+
+
+          <% else %>
+            <h2>There are no tickets yet</h2>
+          <% end %>
+
+        </div>
+
+
       <% end %>
     </div>
   </div>

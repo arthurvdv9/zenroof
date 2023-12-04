@@ -1,5 +1,5 @@
 
-.owner_status_pills, .renter_status_pills {
+.status-pills {
   // width: 86px;
   // height: 25px;
   flex-shrink: 0;
@@ -10,43 +10,43 @@
   font-style: normal;
   font-weight: 700;
   line-height: normal;
-  // width: 64px;
+  width: 85px;
   // height: 23.529px;
   padding: 8px 15px;
   }
 
-.renter_fixed_pills, .owner_fixed_pills {
-  background: #ffffff;
+//// OWNER
 
+.status-owner-pending {
+  background-color: $our-orange;
+  color:white;
 }
 
-.owner_pending_pills {
-  background:#FF7522;
-  color:#ffffff;
-}
-
-.renter_pending_pills {
-  background: #039D76;
-  color:#ffffff;
-}
-
-.renter_fixed_pills {
-color: #FF7522;
-
-}
-
-.owner_fixed_pills {
-color: #12D08E;
-}
-
-
-.owner_in_progress_pills  .renter_in_progress_pills{
-  border-radius: 30px;
+.status-owner-ongoing{
   background: #545454;
-  color: #FFF;
-  font-family: Roboto;
-  font-size: 14px;
-  font-style: normal;
-  font-weight: 800;
-  line-height: normal;
-  }
+  color:#ffffff;
+}
+
+.status-owner-fixed {
+  background-color: white;
+  color: #545454;
+  border-color: #545454;
+}
+
+
+//// TENANT
+.status-tenant-pending {
+  background-color: $our-green;
+  color:white;
+}
+
+.status-tenant-ongoing{
+  background: #545454;
+  color:#ffffff;
+}
+
+.status-tenant-fixed {
+  background-color: white;
+  color: #545454;
+  border-color: #545454;
+}
