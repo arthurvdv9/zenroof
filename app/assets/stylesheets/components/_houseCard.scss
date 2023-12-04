@@ -1,5 +1,4 @@
 .card-product {
-  overflow: hidden;
   height: 120px;
   background: white;
   box-shadow: 0 0 15px rgba(0,0,0,0.2);
@@ -12,6 +11,7 @@
   height: 100%;
   width: 120px;
   object-fit: cover;
+  border-radius: 20px 0 0 20px;
 }
 
 .card-product h2 {
@@ -33,19 +33,14 @@
 }
 
 
-.Mycard-trip-user {
+.notification-bubble {
   border-radius: 100%;
   background-color: $our-orange;
+  font-family: 'Roboto', sans-serif;
   position: relative;
   width: 25px;
   height: 25px;
-
-
-  // padding: 7px;
-  // line-height: 18px;
-  // font-size: 16;
   right: -15%;
   top: -50%;
-  z-index: 4;
-  // width: 40px;
+
 }
