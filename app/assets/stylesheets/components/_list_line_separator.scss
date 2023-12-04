@@ -1,0 +1,12 @@
+.renter_list_line_separator {
+  background: #E0702D;
+}
+
+.owner_list_line_separator {
+  background: #fff;
+}
+
+.owner_list_line_separator .renter_list_line_separator {
+  width: 430px;
+  height: 1px;
+}
