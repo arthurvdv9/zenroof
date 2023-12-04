@@ -15,4 +15,8 @@ Rails.application.routes.draw do
   end
 
   resources :tickets
+  
+  resources :chatrooms, only: :show do
+    resources :messages, only: :create
+  end
 end
