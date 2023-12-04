@@ -1,13 +1,13 @@
 class MessagesController < ApplicationController
 
   def create
-    @chatroom = Chatroom.find(params[:chatroom_id])
+    @ticket = Ticket.find(params[:ticket_id])
     @message = Message.new(message_params)
-    @message.chatroom = @chatroom
+    @message.ticket = @ticket
     @message.user = current_user
     if @message.save
-      ChatroomChannel.broadcast_to(
-        @chatroom,
+      TicketChannel.broadcast_to(
+        @ticket,
         render_to_string(partial: "message", locals: {message: @message})
       )
       head :ok
