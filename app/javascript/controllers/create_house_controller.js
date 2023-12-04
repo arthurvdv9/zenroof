@@ -15,12 +15,13 @@ export default class extends Controller {
     const url = this.formTarget.action
     fetch(url, {
       method: "POST",
-      headers: { "Accept": "text/plain" },
+      headers: { "Accept": "application/json" },
       body: new FormData(this.formTarget)
     })
-      .then(response => response.text())
+      .then(response => response.json())
       .then((data) => {
-        this.formTarget.outerHTML = data
+        const dataToInsert = data.house_details ? data.house_details : data.form_with_errors
+        this.formTarget.outerHTML = dataToInsert
       })
 
 

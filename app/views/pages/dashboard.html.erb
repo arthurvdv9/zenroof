@@ -1,40 +1,46 @@
-<div class="m-3 mt-5 dashbody">
+<div class="wrapper">
   <%# the two buttons to change view %>
-  <ul class="nav nav-tabs" id="myTab" role="tablist">
+  <ul class="nav nav-tabs " id="myTab" role="tablist">
     <li class="nav-item" role="presentation">
-      <a class="nav-link active" id="tenant-tab" data-bs-toggle="tab" href="#tenant" role="tab" aria-controls="tenant" aria-selected="true">Tenant</a>
+      <a class="nav-link bg-our-back-orange active" id="tenant-tab" data-bs-toggle="tab" href="#tenant" role="tab" aria-controls="tenant" aria-selected="true">Tenant</a>
     </li>
     <li class="nav-item" role="presentation">
-      <a class="nav-link" id="owner-tab" data-bs-toggle="tab" href="#owner" role="tab" aria-controls="owner" aria-selected="false">Owner</a>
+      <a class="nav-link bg-our-back-green" id="owner-tab" data-bs-toggle="tab" href="#owner" role="tab" aria-controls="owner" aria-selected="false">Owner</a>
     </li>
   </ul>
 
   <%# what happens when you click on the tab%>
   <%# Tab contents %>
-  <div class="tab-content">
+  <div class="tab-content ">
 
-    <%# tenant view %>
-    <div class="tab-pane fade show active" id="tenant" role="tabpanel" aria-labelledby="tenant-tab">
+    <%# --- tenant view %>
+    <div class="tab-pane fade show bg-our-back-orange active " id="tenant" role="tabpanel" aria-labelledby="tenant-tab">
       <%# render the search bar here %>
 
       <%# toggle the form via button %>
       <div data-controller="toggle" class="" id ="togglecontroller">
-        <button data-action="click->toggle#fire" class="btn btn-outline-primary m-3">Add a new ticket</button>
+        <button data-action="click->toggle#fire" class="btn add_ticket_btn m-3">Submit a ticket</button>
 
         <div data-toggle-target="togglableElement" class="d-none">
+          <%# render new ticket form: %>
           <%= render 'tickets/newTicket', ticket: @ticket%>
         </div>
       </div>
 
       <div class="m-4">
-        <%= render "tickets/myTickets", tickets: @tickets %>
+        <%# render tickets list %>
+        <%# <%= render "tickets/myTickets", tickets: @tickets %>
+        <%= render "tickets/bootstrapTicketsList", tickets: @tickets %>
       </div>
 
-        <a href="/history" class="btn btn-primary">Go to History</a>
+        <%# <a href="/history" class="btn btn-primary">Go to History</a> %>
       </div>
 
-    <%# owner view %>
-    <div class="tab-pane fade" id="owner" role="tabpanel" aria-labelledby="owner-tab">
+
+
+
+    <%# --- owner view %>
+    <div class="tab-pane fade bg-our-back-green" id="owner" role="tabpanel" aria-labelledby="owner-tab">
 
       <div class="row justify-content-center">
         <div class="col-sm-8 my-3">
@@ -44,10 +50,13 @@
                   class: "form-control",
                   placeholder: "Search for a house or an address!"
               %>
+
             <%= submit_tag "Search", name: "", class: "btn btn-primary" %>
           <% end %>
         </div>
       </div>
+
+      <%# render houses list %>
       <%= render "houses/houseList" %>
     </div>
 
