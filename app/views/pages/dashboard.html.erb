@@ -13,13 +13,18 @@
   <%# Tab contents %>
   <div class="tab-content ">
 
+
     <%# --- tenant view %>
-    <div class="tab-pane fade show bg-our-back-orange active " id="tenant" role="tabpanel" aria-labelledby="tenant-tab">
+    <div class="tab-pane fade show bg-our-back-orange active" style= "height: 100vh" id="tenant" role="tabpanel" aria-labelledby="tenant-tab">
       <%# render the search bar here %>
 
       <%# toggle the form via button %>
-      <div data-controller="toggle" class="" id ="togglecontroller">
-        <button data-action="click->toggle#fire" class="btn add_ticket_btn m-3">Submit a ticket</button>
+      <div data-controller="toggle" class="d-flex align-items-center" id ="togglecontroller">
+        <button data-action="click->toggle#fire" class="btn add-ticket_btn m-5">
+          <div class="add-ticket-plus_btn">
+              <i class="fa-solid fa-plus"></i>
+        </div>Submit a ticket</button>
+
 
         <div data-toggle-target="togglableElement" class="d-none">
           <%# render new ticket form: %>
