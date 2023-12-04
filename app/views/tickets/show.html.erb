@@ -9,7 +9,7 @@
     <%# Use a form to submit changes STATUS to the server %>
     <%= form_with(model: @ticket, url: ticket_path(@ticket), local: true, method: :patch) do |form| %>
       <div class="editable-field">
-        <button class="renter_status_pills renter_pending_pills"><%= @ticket.status %></button>
+        <button class="status-pills status-owner-<%= @ticket.status.split(" ").join.downcase %>"><%= @ticket.status %></button>
 
         <% if @ticket.status == 'Pending' %>
           <%= form.hidden_field :status, value: 'Ongoing' %>
