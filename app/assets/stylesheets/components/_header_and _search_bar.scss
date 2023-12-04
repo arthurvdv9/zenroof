@@ -16,19 +16,17 @@
   display: flex;
   justify-content: center;
   align-items: center;
+  border: none !important;
 }
 
-.owner-select {
-  background: #12D08E;
-  color: #FFF;
-}
-
-.tenant-select {
-  background: #FFF;
-  color: #FF7522;
+.user-select a {
+  color:#545454 !important;
 }
 
 
+.no-border {
+border: 0;
+}
 
 
 .search_bar {

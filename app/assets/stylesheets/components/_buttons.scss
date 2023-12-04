@@ -1,14 +1,31 @@
-.add_ticket_btn {
-width: 80%;
+.add-ticket_btn {
+width: 100%;
 height: 57.333px;
 border-radius: 4px;
-background: #545454;
-color: #FFF;
-font-family: Roboto;
+border: 3px solid #545454;
+color: #545454;
+font-family: 'Roboto Flex', sans-serif;
 font-size: 17.2px;
 font-style: normal;
 font-weight: 700;
 line-height: normal;
+position: relative;
+}
+
+.add-ticket-plus_btn {
+  display: flex;
+  align-items:center;
+  justify-content:center;
+  position:absolute;
+  left: -20px;
+  margin-top: -10px;
+  width: 42px;
+  height: 42px;
+  background-color: #FF7522;
+  border-radius: 50%;
+  font-size: 13px;
+  font-weight: bold;
+  color: white;
 }
 
 
@@ -25,8 +42,16 @@ line-height: normal;
 	border-radius:50px;
 	text-align:center;
 	box-shadow: 2px 2px 3px #999;
+  margin-bottom: 30px;
 }
 
 .my-float{
 	margin-top:22px;
+}
+
+
+// clear default button style
+
+button {
+  all: unset;
 }

@@ -5,7 +5,7 @@
   flex-shrink: 0;
   border-radius: 30px;
   text-align: center;
-  font-family: Roboto;
+  font-family: 'Roboto Mono', monospace;
   font-size: 14px;
   font-style: normal;
   font-weight: 700;
@@ -26,7 +26,7 @@
 }
 
 .renter_pending_pills {
-  background: #12D08E;
+  background: #039D76;
   color:#ffffff;
 }
 
@@ -37,5 +37,16 @@ color: #FF7522;
 
 .owner_fixed_pills {
 color: #12D08E;
-
 }
+
+
+.owner_in_progress_pills  .renter_in_progress_pills{
+  border-radius: 30px;
+  background: #545454;
+  color: #FFF;
+  font-family: Roboto;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 800;
+  line-height: normal;
+  }
