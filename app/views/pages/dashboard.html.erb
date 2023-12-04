@@ -1,17 +1,17 @@
 <div class="wrapper">
   <%# the two buttons to change view %>
-  <ul class="nav nav-tabs " id="myTab" role="tablist">
-    <li class="nav-item" role="presentation">
-      <a class="nav-link bg-our-back-orange active" id="tenant-tab" data-bs-toggle="tab" href="#tenant" role="tab" aria-controls="tenant" aria-selected="true">Tenant</a>
+  <ul class="nav nav-tabs" style="border: none !important" id="myTab" role="tablist">
+    <li class="nav-item user-select bg-our-back-orange" style="border: none !important" role="presentation">
+      <a class="nav-link bg-our-back-orange active no-border" style="border: none !important" id="tenant-tab" data-bs-toggle="tab" href="#tenant" role="tab" aria-controls="tenant" aria-selected="true">Tenant</a>
     </li>
-    <li class="nav-item" role="presentation">
-      <a class="nav-link bg-our-back-green" id="owner-tab" data-bs-toggle="tab" href="#owner" role="tab" aria-controls="owner" aria-selected="false">Owner</a>
+    <li class="nav-item user-select bg-our-back-green no-border" style="border: none !important" role="presentation">
+      <a class="nav-link bg-our-back-green" style="border: none !important" id="owner-tab" data-bs-toggle="tab" href="#owner" role="tab" aria-controls="owner" aria-selected="false">Owner</a>
     </li>
   </ul>
 
   <%# what happens when you click on the tab%>
   <%# Tab contents %>
-  <div class="tab-content ">
+  <div class="tab-content no-border">
 
 
     <%# --- tenant view %>
@@ -20,7 +20,7 @@
 
       <%# toggle the form via button %>
       <div data-controller="toggle" class="d-flex align-items-center" id ="togglecontroller">
-        <button data-action="click->toggle#fire" class="btn add-ticket_btn m-5">
+        <button data-action="click->toggle#fire" data-toggle-target="button" class="btn add-ticket_btn m-5">
           <div class="add-ticket-plus_btn">
               <i class="fa-solid fa-plus"></i>
         </div>Submit a ticket</button>

@@ -16,16 +16,16 @@
   display: flex;
   justify-content: center;
   align-items: center;
+  border: none !important;
 }
 
-.owner-select {
-  background: #12D08E;
-  color: #FFF;
+.user-select a {
+  color:#545454 !important;
 }
 
-.tenant-select {
-  background: #FFF;
-  color: #FF7522;
+
+.no-border {
+border: 0;
 }
 
 

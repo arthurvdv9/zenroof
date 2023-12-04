@@ -1,11 +1,11 @@
-<div class="list-group list-group-flush ">
+<div class="list-group list-group-flush" style= "border-color: #E0702D">
 
   <% unless @room.nil? %>
 
 
     <% @room.tickets.each do |ticket| %>
 
-      <%= link_to ticket_path(ticket), class:"list-group-item list-group-item-action flex-column align-items-start bg-our-back-orange" do %>
+      <%= link_to ticket_path(ticket), class:"list-group-item list-group-item-action flex-column align-items-start bg-our-back-orange", style:"border-color: #E0702D" do %>
 
         <div class="d-flex w-100 justify-content-between">
           <h5 class="mb-1 mt-2"><strong><%= ticket.title %></strong></h5>
