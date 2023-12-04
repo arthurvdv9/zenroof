@@ -9,16 +9,14 @@
 
         <div class="d-flex w-100 justify-content-between">
           <h5 class="mb-1 mt-2"><strong><%= ticket.title %></strong></h5>
-          <small class="mb-1 mt-2 renter_status_pills renter_pending_pills"><%= ticket.status %></small>
+
+            <small class="mb-1 mt-2 status-pills status-tenant-<%= ticket.status.split(" ").join.downcase %> "><%= ticket.status%></small>
+
         </div>
         <p class="mb-1"><%=ticket.description %></p>
 
       <% end %>
-      <%# cancel ticket in the ticket show %>
-      <%# <%= button_to 'Cancel ticket', ticket_path(ticket), method: :delete, data: { turbo_method: :delete, turbo_confirm: "Are you sure?" }, class: 'btn btn-warning' %>
-
     <% end %>
-
 
   <% else %>
     <h2>There are no tickets yet</h2>
