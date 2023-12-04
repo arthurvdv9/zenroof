@@ -1,13 +1,15 @@
 <div class="container">
+  <% unless @tickets.nil? %>
+    <h1>This are past solved tickets</h1>
 
-  <h1>This are past solved tickets</h1>
-
-  <% @tickets.each do |ticket| %>
-    <% if ticket.status == "solved" %>
-      <%= render partial: '/tickets/myTickets' %>
+    <% @tickets.each do |ticket| %>
+      <% if ticket.status == "solved" %>
+        <%= render partial: '/tickets/myTickets' %>
+      <% end %>
     <% end %>
+  <% else %>
+  <p>there are not past tickets</p>
   <% end %>
-
    <%= link_to "Back", dashboard_path %>
 
 </div>
