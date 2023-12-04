@@ -30,3 +30,10 @@ line-height: normal;
 .my-float{
 	margin-top:22px;
 }
+
+
+// clear default button style
+
+button {
+  all: unset;
+}
