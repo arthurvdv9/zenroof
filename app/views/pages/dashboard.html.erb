@@ -15,7 +15,10 @@
 
 
     <%# --- tenant view %>
+
+    <% unless current_user.room.nil? %>
     <div class="tab-pane fade show bg-our-back-orange active" style= "height: 100vh" id="tenant" role="tabpanel" aria-labelledby="tenant-tab">
+
       <%# render the search bar here %>
 
       <%# toggle the form via button %>
@@ -40,6 +43,9 @@
 
         <%# <a href="/history" class="btn btn-primary">Go to History</a> %>
       </div>
+      <% else %>
+      <p>You have not been assigned to a room yet</p>
+      <% end %>
 
 
 
