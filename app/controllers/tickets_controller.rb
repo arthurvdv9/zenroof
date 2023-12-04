@@ -30,6 +30,12 @@ class TicketsController < ApplicationController
     redirect_to dashboard_path
   end
 
+  def update
+    @ticket = Ticket.find(params[:id])
+    @ticket.update(ticket_params)
+    redirect_to ticket_path(@ticket)
+  end
+
   private
 
   def set_ticket

@@ -2,8 +2,28 @@
 
   <h2><%= @ticket.title %></h2>
   <p><%= @ticket.description %></p>
-  <p><%= @ticket.status %></p>
   <p><%= @ticket.priority%></p>
+
+
+
+    <%# Use a form to submit changes STATUS to the server %>
+    <%= form_with(model: @ticket, url: ticket_path(@ticket), local: true, method: :patch) do |form| %>
+      <div class="editable-field">
+        <button class="renter_status_pills renter_pending_pills"><%= @ticket.status %></button>
+
+        <% if @ticket.status == 'Pending' %>
+          <%= form.hidden_field :status, value: 'In progress' %>
+
+        <% elsif @ticket.status == 'In progress' %>
+          <%= form.hidden_field :status, value: 'Fixed' %>
+
+        <% else %>
+          <%= form.hidden_field :status, value: 'Pending' %>
+        <% end %>
+
+      </div>
+  <% end %>
+
 
   <% if @ticket.photos.attached? %>
     <%  @ticket.photos.each do |photo| %>
