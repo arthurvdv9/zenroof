@@ -16,26 +16,35 @@
     <div class="tab-pane fade bg-our-back-green show active" style="height: 100vh" id="owner" role="tabpanel" aria-labelledby="owner-tab">
       <div class="row justify-content-center">
         <div class="col-sm-8 my-3">
-          <%= form_with url: houses_path, method: :get, class: "d-flex" do %>
+          <%= form_with url: dashboard_path, method: :get, class: "d-flex" do %>
             <%= text_field_tag :query,
                   params[:query],
                   class: "form-control",
-                  placeholder: "Search for a house or an address!"
+                  placeholder: "Search for a house!"
               %>
 
             <%= submit_tag "Search", name: "", class: "btn btn-primary" %>
           <% end %>
         </div>
       </div>
+    </div>
 
-      <%# render houses list %>
-      <%= render "houses/houseList" %>
+    <%# owner view %>
+
+    <div class="tab-pane fade" id="owner" role="tabpanel" aria-labelledby="owner-tab">
+
+
+        <%= render "houses/houseList" %>
     </div>
 
     <%# --- tenant view %>
     <div class="tab-pane fade bg-our-back-orange" style="height: 100vh" id="tenant" role="tabpanel" aria-labelledby="tenant-tab">
       <% unless current_user.room.nil? %>
-        <%# render the search bar here %>
+        <%# render the search bar here - update: no need for it now, only on owner and history %>
+
+        <%# address %>
+        <p><%= current_user.room.house.address %></p>
+
         <%# toggle the form via button %>
         <div data-controller="toggle" class="d-flex align-items-center" id="togglecontroller">
           <button data-action="click->toggle#fire" data-toggle-target="button" class="btn add-ticket_btn m-5">

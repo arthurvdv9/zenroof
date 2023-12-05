@@ -1,15 +1,26 @@
-<div class="container">
+<div class="list-group list-group-flush" style="border-color: #E0702D">
+  <div class="list_title" style="margin-bottom: 30px; margin-top: 30px; text-align: center;">History of tickets</div>
+
+<div>
   <% unless @tickets.nil? %>
-    <h1>This are past solved tickets</h1>
+    <% if @tickets.any? { |ticket| ticket.status == "Fixed" } %>
 
-    <% @tickets.each do |ticket| %>
-      <% if ticket.status == "solved" %>
-        <%= render partial: '/tickets/myTickets' %>
+      <% @tickets.each do |ticket| %>
+        <% if ticket.status == "Fixed" %>
+          <%= link_to ticket_path(ticket), class: "list-group-item list-group-item-action flex-column align-items-start bg-our-back-orange", style: "border-color: #E0702D" do %>
+            <div class="d-flex w-100 justify-content-between">
+              <h5 class="mb-1 mt-2"><strong><%= ticket.title %></strong></h5>
+              <small class="mb-1 mt-2 status-pills status-tenant-<%= ticket.status.split(" ").join.downcase %> "><%= ticket.status %></small>
+            </div>
+            <p class="mb-1"><%= ticket.description %></p>
+          <% end %>
+        <% end %>
       <% end %>
-    <% end %>
-  <% else %>
-  <p>there are not past tickets</p>
-  <% end %>
-   <%= link_to "Back", dashboard_path %>
 
+    <% else %>
+      <p style="text-align: center">There are no past solved tickets</p>
+    <% end %>
+  <% end %>
+  
+</div>
 </div>

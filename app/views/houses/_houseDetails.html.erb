@@ -29,12 +29,14 @@
 
         <% unless @room.nil? %>
           <% room.tickets.each do |ticket| %>
-            <%= link_to ticket_path(ticket), class:"list-group-item list-group-item-action flex-column align-items-start bg-our-back-green", style:"border-color: #E0702D" do %>
-              <div class="d-flex w-100 justify-content-between">
-                <h5 class="mb-1 mt-2"><strong><%= ticket.title %></strong></h5>
-                <small class="mb-1 mt-2 status-pills status-owner-<%= ticket.status.split(" ").join.downcase %> "><%= ticket.status%></small>
-              </div>
-              <p class="mb-1"><%=ticket.description %></p>
+            <% if ticket.status != "Fixed" %>
+              <%= link_to ticket_path(ticket), class:"list-group-item list-group-item-action flex-column align-items-start bg-our-back-green", style:"border-color: #E0702D" do %>
+                <div class="d-flex w-100 justify-content-between">
+                  <h5 class="mb-1 mt-2"><strong><%= ticket.title %></strong></h5>
+                  <small class="mb-1 mt-2 status-pills status-owner-<%= ticket.status.split(" ").join.downcase %> "><%= ticket.status%></small>
+                </div>
+                <p class="mb-1"><%=ticket.description %></p>
+              <% end %>
             <% end %>
           <% end %>
         <% else %>

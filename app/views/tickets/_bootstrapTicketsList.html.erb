@@ -1,27 +1,34 @@
 <div class="list-group list-group-flush" style= "border-color: #E0702D">
+
+  <% if @tickets.any? { |ticket| ticket.status != "Fixed" } %>
   <div class="list_title"  style="margin-bottom: 10px;
     margin-top: 30px">My Tickets</div>
+  <% else %>
+  <div class="list_title"  style="margin-bottom: 10px;
+    margin-top: 30px">There are no tickets yet</div>
+  <% end %>
 
   <% unless @room.nil? %>
 
 
     <% @room.tickets.each do |ticket| %>
+      <% if ticket.status != "Fixed" %>
 
-      <%= link_to ticket_path(ticket), class:"list-group-item list-group-item-action flex-column align-items-start bg-our-back-orange", style:"border-color: #E0702D" do %>
+        <%= link_to ticket_path(ticket), class:"list-group-item list-group-item-action flex-column align-items-start bg-our-back-orange", style:"border-color: #E0702D" do %>
 
-        <div class="d-flex w-100 justify-content-between">
-          <h5 class="mb-1 mt-2"><strong><%= ticket.title %></strong></h5>
+          <div class="d-flex w-100 justify-content-between">
+            <h5 class="mb-1 mt-2"><strong><%= ticket.title %></strong></h5>
 
-            <small class="mb-1 mt-2 status-pills status-tenant-<%= ticket.status.split(" ").join.downcase %> "><%= ticket.status%></small>
+              <small class="mb-1 mt-2 status-pills status-tenant-<%= ticket.status.split(" ").join.downcase %> "><%= ticket.status%></small>
 
-        </div>
-        <p class="mb-1"><%=ticket.description %></p>
+          </div>
+          <p class="mb-1"><%=ticket.description %></p>
 
+        <% end %>
       <% end %>
     <% end %>
 
-  <% else %>
-    <h2>There are no tickets yet</h2>
+
   <% end %>
 
 </div>
