@@ -1,7 +1,7 @@
 class PagesController < ApplicationController
   skip_before_action :authenticate_user!, only: [ :home ]
 
-  def history
+  def tenanthistory
     @tickets = current_user.room.present? ? Ticket.where(room_id: current_user.room.id) : []
     @room = current_user.room
   end
@@ -34,6 +34,12 @@ class PagesController < ApplicationController
     # puts "HELLOOOOOOOOOOOOOOOOOOO"
     # puts @houses
 
+  end
+
+  def ownerhistory
+    @house = House.find(params[:house_id])
+    @rooms = Room.where(house_id: @house.id)
+    @tickets = @rooms.map { |room| room.tickets }.flatten
   end
 
   private

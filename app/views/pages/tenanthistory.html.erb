@@ -9,7 +9,7 @@
       <%# search bar for history %>
         <div class="row justify-content-center">
           <div class="col-sm-8 my-3">
-            <%= form_with url: history_path, method: :get, class: "d-flex" do %>
+            <%= form_with url: tenanthistory_path, method: :get, class: "d-flex" do %>
               <%= text_field_tag :query,
                     params[:query],
                     class: "form-control",
