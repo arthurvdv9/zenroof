@@ -83,15 +83,6 @@ ActiveRecord::Schema[7.1].define(version: 2023_12_04_111625) do
     t.index ["room_id"], name: "index_tickets_on_room_id"
   end
 
-  create_table "user_houses", force: :cascade do |t|
-    t.bigint "user_id", null: false
-    t.bigint "house_id", null: false
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.index ["house_id"], name: "index_user_houses_on_house_id"
-    t.index ["user_id"], name: "index_user_houses_on_user_id"
-  end
-
   create_table "users", force: :cascade do |t|
     t.string "email", default: "", null: false
     t.string "encrypted_password", default: "", null: false
@@ -114,6 +105,4 @@ ActiveRecord::Schema[7.1].define(version: 2023_12_04_111625) do
   add_foreign_key "rooms", "houses"
   add_foreign_key "rooms", "users"
   add_foreign_key "tickets", "rooms"
-  add_foreign_key "user_houses", "houses"
-  add_foreign_key "user_houses", "users"
 end
