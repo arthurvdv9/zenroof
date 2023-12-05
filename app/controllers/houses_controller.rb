@@ -26,31 +26,37 @@ class HousesController < ApplicationController
     @room = Room.new
 
     if @house.save
-      respond_to do |format|
-        format.html { redirect_to house_path(@house) }
-        format.json
-      end
+      redirect_to house_path(@house)
+      # respond_to do |format|
+      #   format.html { redirect_to house_path(@house) }
+      #   format.json
+      # end
 
     else
-      respond_to do |format|
-        format.html { render :new, status: :unprocessable_entity }
-        format.json
-      end
+      render :new, status: :unprocessable_entity
+      # respond_to do |format|
+      #   format.html { render :new, status: :unprocessable_entity }
+      #   format.json
+      # end
     end
   end
 
   def edit
+    puts "hello edit"
     @house = House.find(params[:id])
   end
 
   def update
+    puts "hello update"
     @house = House.find(params[:id])
     @house.update(house_params)
     @room = Room.new
-    respond_to do |format|
-      format.html { redirect_to house_path(@house) }
-      format.text { render partial: "houses/houseDetails", locals: { house: @house, room: @room }, formats: [:html] }
-    end
+    redirect_to house_path(@house)
+
+    # respond_to do |format|
+    #   format.html { redirect_to house_path(@house) }
+    #   format.text { render partial: "houses/houseDetails", locals: { house: @house, room: @room }, formats: [:html] }
+    # end
   end
 
   def destroy
