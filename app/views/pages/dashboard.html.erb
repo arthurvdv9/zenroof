@@ -1,16 +1,17 @@
 <div class="wrapper">
   <%# the two buttons to change view %>
   <ul class="nav nav-tabs" style="border: none !important" id="myTab" role="tablist">
-    <li class="nav-item user-select bg-our-back-orange" style="border: none !important" role="presentation">
-      <a class="nav-link bg-our-back-orange active no-border" style="border: none !important" id="tenant-tab" data-bs-toggle="tab" href="#tenant" role="tab" aria-controls="tenant" aria-selected="true">Tenant</a>
-    </li>
     <li class="nav-item user-select bg-our-back-green no-border" style="border: none !important" role="presentation">
-      <a class="nav-link bg-our-back-green" style="border: none !important" id="owner-tab" data-bs-toggle="tab" href="#owner" role="tab" aria-controls="owner" aria-selected="false">Owner</a>
+      <a class="nav-link bg-our-back-green active no-border" style="border: none !important" id="owner-tab" data-bs-toggle="tab" href="#owner" role="tab" aria-controls="owner" aria-selected="true">Owner</a>
+    </li>
+    <li class="nav-item user-select bg-our-back-orange" style="border: none !important" role="presentation">
+      <a class="nav-link bg-our-back-orange" style="border: none !important" id="tenant-tab" data-bs-toggle="tab" href="#tenant" role="tab" aria-controls="tenant" aria-selected="false">Tenant</a>
     </li>
   </ul>
 
   <%# what happens when you click on the tab%>
   <%# Tab contents %>
+<<<<<<< HEAD
   <div class="tab-content ">
 <%#If statement se a query.present essa div nao vai ter a class "active"%>
     <%# --- tenant view %>
@@ -48,9 +49,11 @@
 
 
 
+=======
+  <div class="tab-content no-border">
+>>>>>>> 8531ad5689d86435410172e300b31d3a61e6961c
     <%# --- owner view %>
-    <div class="tab-pane fade bg-our-back-green" style= "height: 100vh" id="owner" role="tabpanel" aria-labelledby="owner-tab">
-
+    <div class="tab-pane fade bg-our-back-green show active" style="height: 100vh" id="owner" role="tabpanel" aria-labelledby="owner-tab">
       <div class="row justify-content-center">
         <div class="col-sm-8 my-3">
           <%= form_with url: dashboard_path, method: :get, class: "d-flex" do %>
@@ -76,5 +79,30 @@
         <%= render "houses/houseList" %>
     </div>
 
+    <%# --- tenant view %>
+    <div class="tab-pane fade bg-our-back-orange" style="height: 100vh" id="tenant" role="tabpanel" aria-labelledby="tenant-tab">
+      <% unless current_user.room.nil? %>
+        <%# render the search bar here %>
+        <%# toggle the form via button %>
+        <div data-controller="toggle" class="d-flex align-items-center" id="togglecontroller">
+          <button data-action="click->toggle#fire" data-toggle-target="button" class="btn add-ticket_btn m-5">
+            <div class="add-ticket-plus_btn">
+              <i class="fa-solid fa-plus"></i>
+            </div>Submit a ticket</button>
+
+          <div data-toggle-target="togglableElement" class="d-none">
+            <%# render new ticket form: %>
+            <%= render 'tickets/newTicket', ticket: @ticket %>
+          </div>
+        </div>
+
+        <div class="m-4">
+          <%# render tickets list %>
+          <%= render "tickets/bootstrapTicketsList", tickets: @tickets %>
+        </div>
+      <% else %>
+        <p>You have not been assigned to a room yet</p>
+      <% end %>
+    </div>
   </div>
 </div>
