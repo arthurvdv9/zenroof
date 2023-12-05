@@ -10,6 +10,9 @@ class PagesController < ApplicationController
 
   def dashboard
     @houses = House.where(user_id: current_user)
+    if params[:query].present?
+      @houses = @houses.where("address ILIKE ?", "%#{params[:query]}%")
+    end
     @ticket = Ticket.new
     @tickets = current_user.room.present? ? Ticket.where(room_id: current_user.room.id) : []
 
