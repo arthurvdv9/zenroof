@@ -15,7 +15,7 @@ class RoomsController < ApplicationController
     @room.user = @user
 
     if @room.save
-      redirect_to new_house_room_path(@house)
+      redirect_to house_path(@house)
     else
       render :new, status: :unprocessable_entity
     end
