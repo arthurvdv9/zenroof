@@ -11,47 +11,7 @@
 
   <%# what happens when you click on the tab%>
   <%# Tab contents %>
-<<<<<<< HEAD
-  <div class="tab-content ">
-<%#If statement se a query.present essa div nao vai ter a class "active"%>
-    <%# --- tenant view %>
-
-    <% unless current_user.room.nil? %>
-    <div class="tab-pane fade show bg-our-back-orange active" style= "height: 100vh" id="tenant" role="tabpanel" aria-labelledby="tenant-tab">
-
-      <%# render the search bar here %>
-      <%# toggle the form via button %>
-      <div data-controller="toggle" class="d-flex align-items-center" id ="togglecontroller">
-        <button data-action="click->toggle#fire" data-toggle-target="button" class="btn add-ticket_btn m-5">
-          <div class="add-ticket-plus_btn">
-              <i class="fa-solid fa-plus"></i>
-        </div>Submit a ticket</button>
-
-
-        <div data-toggle-target="togglableElement" class="d-none">
-          <%# render new ticket form: %>
-          <%= render 'tickets/newTicket', ticket: @ticket%>
-        </div>
-      </div>
-
-      <div class="m-4">
-        <%# render tickets list %>
-        <%# <%= render "tickets/myTickets", tickets: @tickets %>
-        <%= render "tickets/bootstrapTicketsList", tickets: @tickets %>
-      </div>
-
-        <%# <a href="/history" class="btn btn-primary">Go to History</a> %>
-      </div>
-      <% else %>
-      <p>You have not been assigned to a room yet</p>
-      <% end %>
-
-
-
-
-=======
   <div class="tab-content no-border">
->>>>>>> 8531ad5689d86435410172e300b31d3a61e6961c
     <%# --- owner view %>
     <div class="tab-pane fade bg-our-back-green show active" style="height: 100vh" id="owner" role="tabpanel" aria-labelledby="owner-tab">
       <div class="row justify-content-center">
