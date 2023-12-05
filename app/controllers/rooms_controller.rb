@@ -2,7 +2,6 @@ class RoomsController < ApplicationController
   def new
     @house = House.find(params[:house_id])
     @room = Room.new
-
   end
 
   def create
@@ -16,16 +15,9 @@ class RoomsController < ApplicationController
     @room.user = @user
 
     if @room.save
-      respond_to do |format|
-        format.html { redirect_to new_house_room_path(@house) }
-        format.json # Follows the classic Rails flow and look for a create.json view
-      end
+      redirect_to new_house_room_path(@house)
     else
-      respond_to do |format|
-        format.html { render :new, status: :unprocessable_entity }
-        format.json # Follows the classic Rails flow and look for a create.json view
-      end
-
+      render :new, status: :unprocessable_entity
     end
   end
 
