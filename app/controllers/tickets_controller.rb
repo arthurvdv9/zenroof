@@ -22,7 +22,7 @@ class TicketsController < ApplicationController
     @room = Room.find(params[:room_id])
     @ticket = Ticket.new(ticket_params)
     @ticket.room = @room
-    @ticket.status = "pending"
+    @ticket.status = "Pending"
     if @ticket.save
       redirect_to dashboard_path
     else
