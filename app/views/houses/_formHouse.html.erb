@@ -1,11 +1,24 @@
 <div class="container" data-controller="create-house" >
+  <div class="title">Your New House</div>
     <%= simple_form_for @house,
         html: { data: {create_house_target: "form",
-        action: "submit->create-house#createHouse"}} do |f| %>
-      <%= f.input :name %>
-      <%= f.input :address %>
-      <%= f.input :capacity %>
-      <%= f.input :photo, as: :file %>
-      <%= f.submit "Save house", class: "btn btn-flat" %>
+        action: "submit->create-house#createHouse"}} do |f|%>
+      <%= f.input :name ,
+          input_html: { class: "form-input" },
+          placeholder: "House nickname *",
+          label:false%>
+      <%= f.input :address,
+          input_html: { class: "form-input-address"},
+          placeholder: "House address *",
+          label: false %>
+      <%= f.input :capacity,
+          input_html: { class: "form-input" },
+          placeholder: "Tenant capacity",
+          label: false %>
+      <%= f.input :photo, as: :file,
+          input_html: { class: "form-input" },
+          placeholder: "pic",
+          label: false %>
+      <%= f.submit "Save house", class: "btn btn-flat w-100" %>
     <% end %>
 </div>
