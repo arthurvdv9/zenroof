@@ -4,7 +4,8 @@ Rails.application.routes.draw do
   get "up" => "rails/health#show", as: :rails_health_check
 
   get "/dashboard", to: "pages#dashboard", as: "dashboard"
-  get "/history", to: "pages#history", as: "history"
+  get "/tenanthistory", to: "pages#tenanthistory", as: "tenanthistory"
+  get "houses/:house_id/ownerhistory", to: "pages#ownerhistory", as: "ownerhistory"
 
   resources :houses do
     resources :rooms, only: [:new, :create, :edit]
