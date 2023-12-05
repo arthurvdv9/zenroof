@@ -1,8 +1,8 @@
+
 <div class="container" data-controller="create-house" style="background: #60D3AB; height:100vh;" >
+
   <div class="title">Your New House</div>
-    <%= simple_form_for @house,
-        html: { data: {create_house_target: "form",
-        action: "submit->create-house#createHouse"}} do |f|%>
+    <%= simple_form_for @house do |f|%>
       <%= f.input :name ,
           input_html: { class: "form-input" },
           placeholder: "House nickname *",
