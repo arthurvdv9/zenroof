@@ -31,7 +31,7 @@ class HousesController < ApplicationController
         format.json
       end
 
-      else
+    else
       respond_to do |format|
         format.html { render :new, status: :unprocessable_entity }
         format.json
