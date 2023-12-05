@@ -33,29 +33,34 @@
       <% end %>
     <% end %>
 
- <%# ticket chat %>
 
+ <%# ticket chat %>
 
   <div class="container chat"
   data-controller="ticket-subscription"
   data-ticket-subscription-ticket-id-value="<%= @ticket.id %>">
 
-  <div class="messages" data-ticket-subscription-target="messages">
-    <% @ticket.messages.each do |message| %>
-    <%= render "messages/message", message: message %>
-  <% end %>
-  </div>
+    <div class="messages" data-ticket-subscription-target="messages">
+      <% @ticket.messages.each do |message| %>
+        <%= render "messages/message", message: message %>
+      <% end %>
+    </div>
 
-  <%= simple_form_for [@ticket, @message],
-  html: { data: { action: "turbo:submit-end->ticket-subscription#resetForm" }, class: "d-flex" } do |f|
-%>
-  <%= f.input :content,
-    label: false,
-    placeholder: "Message",
-    wrapper_html: {class: "flex-grow-1"}
-  %>
-  <%= f.submit "Send", class: "btn btn-primary mb-3" %>
-<% end %>
+    <%# you can only write a new message if the status hasn't been changed to fixed, but you can see all pas messages %>
+    <% if @ticket.status != "Fixed" %>
+
+      <%= simple_form_for [@ticket, @message],
+      html: { data: { action: "turbo:submit-end->ticket-subscription#resetForm" }, class: "d-flex" } do |f| %>
+        <%= f.input :content,
+          label: false,
+          placeholder: "Message",
+          wrapper_html: {class: "flex-grow-1"}
+        %>
+      <%= f.submit "Send", class: "btn btn-primary mb-3" %>
+      <% end %>
+
+    <% end %>
+
 </div>
 
 
