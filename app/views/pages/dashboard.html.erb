@@ -12,11 +12,10 @@
   <%# what happens when you click on the tab%>
   <%# Tab contents %>
   <div class="tab-content ">
-
+<%#If statement se a query.present essa div nao vai ter a class "active"%>
     <%# --- tenant view %>
     <div class="tab-pane fade show bg-our-back-orange active " id="tenant" role="tabpanel" aria-labelledby="tenant-tab">
       <%# render the search bar here %>
-
       <%# toggle the form via button %>
       <div data-controller="toggle" class="" id ="togglecontroller">
         <button data-action="click->toggle#fire" class="btn add_ticket_btn m-3">Submit a ticket</button>
@@ -44,7 +43,7 @@
 
       <div class="row justify-content-center">
         <div class="col-sm-8 my-3">
-          <%= form_with url: houses_path, method: :get, class: "d-flex" do %>
+          <%= form_with url: dashboard_path, method: :get, class: "d-flex" do %>
             <%= text_field_tag :query,
                   params[:query],
                   class: "form-control",
@@ -56,34 +55,15 @@
         </div>
       </div>
 
-<<<<<<< HEAD
         <a href="/history" class="btn btn-primary">Go to History</a>
     </div>
-
-
-
 
     <%# owner view %>
 
     <div class="tab-pane fade" id="owner" role="tabpanel" aria-labelledby="owner-tab">
 
-<div class="row justify-content-center">
-  <div class="col-sm-8 my-3">
-    <%= form_with url: houses_path, method: :get, class: "d-flex" do %>
-      <%= text_field_tag :query,
-            params[:query],
-            class: "form-control",
-            placeholder: "Search for a house or an address!"%>
-      <%= submit_tag "Search", name: "", class: "btn btn-primary" %>
-    <% end %>
-  </div>
-</div>
 
         <%= render "houses/houseList" %>
-=======
-      <%# render houses list %>
-      <%= render "houses/houseList" %>
->>>>>>> 07db189724d473a28d73ae28ceef5a28526b2dfe
     </div>
 
   </div>

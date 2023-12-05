@@ -11,6 +11,10 @@ class PagesController < ApplicationController
   def dashboard
     @houses = House.where(user_id: current_user)
     @ticket = Ticket.new
+    if params[:query].present?
+      sql_subquery = "name ILIKE :query OR address ILIKE :query"
+      @house = @houses.where(sql_subquery, query: "%#{params[:query]}%")
+    end
     #@tickets = current_user.room.present? ? Ticket.where(room_id: current_user.room.id) : []
       # Additional code to handle the case where @room is not found
     # @is_user_owner = current_user.houses.size > 0
