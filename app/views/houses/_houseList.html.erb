@@ -1,5 +1,6 @@
 <div class="container">
-  <h1>My Houses</h1>
+  <div class="list_title" style="margin-bottom: 10px;
+    margin-top: 30px">My Houses</div>
   <% @houses.each do |house| %>
 
       <%= link_to house_path(house) do %>

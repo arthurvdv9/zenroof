@@ -1,12 +1,12 @@
 <%# based on product card UI KIT %>
 
-<div class="card-product">
+<div class="card-house">
 
   <% if house.photo.attached? %>
     <%= cl_image_tag house.photo.key, height: 300, width: 400, crop: :fill %>
   <% end %>
 
-  <div class="card-product-infos">
+  <div class="card-house-infos">
     <h2><%= house.name.capitalize %></h2>
     <p><%= house.address.capitalize %></p>
 
@@ -18,7 +18,8 @@
   </div>
 
   <% if number_tickets > 0 %>
-    <div class="notification-bubble text-center"><%= number_tickets %></div>
+    <div class="notification-bubble text-center" style="color:#fff"><%= number_tickets %></div>
   <% end %>
+
 
 </div>

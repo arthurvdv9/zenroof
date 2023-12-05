@@ -28,6 +28,18 @@ position: relative;
   color: white;
 }
 
+.send_new_ticket_btn-ghost {
+  color:#FF7522;;
+  border: 2px solid #FF7522;
+  padding: 8px 24px;
+  border-radius: 4px;
+  font-weight: lighter;
+  background-color: #FFBA91;
+}
+
+.btn-ghost:hover {
+  opacity: 1;
+}
 
 // floating button
 
