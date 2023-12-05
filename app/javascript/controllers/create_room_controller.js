@@ -16,7 +16,10 @@ export default class extends Controller {
     .then((data) => {
 
       if (data.inserted_item) {
-        this.listTarget.insertAdjacentHTML("beforeend", data.inserted_item)
+
+        // NOW we just want to update the number!!
+
+        // this.listTarget.insertAdjacentHTML("beforeend", data.inserted_item)
       }
       this.formTarget.outerHTML = data.form
       // this.formTarget.scrollTo(0,this.formTarget.scrollHeight)

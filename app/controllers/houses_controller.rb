@@ -42,12 +42,12 @@ class HousesController < ApplicationController
   end
 
   def edit
-    puts "hello edit"
+    puts "helloooooo edit"
     @house = House.find(params[:id])
   end
 
   def update
-    puts "hello update"
+    puts "helloooooooo update"
     @house = House.find(params[:id])
     @house.update(house_params)
     @room = Room.new
