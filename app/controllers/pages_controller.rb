@@ -3,6 +3,7 @@ class PagesController < ApplicationController
 
   def history
     @tickets = current_user.room.present? ? Ticket.where(room_id: current_user.room.id) : []
+    @room = current_user.room
   end
 
   def home
