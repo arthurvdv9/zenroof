@@ -27,15 +27,13 @@
           <% end %>
         </div>
       </div>
+
+      <%# owner view %>
+
+      <%= render "houses/houseList" %>
     </div>
 
-    <%# owner view %>
 
-    <div class="tab-pane fade" id="owner" role="tabpanel" aria-labelledby="owner-tab">
-
-
-        <%= render "houses/houseList" %>
-    </div>
 
     <%# --- tenant view %>
     <div class="tab-pane fade bg-our-back-orange" style="height: 100vh" id="tenant" role="tabpanel" aria-labelledby="tenant-tab">
