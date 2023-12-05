@@ -14,5 +14,8 @@ Rails.application.routes.draw do
     resources :tickets, only: [:new, :create]
   end
 
-  resources :tickets
+  resources :tickets do
+      resources :messages, only: :create
+  end
+
 end

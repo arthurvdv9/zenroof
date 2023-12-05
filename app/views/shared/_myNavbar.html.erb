@@ -1,6 +1,6 @@
 <div class="navWrapper">
 
-  <nav class="nav nav--icons text-center">
+  <nav class="nav--icons text-center">
     <ul>
 
     <% if user_signed_in? %>
@@ -12,19 +12,14 @@
         <% end %>
       </li>
 
-      <li>
-        <%= link_to history_path, class: "myNavlink" do %>
-          <%= image_tag("history.svg", alt: "home icon", width: 30, height: 30) %>
-          <span>History</span>
-        <% end %>
-      </li>
-
       <li class="nav-item dropdown">
           <a href="#" class="myNavlink avatar" id="navbarDropdown" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
             <%= image_tag("profile.svg", alt: "home icon", width: 30, height: 30) %>
             <span>Profile</span>
           </a>
             <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
+              <%= link_to "History", history_path, class: "dropdown-item" %>
+
               <%= link_to "Log out", destroy_user_session_path, data: {turbo_method: :delete}, class: "dropdown-item" %>
             </div>
       </li>

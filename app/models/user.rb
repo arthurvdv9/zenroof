@@ -12,4 +12,5 @@ class User < ApplicationRecord
   has_many  :houses
   has_one  :room
   has_many  :tickets, through: :rooms
+  has_many  :messages
 end

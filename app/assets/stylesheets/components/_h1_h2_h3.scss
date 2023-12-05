@@ -1,6 +1,6 @@
-.h1 {
+.title {
   color: #545454;
-  font-family: Montserrat;
+  font-family: 'Montserrat', sans-serif;
   font-size: 64px;
   font-style: normal;
   font-weight: 600;
@@ -9,23 +9,34 @@
 
 .h2 {
   color: #000;
-  font-family: Montserrat;
+  font-family: 'Montserrat', sans-serif;
   font-size: 16px;
   font-style: normal;
   font-weight: 500;
   line-height: normal;
 }
 
-.list_title{
-  color: #545454;
-  font-family: Roboto Flex;
-  font-size: 20px;
+
+.h5 {
+  color: #000;
+  font-family: 'Roboto Mono', monospace;
+  font-size: 16px;
   font-style: normal;
-  font-weight: 800;
+  font-weight: 400;
   line-height: normal;
 }
 
+.list_title{
+color: #545454;
+font-family: 'Roboto Flex', sans-serif;
+font-size: 20px;
+font-style: normal;
+font-weight: 800;
+line-height: normal;
+}
+
+
 p {
   color: #000;
-  font-family: Roboto Flex;
+  font-family: 'Roboto Flex', sans-serif;
 }

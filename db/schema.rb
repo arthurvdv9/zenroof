@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 2023_11_30_162336) do
+ActiveRecord::Schema[7.1].define(version: 2023_12_04_111625) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -52,6 +52,16 @@ ActiveRecord::Schema[7.1].define(version: 2023_11_30_162336) do
     t.index ["user_id"], name: "index_houses_on_user_id"
   end
 
+  create_table "messages", force: :cascade do |t|
+    t.string "content"
+    t.bigint "ticket_id", null: false
+    t.bigint "user_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["ticket_id"], name: "index_messages_on_ticket_id"
+    t.index ["user_id"], name: "index_messages_on_user_id"
+  end
+
   create_table "rooms", force: :cascade do |t|
     t.bigint "user_id", null: false
     t.bigint "house_id", null: false
@@ -73,6 +83,15 @@ ActiveRecord::Schema[7.1].define(version: 2023_11_30_162336) do
     t.index ["room_id"], name: "index_tickets_on_room_id"
   end
 
+  create_table "user_houses", force: :cascade do |t|
+    t.bigint "user_id", null: false
+    t.bigint "house_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["house_id"], name: "index_user_houses_on_house_id"
+    t.index ["user_id"], name: "index_user_houses_on_user_id"
+  end
+
   create_table "users", force: :cascade do |t|
     t.string "email", default: "", null: false
     t.string "encrypted_password", default: "", null: false
@@ -90,7 +109,11 @@ ActiveRecord::Schema[7.1].define(version: 2023_11_30_162336) do
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
   add_foreign_key "active_storage_variant_records", "active_storage_blobs", column: "blob_id"
   add_foreign_key "houses", "users"
+  add_foreign_key "messages", "tickets"
+  add_foreign_key "messages", "users"
   add_foreign_key "rooms", "houses"
   add_foreign_key "rooms", "users"
   add_foreign_key "tickets", "rooms"
+  add_foreign_key "user_houses", "houses"
+  add_foreign_key "user_houses", "users"
 end

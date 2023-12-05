@@ -1,41 +1,51 @@
 
-.owner_status_pills, .renter_status_pills {
+.status-pills {
   // width: 86px;
   // height: 25px;
   flex-shrink: 0;
   border-radius: 30px;
   text-align: center;
-  font-family: Roboto;
+  font-family: 'Roboto Mono', monospace;
   font-size: 14px;
   font-style: normal;
   font-weight: 700;
   line-height: normal;
-  // width: 64px;
+  width: 85px;
   // height: 23.529px;
   padding: 8px 15px;
   }
 
-.renter_fixed_pills, .owner_fixed_pills {
-  background: #ffffff;
+//// OWNER
 
+.status-owner-pending {
+  background-color: $our-orange;
+  color:white;
 }
 
-.owner_pending_pills {
-  background:#FF7522;
+.status-owner-ongoing{
+  background: #545454;
   color:#ffffff;
 }
 
-.renter_pending_pills {
-  background: #12D08E;
+.status-owner-fixed {
+  background-color: white;
+  color: #545454;
+  border: 2px solid #545454;
+}
+
+//// TENANT
+.status-tenant-pending {
+  background-color: $our-green;
+  color:white;
+}
+
+.status-tenant-ongoing{
+  background: #545454;
   color:#ffffff;
 }
 
-.renter_fixed_pills {
-color: #FF7522;
-
-}
-
-.owner_fixed_pills {
-color: #12D08E;
-
+.status-tenant-fixed {
+  background-color: white;
+  color: #545454;
+  border-color: #545454;
 }

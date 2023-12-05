@@ -6,6 +6,8 @@ class TicketsController < ApplicationController
   end
 
   def show
+    @ticket = Ticket.find(params[:id])
+    @message = Message.new
   end
 
   def new
@@ -30,6 +32,12 @@ class TicketsController < ApplicationController
     redirect_to dashboard_path
   end
 
+  def update
+    @ticket = Ticket.find(params[:id])
+    @ticket.update(ticket_params)
+    redirect_to ticket_path(@ticket)
+  end
+
   private
 
   def set_ticket
@@ -39,5 +47,6 @@ class TicketsController < ApplicationController
   def ticket_params
     params.require(:ticket).permit(:title, :description, :status, :priority, photos: [])
   end
+
 
 end

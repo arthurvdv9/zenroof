@@ -2,10 +2,14 @@
   <p>Room Number: <%= room.number %>: <%= room.user.email %></p>
 
   <% room.tickets.each do |ticket| %>
-    <p>Title: <%= ticket.title %></p>
-    <p>Description: <%= ticket.description %></p>
-    <p>Status: <%= ticket.status %></p>
-    <p>Priority: <%= ticket.priority %></p>
+    <%= link_to ticket_path(ticket) do %>
+      <div class="container">
+        <p>Title: <%= ticket.title %></p>
+        <p>Description: <%= ticket.description %></p>
+        <p>Status: <%= ticket.status %></p>
+        <p>Priority: <%= ticket.priority %></p>
+      </div>
+    <% end %>
   <% end %>
 
 </div>
