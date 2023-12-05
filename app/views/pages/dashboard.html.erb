@@ -16,7 +16,7 @@
     <div class="tab-pane fade bg-our-back-green show active" style="height: 100vh" id="owner" role="tabpanel" aria-labelledby="owner-tab">
       <div class="row justify-content-center">
         <div class="col-sm-8 my-3">
-          <%= form_with url: houses_path, method: :get, class: "d-flex" do %>
+          <%= form_with url: dashboard_path, method: :get, class: "d-flex" do %>
             <%= text_field_tag :query,
                   params[:query],
                   class: "form-control",
@@ -28,8 +28,15 @@
         </div>
       </div>
 
-      <%# render houses list %>
-      <%= render "houses/houseList" %>
+        <a href="/history" class="btn btn-primary">Go to History</a>
+    </div>
+
+    <%# owner view %>
+
+    <div class="tab-pane fade" id="owner" role="tabpanel" aria-labelledby="owner-tab">
+
+
+        <%= render "houses/houseList" %>
     </div>
 
     <%# --- tenant view %>
