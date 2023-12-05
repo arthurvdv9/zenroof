@@ -19,6 +19,8 @@ class PagesController < ApplicationController
       sql_subquery = "name ILIKE :query OR address ILIKE :query"
       @house = @houses.where(sql_subquery, query: "%#{params[:query]}%")
     end
+
+
     #@tickets = current_user.room.present? ? Ticket.where(room_id: current_user.room.id) : []
       # Additional code to handle the case where @room is not found
     # @is_user_owner = current_user.houses.size > 0
@@ -28,6 +30,9 @@ class PagesController < ApplicationController
     @tickets = @room.present? ? Ticket.where(room_id: @room.id) : []
     # @room_id = @is_user_owner ? retrieve_tenant_room : current_user.rooms[0]
     # @room = Room.find_by(id: @room_id)
+    # puts "HELLOOOOOOOOOOOOOOOOOOO"
+    # puts @houses
+
   end
 
   private
