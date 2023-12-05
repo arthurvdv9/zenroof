@@ -35,7 +35,11 @@
     <%# --- tenant view %>
     <div class="tab-pane fade bg-our-back-orange" style="height: 100vh" id="tenant" role="tabpanel" aria-labelledby="tenant-tab">
       <% unless current_user.room.nil? %>
-        <%# render the search bar here %>
+        <%# render the search bar here - update: no need for it now, only on owner and history %>
+
+        <%# address %>
+        <p><%= current_user.room.house.address %></p>
+
         <%# toggle the form via button %>
         <div data-controller="toggle" class="d-flex align-items-center" id="togglecontroller">
           <button data-action="click->toggle#fire" data-toggle-target="button" class="btn add-ticket_btn m-5">
