@@ -1,4 +1,6 @@
-<div class="container" >
+
+<div class="container" data-controller="create-house" style="background: #60D3AB; height:100vh;" >
+
   <div class="title">Your New House</div>
     <%= simple_form_for @house do |f|%>
       <%= f.input :name ,
@@ -17,6 +19,6 @@
           input_html: { class: "form-input" },
           placeholder: "pic",
           label: false %>
-      <%= f.submit "Save house", class: "btn btn-flat w-100" %>
+      <%= f.submit "Save house", class: "btn btn-flat w-75" %>
     <% end %>
 </div>

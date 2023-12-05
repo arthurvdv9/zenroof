@@ -1,18 +1,22 @@
-form {
-  max-width: 400px;
-  margin-top: 40px;
-  padding: 20px;
-  border: 1px solid #ccc;
-  border-radius: 4px;
-  background: #12D08E;
+.Houseform{
+  background: #60D3AB;
 }
+
 .form-input{
   border-radius: 10px;
+  max-width: 95%;
+  margin-left: 10px;
+  padding: 20px;
+  border: 1px solid #ccc;
+  align-items: center;
 }
 
 .form-input-address{
-  min-height: 100px;
+  min-height: 150px;
   border-radius: 10px;
+  padding: 20px;
+  max-width: 95%;
+  margin-left: 10px;
 }
 
 
