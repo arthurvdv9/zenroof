@@ -9,8 +9,7 @@
     <p><%= house.address %></p>
     <% number_tickets = 0 %>
     <% house.rooms.each do |room| %>
-      <% number_tickets = room.tickets.where(status: "Pending").count %>
-<%# <% raise %>
+      <% number_tickets = room.tickets.where(status: "pending").count %>
     <% end %>
 
     <% if number_tickets != 0  %>
