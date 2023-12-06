@@ -1,33 +1,49 @@
 <div class="", style="background:#60D3AB" data-controller="create-room">
   <div class="">
     <h1 class="title p-3"><%= @house.name %></h1>
-    <h3><%= @house.address %></h3>
+    <h4 class="smalltext address px-3"><%= @house.address %></h4>
 
+    <%= link_to house_path(house), method: :delete, data: { turbo_method: :delete, turbo_confirm: "Are you sure?" } do %>
+      <h4 class="smalltext mylink px-3">Delete this house</h4>
+    <% end %>
+
+    <%# picture %>
     <% if @house.photo.attached? %>
       <div class="text-center mb-3">
         <%= cl_image_tag @house.photo.key, width: 430, crop: :fill %>
       </div>
     <% end %>
 
-
-  <%= link_to "Edit House", edit_house_path(house) %>
-  <%= link_to "See old tickets", ownerhistory_path(house) %>
+    <div class="houseButtons d-flex px-3">
+      <%= link_to edit_house_path(house), class: "edit-float" do %>
+        <i class="fa-solid fa-pencil my-float-edit"></i>
+        <%# <h4 class="smalltext mylink px-3">Edit House</h4> %>
+      <% end %>
+    </div>
 
 
   </div>
 
   <%# JS target  and rooms form%>
   <div data-create-room-target="list">
-    <p>Rented rooms: <%= @house.rooms.count %>/<%= @house.capacity %></p>
+    <h4 class="smalltext px-3">Rented rooms: <%= @house.rooms.count %>/ <span><%= @house.capacity %></span></h4>
     <%= link_to "Rent a room", new_house_room_path(house), data: { action: "click->create-room#displayForm" } %>
     <div data-create-room-target="formContainer" class="d-none">
       <div><%= render "formRoom", house: house, room: room %></div>
     </div>
 
+    <div class="d-flex justify-content-between">
+      <h5 class="list_title">Tickets</h5>
+
+      <%= link_to ownerhistory_path(house) do %>
+        <h2 class="smalltext mylink px-3">See old tickets</h2>
+      <% end %>
+    </div>
+
+
 
     <% house.rooms.each do |room| %>
       <div class="list-group list-group-flush" style= "border-color: #E0702D">
-
         <% unless @room.nil? %>
           <% room.tickets.each do |ticket| %>
             <% if ticket.status != "Fixed" %>

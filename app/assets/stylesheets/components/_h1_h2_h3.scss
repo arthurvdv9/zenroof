@@ -4,7 +4,17 @@
   font-size: 64px;
   font-style: normal;
   font-weight: 600;
-  line-height: normal;
+  line-height: 64px;
+}
+
+.list_title{
+color: #545454;
+font-family: 'Roboto Flex', sans-serif;
+font-size: 20px;
+font-style: normal;
+font-weight: 800;
+line-height: normal;
+margin: 30px 15px 10px 15px;
 }
 
 .h2 {
@@ -17,6 +27,8 @@
 }
 
 
+
+// h5 title ticket
 .h5 {
   color: #000;
   font-family: 'Roboto Mono', monospace;
@@ -26,18 +38,27 @@
   line-height: normal;
 }
 
-.list_title{
-color: #545454;
-font-family: 'Roboto Flex', sans-serif;
-font-size: 20px;
-font-style: normal;
-font-weight: 800;
-line-height: normal;
-}
 
 
 p {
   color: #000;
-  font-family: 'Roboto Flex', sans-serif;
+  font-family: 'Roboto', sans-serif;
   font-size: 16px;
+}
+
+.smalltext {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 16px;
+  text-align: right;
+}
+
+.mylink {
+  color: #B44F12;
+  font-weight: 900;
+  text-decoration: underline;
+}
+
+.address {
+  color: #414141;
+  font-weight: 700;
 }
