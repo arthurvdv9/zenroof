@@ -15,10 +15,10 @@
 
   <%# JS target  and rooms form%>
   <div data-create-room-target="list">
-    <h4 class="smalltext px-3">Rented rooms: <%= @house.rooms.count %>/ <span><%= @house.capacity %></span></h4>
+    <h4 class="rooms-rented address">Rented rooms: <span id="rooms-number"><%= @house.rooms.count %> / <%= @house.capacity %></span></h4>
     <%= link_to "Rent a room", new_house_room_path(house), data: { action: "click->create-room#displayForm" } %>
     <div data-create-room-target="formContainer" class="d-none">
-      <div><%= render "formRoom", house: house, room: room %></div>
+      <div class="w-100 p-3"><%= render "formRoom", house: house, room: room %></div>
     </div>
 
 

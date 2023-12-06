@@ -1,8 +1,14 @@
-<div class="container">
+<div class="row">
     <%= simple_form_for [house, room] do |f| %>
 
-      <%= f.input :number %>
-      <%= f.input :user, collection: User.all, label_method: :email, value_method: :id%>
+      <div class="col-3">
+        <%= f.input :number %>
+      </div>
+
+      <div class="col-3">
+        <%= f.input :user, collection: User.all, label_method: :email, value_method: :id%>
+      </div>
+
       <%= f.submit "Add room", class: "btn btn-flat",
       data: {
         create_room_target: "button"
