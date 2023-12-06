@@ -113,7 +113,7 @@ ticket.save
 
 puts "Creating ticket"
 file = URI.open("https://www.aborrelli.com/hubfs/white-window-type-ac-outdoor-unit-1472035.jpg")
-ticket = Ticket.create!(title: "HVAC (Air Conditioning)", description: "Hey! I just got home and it seems like the air conditioning system stopped working, could you please check up on it?", status: "Pending", priority: "Low", room_id: usertenant.room.id)
+ticket = Ticket.create!(title: "Air Conditioning", description: "Hey! I just got home and it seems like the air conditioning system stopped working, could you please check up on it?", status: "Pending", priority: "Low", room_id: usertenant.room.id)
 ticket.photos.attach(io: file, filename: "nes.png", content_type: "image/png")
 ticket.save
 
