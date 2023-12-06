@@ -25,7 +25,7 @@
       <p><%= @ticket.status%></p>
     <% end %>
 
-  
+
   <div class="paragraph-container">
   <p> Room <%= @ticket.room.number%> </p>
    <p> Issuer:  <%= @ticket.room.user.last_name%></p>
@@ -41,11 +41,8 @@
       <%  @ticket.photos.each do |photo| %>
         <%= cl_image_tag photo.key, width: 300, crop: :fill %>
       <% end %>
-
     <% end %>
-  <% end %>
-</div>
-</div>
+
 
  <%# ticket chat %>
 
