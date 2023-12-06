@@ -1,0 +1,48 @@
+
+.message-box{
+  display: flex;
+  width: 100%;
+  height: 105px;
+  padding: 27px 29px 33px 23px;
+  align-items: center;
+  }
+
+  .description-box{
+    background: #888;
+    margin: 10px 40px;
+    margin-bottom: 10px;
+    padding: 10px;
+    border-radius: 4px;
+    max-width: 80%;
+    position: center;
+  }
+
+  .paragraph-container {
+    display:flex;
+    flex-direction: column;
+    max-width: 400px;
+    margin: 50px;
+    overflow: hidden;
+    font-weight: 700;
+    color:#545454
+  }
+
+  .priority-field{
+    font-weight: 700;
+    display:flex;
+    flex-direction: column;
+    margin: 50px;
+    span {
+      color: black;
+    }
+  }
+
+  #priority {
+    color:#FF7522 !important;
+  }
+
+
+  .ticket-date {
+    font-weight: 700;
+    margin: 50px;
+  }
