@@ -6,10 +6,10 @@ class TicketsController < ApplicationController
     if params[:query].present?
       sql_subquery = "title ILIKE :query OR description ILIKE :query"
       @ticekts = @ticekts.where(sql_subquery, query: "%#{params[:query]}%")
-  end
     end
+  end
 
-    def show
+  def show
     @ticket = Ticket.find(params[:id])
     @message = Message.new
   end
@@ -22,7 +22,7 @@ class TicketsController < ApplicationController
     @room = Room.find(params[:room_id])
     @ticket = Ticket.new(ticket_params)
     @ticket.room = @room
-    @ticket.status = "pending"
+    @ticket.status = "Pending"
     if @ticket.save
       redirect_to dashboard_path
     else

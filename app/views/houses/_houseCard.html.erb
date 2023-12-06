@@ -1,7 +1,5 @@
-<%# based on product card UI KIT %>
-
+<%# product card UI KIT %>
 <div class="card-house">
-
   <% if house.photo.attached? %>
     <%= cl_image_tag house.photo.key, height: 300, width: 400, crop: :fill %>
   <% end %>
@@ -11,15 +9,18 @@
     <p><%= house.address.capitalize %></p>
 
     <% number_tickets = 0 %>
+
     <% house.rooms.each do |room| %>
-      <% number_tickets += room.tickets.count %>
+      <% room.tickets.each do |ticket| %>
+        <% if ticket.status == "Pending" %>
+          <% number_tickets += 1 %>
+        <% end %>
+      <% end %>
+    <% end %>
+
+    <% if number_tickets != 0 %>
+      <div class="notification-bubble text-center" style="color:#fff"><%= number_tickets %></div>
     <% end %>
 
   </div>
-
-  <% if number_tickets > 0 %>
-    <div class="notification-bubble text-center" style="color:#fff"><%= number_tickets %></div>
-  <% end %>
-
-
 </div>
