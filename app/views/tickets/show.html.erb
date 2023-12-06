@@ -1,15 +1,13 @@
-<div class="container p-3 m-5">
+<div class="container p-3">
 
-  <h2><%= @ticket.title %></h2>
-  <p><%= @ticket.description %></p>
-  <p><%= @ticket.priority%></p>
-
+  <p><%= current_user.room.house.address %></p>
+  <div class="title mb-5"><%= @ticket.title %></div>
 
     <% if current_user.id != @ticket.room.user_id %>
-    <%# Use a form to submit changes STATUS to the server %>
+<%# Use a form to submit changes STATUS to the server %>
     <%= form_with(model: @ticket, url: ticket_path(@ticket), local: true, method: :patch) do |form| %>
-      <div class="editable-field">
-        <button class="status-pills status-owner-<%= @ticket.status.split(" ").join.downcase %>"><%= @ticket.status %></button>
+      <div class="editable-field d-flex justify-content-center mt-5">
+        <button class="status-pills status-owner-<%= @ticket.status.split(" ").join.downcase %>" style= "position: center"><%= @ticket.status %></button>
 
         <% if @ticket.status == 'Pending' %>
           <%= form.hidden_field :status, value: 'Ongoing' %>
@@ -27,11 +25,23 @@
       <p><%= @ticket.status%></p>
     <% end %>
 
-<%# image zoom %>
-<div class="imagezoom" data-controller="zoom">
-  <% if @ticket.photos.attached? %>
-    <% @ticket.photos.each do |photo| %>
-      <%= cl_image_tag photo.key, width: 300, crop: :fill, data: { target: 'zoom.image' , action: 'click->zoom#toggleZoom' }  %>
+  
+  <div class="paragraph-container">
+  <p> Room <%= @ticket.room.number%> </p>
+   <p> Issuer:  <%= @ticket.room.user.last_name%></p>
+  </div>
+
+
+   <i class="ticket-date"><%= @ticket.created_at.strftime("%d.%m.%Y") %></i>
+  <p class="description-box"><%= @ticket.description %></p>
+  <p class="priority-field" id="priority"> Priority:<span><%= @ticket.priority%></span></p>
+
+
+    <% if @ticket.photos.attached? %>
+      <%  @ticket.photos.each do |photo| %>
+        <%= cl_image_tag photo.key, width: 300, crop: :fill %>
+      <% end %>
+
     <% end %>
   <% end %>
 </div>
@@ -39,7 +49,7 @@
 
  <%# ticket chat %>
 
-  <div class="container chat"
+  <div class="chat-container"
   data-controller="ticket-subscription"
   data-ticket-subscription-ticket-id-value="<%= @ticket.id %>">
 
@@ -64,11 +74,7 @@
 
     <% end %>
 
-</div>
-
-
-
-
+  </div>
 
   <%# <%= render "messages/message" %>
 

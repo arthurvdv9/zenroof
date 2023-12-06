@@ -1,7 +1,19 @@
-<div id="message-<%= message.id %>">
-  <small>
+
+<% if message.user == current_user %>
+<div class= "message" id="message-<%= message.id %>">
+  <small class= "current_user_message_details">
     <strong><%= message.user.first_name %></strong>
     <i><%= message.created_at.strftime("%a %b %e at %l:%M %p") %></i>
   </small>
-  <p><%= message.content %></p>
+  <p class="chat-bubble current_user_bubble message_content"><%= message.content %></p>
 </div>
+  <% else %>
+  <div class= "message" id="message-<%= message.id %>">
+  <small class= "message_details">
+    <strong ><%= message.user.first_name %></strong>
+    <i><%= message.created_at.strftime("%a %b %e at %l:%M %p") %></i>
+  </small>
+  <p class= "chat-bubble bubble message-content"><%= message.content %></p>
+</div>
+
+<% end %>
