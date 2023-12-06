@@ -1,18 +1,20 @@
 <div class="container ">
   <div class="p-5">
     <%# <h3 class="">Tickets</h3> %>
-    <%= simple_form_for [@room, @ticket] do |f| %>
+
+    <%= simple_form_for [@room,@ticket], html: { novalidate: false } do |f| %>
+
 
       <div class="mt-4">
-        <%= f.input :title, as: :string %>
+        <%= f.input :title, as: :string, required: true%>
       </div>
 
       <div class="mt-8">
-        <%= f.input :description, as: :string %>
+        <%= f.input :description, as: :string, required: true, input_html: {minlength: 10} %>
       </div>
 
       <div class="mt-4">
-        <%= f.input :priority, collection: ["Low", "Medium", "High"] %>
+        <%= f.input :priority, collection: ["Low", "Medium", "High"], required: true %>
       </div>
 
       <div class="mt-4">
@@ -22,7 +24,7 @@
       <div class="row">
         <div class="mt-4 mb-6 d-flex align-items-center justify-content-around">
           <%= f.submit "Send ticket", class: "send_new_ticket_btn-ghost" %>
-          <%= link_to "Cancel", dashboard_path %>
+          <%= link_to "Cancel", dashboard_path, class: "send_new_ticket_btn-ghost" %>
         </div>
       </div>
 
