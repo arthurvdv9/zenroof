@@ -11,7 +11,7 @@
     <% number_tickets = 0 %>
 
     <% house.rooms.each do |room| %>
-      <% number_tickets = room.tickets.where(status: "pending").count %>
+      <% number_tickets = room.tickets.where(status: "Pending").count %>
     <% end %>
 
     <% if number_tickets != 0  %>

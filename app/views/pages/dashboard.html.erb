@@ -39,11 +39,11 @@
 
 
     <%# --- tenant view %>
-    <div class="tab-pane fade bg-our-back-orange <%= if params[:tab] == "tenant" then "show active" else "" end %> "style="height: 100vh" id="tenant" role="tabpanel" aria-labelledby="tenant-tab">
+    <div class="tab-pane fade bg-our-back-orange <%= if params[:tab] == "tenant" then "show active" else "" end %> " style="height: 100vh" id="tenant" role="tabpanel" aria-labelledby="tenant-tab">
       <% unless current_user.room.nil? %>
 
         <%# address %>
-        <p><%= current_user.room.house.address %></p>
+        <h5 class="p-3"><%= current_user.room.house.address %></h5>
 
         <%# toggle the form via button %>
         <div data-controller="toggle" class="d-flex align-items-center" id="togglecontroller">
