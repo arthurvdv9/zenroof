@@ -26,7 +26,7 @@
       <div class="list-group list-group-flush" style="border-color: #E0702D">
 
         <%# List of old tickets %>
-        <% @room.tickets.each do |ticket| %>
+        <% @tickets.each do |ticket| %>
           <% if ticket.status == "Fixed" %>
             <%= link_to ticket_path(ticket), class: "list-group-item list-group-item-action flex-column align-items-start bg-our-back-orange", style: "border-color: #E0702D" do %>
               <div class="d-flex w-100 justify-content-between">

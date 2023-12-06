@@ -4,4 +4,5 @@ import "controllers"
 import "@popperjs/core"
 import "bootstrap"
 import "@rails/actioncable"
-import ZoomController from "./controllers/zoom_controller"
+// import ZoomController from "./controllers/zoom_controller"
+
