@@ -11,16 +11,12 @@
     <% number_tickets = 0 %>
 
     <% house.rooms.each do |room| %>
-      <% room.tickets.each do |ticket| %>
-        <% if ticket.status == "Pending" %>
-          <% number_tickets += 1 %>
-        <% end %>
-      <% end %>
+      <% number_tickets = room.tickets.where(status: "pending").count %>
     <% end %>
 
-    <% if number_tickets != 0 %>
+    <% if number_tickets != 0  %>
       <div class="notification-bubble text-center" style="color:#fff"><%= number_tickets %></div>
-    <% end %>
+    <% end  %>
 
   </div>
 </div>
