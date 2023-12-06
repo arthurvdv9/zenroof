@@ -3,9 +3,10 @@ class TicketsController < ApplicationController
 
   def index
     @tickets = current_user.room.tickets
+
   end
 
-    def show
+  def show
     @ticket = Ticket.find(params[:id])
     @message = Message.new
   end

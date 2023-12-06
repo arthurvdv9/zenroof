@@ -14,6 +14,11 @@ class PagesController < ApplicationController
     @ticket = Ticket.new
 
 
+      sql_subquery = "title ILIKE :query OR description ILIKE :query"
+      @ticket = @tickets.where(sql_subquery, query: "%#{params[:query]}%")
+    end
+
+
     # @tickets = current_user.room.present? ? Ticket.where(room_id: current_user.room.id) : []
     # Additional code to handle the case where @room is not found
     # @is_user_owner = current_user.houses.size > 0
@@ -28,6 +33,7 @@ class PagesController < ApplicationController
     # puts @houses
 
 
+
   def tenanthistory
     @tickets = current_user.room.present? ? Ticket.where(room_id: current_user.room.id) : []
     if params[:query].present?
@@ -37,25 +43,15 @@ class PagesController < ApplicationController
     @room = current_user.room
   end
 
+  def tenanthistory
+    @tickets = current_user.room.present? ? Ticket.where(room_id: current_user.room.id) : []
+    @room = current_user.room
+  end
+
   def ownerhistory
     @house = House.find(params[:house_id])
     @rooms = Room.where(house_id: @house.id)
     @tickets = @rooms.map { |room| room.tickets }.flatten
   end
-
-  private
-
-  # def list_tenant_rooms_for_owner
-  #   rooms_ids = current_user.rooms.map { |room| room.id }
-  #   houses_rooms_ids = current_user.houses.map { |house| house.rooms.map { |room| room.id } }.flatten
-  #   houses_rooms_ids - rooms_ids
-  # end
-
-  #  def is_owner_also_tenant
-  #   list_tenant_rooms_for_owner.size > 0
-  # end
-
-  # def retrieve_tenant_room
-  #  list_tenant_rooms_for_owner[0]
-  # end
+  
 end
