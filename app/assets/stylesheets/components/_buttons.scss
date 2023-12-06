@@ -62,8 +62,39 @@ position: relative;
 }
 
 
+.my-float-clock {
+margin-top:20px;
+font-size: 20px;
+}
+
+
 // clear default button style
 
 button {
   all: unset;
+}
+
+
+.edit-float{
+	// position:fixed;
+	width:40px;
+	height:40px;
+	// bottom:100px;
+	// right:40px;
+	background-color: $our-orange;
+	color:#FFF;
+	border-radius:50px;
+	text-align:center;
+	box-shadow: 2px 2px 3px #999;
+  // margin-bottom: 30px;
+
+}
+
+.my-float-edit{
+	margin-top:13px;
+}
+
+
+.houseButtons {
+  margin-top: -35px;
 }

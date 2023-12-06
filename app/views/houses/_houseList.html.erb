@@ -1,6 +1,5 @@
 <div class="container px-4">
-  <div class="list_title" style="margin-bottom: 10px;
-    margin-top: 30px; margin-left: 15px; margin-right: 15px">My Houses</div>
+  <div class="list_title">My Houses</div>
     <% @houses.each do |house| %>
 
       <%= link_to house_path(house) do %>
@@ -14,6 +13,5 @@
   <%= link_to new_house_path, class: "float" do %>
     <i class="fa fa-plus my-float"></i>
   <% end %>
-
 
 </div>
