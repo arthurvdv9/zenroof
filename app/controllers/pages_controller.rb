@@ -13,7 +13,7 @@ class PagesController < ApplicationController
     end
     @ticket = Ticket.new
     if params[:query].present?
-      sql_subquery = "name ILIKE :query OR  ILIKE :query"
+      sql_subquery = "title ILIKE :query OR description ILIKE :query"
       @ticket = @tickets.where(sql_subquery, query: "%#{params[:query]}%")
     end
 
