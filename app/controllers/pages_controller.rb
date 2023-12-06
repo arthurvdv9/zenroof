@@ -9,10 +9,11 @@ class PagesController < ApplicationController
     @houses = House.where(user_id: current_user)
     if params[:query].present?
       sql_subquery = "name ILIKE :query OR address ILIKE :query"
-    @houses = @houses.where(sql_subquery, query: "%#{params[:query]}%")
+      @houses = @houses.where(sql_subquery, query: "%#{params[:query]}%")
     end
     @ticket = Ticket.new
     if params[:query].present?
+
       sql_subquery = "title ILIKE :query OR description ILIKE :query"
       @ticket = @tickets.where(sql_subquery, query: "%#{params[:query]}%")
     end
