@@ -1,0 +1,13 @@
+.imagezoom {
+  position: relative;
+  overflow: hidden;
+
+  img {
+    transition: transform 0.3s ease;
+    cursor: pointer;
+
+    &.zoomed {
+      transform: scale(1.5);
+    }
+  }
+}

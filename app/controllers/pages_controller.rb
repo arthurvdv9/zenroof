@@ -1,10 +1,6 @@
 class PagesController < ApplicationController
   skip_before_action :authenticate_user!, only: [ :home ]
 
-  def tenanthistory
-    @tickets = current_user.room.present? ? Ticket.where(room_id: current_user.room.id) : []
-    @room = current_user.room
-  end
 
   def home
   end
@@ -13,17 +9,17 @@ class PagesController < ApplicationController
     @houses = House.where(user_id: current_user)
     if params[:query].present?
       sql_subquery = "name ILIKE :query OR address ILIKE :query"
-    @houses = @houses.where(sql_subquery, query: "%#{params[:query]}%")
+      @houses = @houses.where(sql_subquery, query: "%#{params[:query]}%")
     end
     @ticket = Ticket.new
     if params[:query].present?
-      sql_subquery = "name ILIKE :query OR address ILIKE :query"
-      @house = @houses.where(sql_subquery, query: "%#{params[:query]}%")
+      sql_subquery = "name ILIKE :query OR  ILIKE :query"
+      @ticket = @tickets.where(sql_subquery, query: "%#{params[:query]}%")
     end
 
 
     #@tickets = current_user.room.present? ? Ticket.where(room_id: current_user.room.id) : []
-      # Additional code to handle the case where @room is not found
+    # Additional code to handle the case where @room is not found
     # @is_user_owner = current_user.houses.size > 0
     # # @is_user_tenant = @is_user_owner ? is_owner_also_tenant : true
     @is_user_owner = current_user.houses.size > 0
@@ -34,6 +30,11 @@ class PagesController < ApplicationController
     # puts "HELLOOOOOOOOOOOOOOOOOOO"
     # puts @houses
 
+  end
+
+  def tenanthistory
+    @tickets = current_user.room.present? ? Ticket.where(room_id: current_user.room.id) : []
+    @room = current_user.room
   end
 
   def ownerhistory
