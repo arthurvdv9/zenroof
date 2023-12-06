@@ -21,11 +21,17 @@
       <div><%= render "formRoom", house: house, room: room %></div>
     </div>
 
-    <h5 class="list_title">Tickets</h5>
-    <% house.rooms.each do |room| %>
-      <div class="list-group list-group-flush" style= "border-color: #E0702D">
 
-        <% unless @room.nil? %>
+
+    <h5 class="list_title">Tickets</h5>
+
+    <%# check there are rooms - a não ser que não haja rooms corre isto %>
+    <% unless @room.nil?  %>
+
+      <% house.rooms.each do |room| %>
+        <div class="list-group list-group-flush" style= "border-color: #E0702D">
+
+          <%# display tickets of each room %>
           <% room.tickets.each do |ticket| %>
             <% if ticket.status != "Fixed" %>
               <%= link_to ticket_path(ticket), class:"list-group-item list-group-item-action flex-column align-items-start bg-our-back-green", style:"border-color: #E0702D" do %>
@@ -35,12 +41,12 @@
                 </div>
                 <p class="mb-1"><%=ticket.description %></p>
               <% end %>
+
             <% end %>
           <% end %>
-        <% else %>
-          <h2>There are no tickets yet</h2>
-        <% end %>
-      </div>
+
+        </div>
+      <% end %>
     <% end %>
   </div>
 
@@ -64,8 +70,8 @@
     </li>
 
     <li>
-      <%= link_to house_path(house), class:"dropdown-item", method: :delete, data: { turbo_method: :delete, turbo_confirm: "Are you sure?" } do %>
-      <p>Delete this house</p>
+      <%= link_to ownerhistory_path(house), class:"dropdown-item" do %>
+      <p>Solved tickets</p>
       <% end %>
     </li>
 
