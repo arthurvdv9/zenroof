@@ -9,8 +9,8 @@
 
     <%# picture %>
     <% if @house.photo.attached? %>
-      <div class="text-center mb-3">
-        <%= cl_image_tag @house.photo.key, width: 430, crop: :fill %>
+      <div class="show-house-image text-center mb-3">
+        <%= cl_image_tag @house.photo.key,:width=>430, :height=>250, :gravity=>"auto", :crop=>"fill"%>
       </div>
     <% end %>
 
