@@ -7,10 +7,10 @@
   <div class="card-house-infos">
     <h2><%= house.name %></h2>
     <p><%= house.address %></p>
-
     <% number_tickets = 0 %>
     <% house.rooms.each do |room| %>
-      <% number_tickets = room.tickets.where(status: "pending").count %>
+      <% number_tickets = room.tickets.where(status: "Pending").count %>
+<%# <% raise %>
     <% end %>
 
     <% if number_tickets != 0  %>
