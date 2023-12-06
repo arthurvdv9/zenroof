@@ -2,7 +2,6 @@
 
 <div class = "bg-our-back-orange" style="height: 100vh">
 
-
   <% if @tickets.any? { |ticket| ticket.status == "Fixed" } %>
     <div class="list_title" style="margin-bottom: 30px; padding-top: 30px; text-align: center;">History of tickets for room <%= @room.number %></div>
 
@@ -36,13 +35,13 @@
               <p class="mb-1"><%= ticket.description %></p>
             <% end %>
           <% end %>
-        <% end %>
-
-    <% else %>
-      <p style="text-align: center">There are no past solved tickets</p>
-    <% end %>
+      <% end %>
 
   <% end %>
+  <% else %>
+    <div class="old-tickets" style="padding-top: 30px; text-align: center;">There are no past solved tickets</div>
+  <% end %>
+
 
 </div>
 </div>
