@@ -8,9 +8,10 @@ export default class extends Controller {
     console.log("Hello from toggle_controller.js")
   }
 
-  fire() {
+  fire(event) {
+    event.preventDefault();
     // console.log(cancelbuttonTarget);
     this.togglableElementTarget.classList.toggle("d-none");
-    this.buttonTarget.classList.toggle("d-none")
+    this.buttonTarget.classList.toggle("d-none");
   }
 }
