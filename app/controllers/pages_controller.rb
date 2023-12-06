@@ -18,7 +18,7 @@ class PagesController < ApplicationController
     end
 
 
-    #@tickets = current_user.room.present? ? Ticket.where(room_id: current_user.room.id) : []
+    # @tickets = current_user.room.present? ? Ticket.where(room_id: current_user.room.id) : []
     # Additional code to handle the case where @room is not found
     # @is_user_owner = current_user.houses.size > 0
     # # @is_user_tenant = @is_user_owner ? is_owner_also_tenant : true
