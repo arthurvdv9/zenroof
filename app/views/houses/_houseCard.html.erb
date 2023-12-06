@@ -12,7 +12,9 @@
 
     <% number_tickets = 0 %>
     <% house.rooms.each do |room| %>
-      <% number_tickets += room.tickets.count %>
+      <% room.tickets.each do |ticket| %>
+        <% number_tickets += 1 if ticket.status == "pending" %>
+      <% end %>
     <% end %>
 
   </div>
