@@ -3,10 +3,7 @@ class TicketsController < ApplicationController
 
   def index
     @tickets = current_user.room.tickets
-    if params[:query].present?
-      sql_subquery = "title ILIKE :query OR description ILIKE :query"
-      @ticekts = @ticekts.where(sql_subquery, query: "%#{params[:query]}%")
-    end
+
   end
 
   def show

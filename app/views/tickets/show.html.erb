@@ -27,12 +27,15 @@
       <p><%= @ticket.status%></p>
     <% end %>
 
-    <% if @ticket.photos.attached? %>
-      <%  @ticket.photos.each do |photo| %>
-        <%= cl_image_tag photo.key, width: 300, crop: :fill %>
-      <% end %>
+<%# image zoom %>
+<div class="imagezoom" data-controller="zoom">
+  <% if @ticket.photos.attached? %>
+    <% @ticket.photos.each do |photo| %>
+      <%= cl_image_tag photo.key, width: 300, crop: :fill, data: { target: 'zoom.image' , action: 'click->zoom#toggleZoom' }  %>
     <% end %>
-
+  <% end %>
+</div>
+</div>
 
  <%# ticket chat %>
 
