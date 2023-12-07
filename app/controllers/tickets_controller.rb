@@ -50,5 +50,4 @@ class TicketsController < ApplicationController
     params.require(:ticket).permit(:title, :description, :status, :priority, photos: [])
   end
 
-
 end
