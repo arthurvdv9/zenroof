@@ -3,9 +3,6 @@
     <h1 class="title p-3"><%= @house.name %></h1>
     <h4 class="smalltext address px-3"><%= @house.address %></h4>
 
-    <%= link_to house_path(house), method: :delete, data: { turbo_method: :delete, turbo_confirm: "Are you sure?" } do %>
-      <h4 class="smalltext mylink px-3">Delete this house</h4>
-    <% end %>
 
     <%# picture %>
     <% if @house.photo.attached? %>
@@ -14,68 +11,105 @@
       </div>
     <% end %>
 
-    <div class="houseButtons d-flex px-3">
-      <%= link_to edit_house_path(house), class: "edit-float" do %>
-        <i class="fa-solid fa-pencil my-float-edit"></i>
-        <%# <h4 class="smalltext mylink px-3">Edit House</h4> %>
-      <% end %>
-    </div>
-
-
   </div>
 
   <%# JS target  and rooms form%>
-  <div data-create-room-target="list">
-    <h4 class="smalltext px-3">Rented rooms: <%= @house.rooms.count %>/ <span><%= @house.capacity %></span></h4>
-    <%= link_to "Rent a room", new_house_room_path(house), data: { action: "click->create-room#displayForm" } %>
+  <div data-create-room-target="list" class="px-3">
+    <h4 class="rooms-rented px-3">Rented rooms: <span id="rooms-number"><%= @house.rooms.count %> / <%= @house.capacity %></span></h4>
+
+    <%# <%= link_to "Rent a room", new_house_room_path(house), data: { action: "click->create-room#displayForm" } %>
+
+    <%# <%= link_to new_house_room_path(house), class:"d-flex my-3", data: { action: "click->create-room#displayForm" } do %>
+        <%# <div class="plus-room"> %>
+        <%# <i class="fa fa-plus plus-room-icon"></i> %>
+        <%# </div> %>
+        <%# <h4 class="rooms-rented mylink px-3">Rent a room</h4> %>
+    <%# <% end %>
+
+    <details>
+      <summary class="rooms-rented px-3">Rent a room</summary>
+      <%= render "houses/formRoom", house: house, room:room %>
+    </details>
+
+
+
     <div data-create-room-target="formContainer" class="d-none">
-      <div><%= render "formRoom", house: house, room: room %></div>
-    </div>
-
-    <div class="d-flex justify-content-between">
-      <h5 class="list_title">Tickets</h5>
-
-      <%= link_to ownerhistory_path(house) do %>
-        <h2 class="smalltext mylink px-3">See old tickets</h2>
-      <% end %>
+      <div class="w-100 p-3"><%= render "formRoom", house: house, room: room %></div>
     </div>
 
 
 
-    <% house.rooms.each do |room| %>
-      <div class="list-group list-group-flush" style= "border-color: #E0702D">
-        <% unless @room.nil? %>
+    <h5 class="list_title">Tickets</h5>
+
+    <%# check there are rooms - a não ser que não haja rooms corre isto %>
+    <% unless @room.nil?  %>
+
+      <% house.rooms.each do |room| %>
+        <div class="list-group list-group-flush">
+
+          <%# display tickets of each room %>
           <% room.tickets.each do |ticket| %>
             <% if ticket.status != "Fixed" %>
-              <%= link_to ticket_path(ticket), class:"list-group-item list-group-item-action flex-column align-items-start bg-our-back-green", style:"border-color: #E0702D" do %>
+              <%= link_to ticket_path(ticket), class:"list-group-item list-group-item-action flex-column align-items-start bg-our-back-green", style:"border-color: white" do %>
                 <div class="d-flex w-100 justify-content-between">
                   <h5 class="mb-1 mt-2"><strong><%= ticket.title %></strong></h5>
                   <small class="mb-1 mt-2 status-pills status-owner-<%= ticket.status.split(" ").join.downcase %> "><%= ticket.status%></small>
                 </div>
-                <p class="mb-1"><%=ticket.description %></p>
+                <p class="mb-1"><%=ticket.description.truncate(40) %></p>
               <% end %>
+
             <% end %>
           <% end %>
-        <% else %>
-          <h2>There are no tickets yet</h2>
-        <% end %>
-      </div>
+
+        </div>
+      <% end %>
     <% end %>
   </div>
 
-  <!-- Default dropup button -->
-  <div class="btn-group dropup">
+
+<div class="btn-group dropup">
+ <button type="button" class="float dropdown-toggle" id="bg-grey" data-bs-toggle="dropdown" aria-expanded="false">
+    <i class="fa-solid fa-pencil my-float-edit"></i>
+  </button>
+
+  <ul class="dropdown-menu">
+    <li>
+      <%= link_to edit_house_path(house), class:"dropdown-item" do %>
+      <p>Edit house details</p>
+      <% end %>
+    </li>
+
+    <li>
+      <%= link_to house_path(house), class:"dropdown-item", method: :delete, data: { turbo_method: :delete, turbo_confirm: "Are you sure?" } do %>
+      <p>Delete this house</p>
+      <% end %>
+    </li>
+
+    <li>
+      <%= link_to ownerhistory_path(house), class:"dropdown-item" do %>
+      <p>Solved tickets</p>
+      <% end %>
+    </li>
+
+
+
+
+  </ul>
+</div>
+
+
+  <%# <div class="btn-group dropup">
     <button type="button" class="btn btn-secondary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
         <i class="fa-solid fa-pencil my-float-edit"></i>
     </button>
-    <div class="dropdown-menu">
+    <div class="dropdown-menu"> %>
       <!-- Dropdown menu links -->
-          <button class="dropdown-item float" type="button">Action</button>
+        <%# <button class="dropdown-item" type="button">Action</button> %>
 
 
-      <%# <%= link_to edit_house_path(house), class: "dropdown-item" do %>
+      <%# <%= link_to edit_house_path(house) do %>
         <%# <i class="fa-solid fa-pencil my-float-edit"></i> %>
-      <%# <% end %> %> %>
+      <%# <% end %>
 
     </div>
 </div>

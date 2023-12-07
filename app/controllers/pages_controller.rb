@@ -7,6 +7,10 @@ class PagesController < ApplicationController
 
   def dashboard
     @houses = House.where(user_id: current_user)
+
+    @sorted_houses = @houses.sort_by { |house| house.rooms.each { |room| room.tickets.count } }.reverse
+
+
     if params[:query].present?
       sql_subquery = "name ILIKE :query OR address ILIKE :query"
       @houses = @houses.where(sql_subquery, query: "%#{params[:query]}%")

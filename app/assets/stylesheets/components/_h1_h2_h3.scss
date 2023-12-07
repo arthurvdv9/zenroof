@@ -52,6 +52,19 @@ p {
   text-align: right;
 }
 
+
+.rooms-rented {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 20px;
+  color: #414141;
+  font-weight: 700;
+}
+
+#rooms-number{
+  font-weight: 600;
+
+}
+
 .mylink {
   color: #B44F12;
   font-weight: 900;
@@ -61,4 +74,13 @@ p {
 .address {
   color: #414141;
   font-weight: 700;
+}
+
+.old-tickets {
+  color: #545454;
+font-family: 'Roboto Flex', sans-serif;
+font-size: 20px;
+font-style: normal;
+font-weight: 800;
+line-height: normal;
 }
