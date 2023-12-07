@@ -14,39 +14,61 @@
   </div>
 
   <%# JS target  and rooms form%>
-  <div data-create-room-target="list">
-    <h4 class="smalltext px-3">Rented rooms: <%= @house.rooms.count %>/ <span><%= @house.capacity %></span></h4>
-    <%= link_to "Rent a room", new_house_room_path(house), data: { action: "click->create-room#displayForm" } %>
+  <div data-create-room-target="list" class="px-3" style="padding-bottom: 95px">
+    <h4 class="rooms-rented px-3">Rented rooms: <span id="rooms-number"><%= @house.rooms.count %> / <%= @house.capacity %></span></h4>
+
+    <%# <%= link_to "Rent a room", new_house_room_path(house), data: { action: "click->create-room#displayForm" } %>
+
+    <%# <%= link_to new_house_room_path(house), class:"d-flex my-3", data: { action: "click->create-room#displayForm" } do %>
+        <%# <div class="plus-room"> %>
+        <%# <i class="fa fa-plus plus-room-icon"></i> %>
+        <%# </div> %>
+        <%# <h4 class="rooms-rented mylink px-3">Rent a room</h4> %>
+    <%# <% end %>
+
+    <details>
+      <summary class="rooms-rented px-3">Rent a room</summary>
+      <%= render "houses/formRoom", house: house, room:room %>
+    </details>
+
+
+
     <div data-create-room-target="formContainer" class="d-none">
-      <div><%= render "formRoom", house: house, room: room %></div>
+      <div class="w-100 p-3"><%= render "formRoom", house: house, room: room %></div>
     </div>
 
-    <h5 class="list_title">Tickets</h5>
-    <% house.rooms.each do |room| %>
-      <div class="list-group list-group-flush" style= "border-color: #E0702D">
 
-        <% unless @room.nil? %>
+
+    <h5 class="list_title">Tickets</h5>
+
+    <%# check there are rooms - a não ser que não haja rooms corre isto %>
+    <% unless @room.nil?  %>
+
+      <% house.rooms.each do |room| %>
+        <div class="list-group list-group-flush">
+
+          <%# display tickets of each room %>
           <% room.tickets.each do |ticket| %>
             <% if ticket.status != "Fixed" %>
-              <%= link_to ticket_path(ticket), class:"list-group-item list-group-item-action flex-column align-items-start bg-our-back-green", style:"border-color: #E0702D" do %>
+              <%= link_to ticket_path(ticket), class:"list-group-item list-group-item-action flex-column align-items-start bg-our-back-green", style:"border-color: white" do %>
                 <div class="d-flex w-100 justify-content-between">
                   <h5 class="mb-1 mt-2"><strong><%= ticket.title %></strong></h5>
                   <small class="mb-1 mt-2 status-pills status-owner-<%= ticket.status.split(" ").join.downcase %> "><%= ticket.status%></small>
                 </div>
-                <p class="mb-1"><%=ticket.description %></p>
+                <p class="mb-1"><%=ticket.description.truncate(40) %></p>
               <% end %>
+
             <% end %>
           <% end %>
-        <% else %>
-          <h2>There are no tickets yet</h2>
-        <% end %>
-      </div>
+
+        </div>
+      <% end %>
     <% end %>
   </div>
 
 
 <div class="btn-group dropup">
- <button type="button" class="float dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
+ <button type="button" class="float dropdown-toggle" id="bg-grey" data-bs-toggle="dropdown" aria-expanded="false">
     <i class="fa-solid fa-pencil my-float-edit"></i>
   </button>
 
@@ -64,8 +86,8 @@
     </li>
 
     <li>
-      <%= link_to house_path(house), class:"dropdown-item", method: :delete, data: { turbo_method: :delete, turbo_confirm: "Are you sure?" } do %>
-      <p>Delete this house</p>
+      <%= link_to ownerhistory_path(house), class:"dropdown-item" do %>
+      <p>Solved tickets</p>
       <% end %>
     </li>
 

@@ -1,4 +1,4 @@
-<div class="wrapper">
+<div class="wrapper h-100">
   <%# the two buttons to change view %>
   <ul class="nav nav-tabs" style="border: none !important" id="myTab" role="tablist">
     <li class="nav-item user-select bg-our-back-green no-border" style="border: none !important" role="presentation">
@@ -11,8 +11,8 @@
 
   <%# what happens when you click on the tab%>
   <%# Tab contents %>
-  <div class="tab-content no-border">
-    <div class="tab-pane fade bg-our-back-green <%= if params[:tab] != "tenant" then "show active" else "" end %> " style="height: 100vh" id="owner" role="tabpanel" aria-labelledby="owner-tab">
+  <div class="tab-content no-border h-100">
+    <div class="tab-pane fade bg-our-back-green <%= if params[:tab] != "tenant" then "show active" else "" end %> " style="height: 100%" id="owner" role="tabpanel" aria-labelledby="owner-tab">
 
     <% unless current_user.houses.empty? %>
 
@@ -39,11 +39,11 @@
 
 
     <%# --- tenant view %>
-    <div class="tab-pane fade bg-our-back-orange <%= if params[:tab] == "tenant" then "show active" else "" end %> "style="height: 100vh" id="tenant" role="tabpanel" aria-labelledby="tenant-tab">
+    <div class="tab-pane fade bg-our-back-orange <%= if params[:tab] == "tenant" then "show active" else "" end %> " style="height: 100%" id="tenant" role="tabpanel" aria-labelledby="tenant-tab">
       <% unless current_user.room.nil? %>
 
         <%# address %>
-        <p><%= current_user.room.house.address %></p>
+        <h5 class="p-3"><%= current_user.room.house.address %></h5>
 
         <%# toggle the form via button %>
         <div data-controller="toggle" class="d-flex align-items-center" id="togglecontroller">
@@ -58,7 +58,7 @@
           </div>
         </div>
 
-        <div class="m-4">
+        <div class="m-4" style="padding-bottom: 100px">
           <%# render tickets list %>
           <%= render "tickets/bootstrapTicketsList", tickets: @tickets %>
         </div>

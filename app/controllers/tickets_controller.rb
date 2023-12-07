@@ -9,6 +9,7 @@ class TicketsController < ApplicationController
   def show
     @ticket = Ticket.find(params[:id])
     @message = Message.new
+    @house = @ticket.room.house
   end
 
   def new
@@ -48,6 +49,5 @@ class TicketsController < ApplicationController
   def ticket_params
     params.require(:ticket).permit(:title, :description, :status, :priority, photos: [])
   end
-
 
 end

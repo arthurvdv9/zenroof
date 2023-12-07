@@ -1,47 +1,51 @@
 <div class="container p-3">
 
-  <p><%= current_user.room.house.address %></p>
-  <div class="title mb-5"><%= @ticket.title %></div>
+  <p><%= @house.address %></p>
+  <div class="ticket-title mb-5"><%= @ticket.title %></div>
 
     <% if current_user.id != @ticket.room.user_id %>
 <%# Use a form to submit changes STATUS to the server %>
     <%= form_with(model: @ticket, url: ticket_path(@ticket), local: true, method: :patch) do |form| %>
       <div class="editable-field d-flex justify-content-center mt-5">
-        <button class="status-pills status-owner-<%= @ticket.status.split(" ").join.downcase %>" style= "position: center"><%= @ticket.status %></button>
+        <button class="status-pills pill-margin status-owner-<%= @ticket.status.split(" ").join.downcase %> d-flex justify-content-center mt-5"><%= @ticket.status %>
 
         <% if @ticket.status == 'Pending' %>
           <%= form.hidden_field :status, value: 'Ongoing' %>
-
         <% elsif @ticket.status == 'Ongoing' %>
           <%= form.hidden_field :status, value: 'Fixed' %>
-
         <% else %>
           <%= form.hidden_field :status, value: 'Pending' %>
         <% end %>
-
+        </button>
       </div>
     <% end %>
     <% else %>
-      <p><%= @ticket.status%></p>
+        <p class="status-pills pill-margin status-owner-<%= @ticket.status.split(" ").join.downcase %>"><%= @ticket.status%></p>
     <% end %>
 
 
-  <div class="paragraph-container">
-  <p> Room <%= @ticket.room.number%> </p>
-   <p> Issuer:  <%= @ticket.room.user.last_name%></p>
-  </div>
 
+    <div class="paragraph-container">
+    <div> Room <%= @ticket.room.number%> </div>
+      <div> Issuer: Mr./ Ms. <%= @ticket.room.user.last_name%></div>
+    </div>
 
+<div style="padding-bottom: 95px">
    <i class="ticket-date"><%= @ticket.created_at.strftime("%d.%m.%Y") %></i>
-  <p class="description-box"><%= @ticket.description %></p>
-  <p class="priority-field" id="priority"> Priority:<span><%= @ticket.priority%></span></p>
+  <div class="description-box"><%= @ticket.description %></div>
+  <div class="priority-field" id="priority"> Priority:<span><%= @ticket.priority%></span></div>
 
 
     <% if @ticket.photos.attached? %>
-      <%  @ticket.photos.each do |photo| %>
-        <%= cl_image_tag photo.key, width: 300, crop: :fill %>
-      <% end %>
+    <span class= attachment>Attachments: </span>
+      <div class="grid">
+        <%  @ticket.photos.each do |photo| %>
+          <%= cl_image_tag photo.key, width: 300, crop: :fill %>
+        <% end %>
+      </div>
     <% end %>
+
+
 
 
  <%# ticket chat %>
@@ -60,12 +64,13 @@
     <% if @ticket.status != "Fixed" %>
 
       <%= simple_form_for [@ticket, @message],
-      html: { data: { action: "turbo:submit-end->ticket-subscription#resetForm" }, class: "d-flex" } do |f| %>
+      html: { data: { action: "turbo:submit-end->ticket-subscription#resetForm" }, class: "message-box" } do |f| %>
         <%= f.input :content,
           label: false,
           placeholder: "Message",
           wrapper_html: {class: "flex-grow-1"}
         %>
+
       <%= f.submit "Send", class: "btn btn-primary mb-3" %>
       <% end %>
 

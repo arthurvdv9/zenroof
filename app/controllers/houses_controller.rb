@@ -12,7 +12,7 @@ class HousesController < ApplicationController
   def show
     @room = Room.new
     @house = House.find(params[:id])
-    
+
   end
 
   def new
