@@ -14,7 +14,7 @@
   </div>
 
   <%# JS target  and rooms form%>
-  <div data-create-room-target="list" class="px-3">
+  <div data-create-room-target="list" class="px-3" style="padding-bottom: 95px">
     <h4 class="rooms-rented px-3">Rented rooms: <span id="rooms-number"><%= @house.rooms.count %> / <%= @house.capacity %></span></h4>
 
     <%# <%= link_to "Rent a room", new_house_room_path(house), data: { action: "click->create-room#displayForm" } %>
