@@ -23,7 +23,7 @@
 
       <%# List of old tickets %>
 
-      <% @rooms.each do |room| %>
+      <%# <% @rooms.each do |room| %>
 
         <% @tickets.each do |ticket| %>
           <% if ticket.status == "Fixed" %>
@@ -36,7 +36,7 @@
             <% end %>
           <% end %>
         <% end %>
-      <% end %>
+      <%# <% end %>
 
     <% else %>
       <p class="old-tickets" style="padding-top: 30px; text-align: center;">There are no past solved tickets for <%= "#{@sorted_house.name}" %></p>
