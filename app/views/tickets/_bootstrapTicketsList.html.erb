@@ -16,7 +16,7 @@
       <% @room.tickets.each do |ticket| %>
         <% if ticket.status != "Fixed" %>
 
-          <%= link_to ticket_path(ticket), class:"list-group-item list-group-item-action flex-column align-items-start bg-our-back-orange", style:"border-color: #E0702D" do %>
+          <%= link_to ticket_path(ticket), class:"list-group-item list-group-item-action flex-column align-items-start bg-our-back-orange", style:"border-top: 1px solid #E0702D;" do %>
 
             <div class="d-flex w-100 justify-content-between">
               <h5 class="mb-1 mt-2"><strong><%= ticket.title %></strong></h5>

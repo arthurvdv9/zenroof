@@ -52,6 +52,19 @@ p {
   text-align: right;
 }
 
+.mediumtext {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 19px;
+
+}
+
+
+.formTags {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 16px;
+  padding-top: 5px;
+}
+
 
 .rooms-rented {
   font-family: 'Montserrat', sans-serif;
@@ -59,6 +72,15 @@ p {
   color: #414141;
   font-weight: 700;
 }
+
+.alignRight {
+  text-align: right;
+}
+
+.alignCenter {
+  text-align: center;
+}
+
 
 #rooms-number{
   font-weight: 600;

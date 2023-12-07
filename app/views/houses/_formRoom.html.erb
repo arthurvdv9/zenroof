@@ -1,22 +1,24 @@
-    <%= simple_form_for [house, room] do |f| %>
-      <div class="row px-3">
+<div class="px-5">
+  <%= simple_form_for [house, room] do |f| %>
+    <div class="row py-3">
 
-        <div class="col-4">
-          <%= f.input :number %>
-        </div>
-
-        <div class="col-6">
-          <%= f.input :user, collection: User.all, label_method: :email, value_method: :id%>
-        </div>
+      <div class="col-6 formTags">
+        <%= f.input :number %>
       </div>
 
-      <div class="row px-3">
-        <div class="col-4">
-
-          <%= f.submit "Add room", class: "btn btn-flat",
-          data: {
-            create_room_target: "button"
-          }%>
-        </div>
+      <div class="col-6 formTags">
+        <%= f.input :user, collection: User.all, label_method: :email, value_method: :id%>
       </div>
-    <% end %>
+    </div>
+
+    <div class="row">
+      <div class="col-4 formTags">
+
+        <%= f.submit "Add room", class: "btn btn-flat mb-3",
+        data: {
+          create_room_target: "button"
+        }%>
+      </div>
+    </div>
+  <% end %>
+</div>
