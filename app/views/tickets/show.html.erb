@@ -1,6 +1,6 @@
 <div class="container p-3">
 
-  <p><%= current_user.room.house.address %></p>
+  <p><%= @house.address %></p>
   <div class="ticket-title mb-5"><%= @ticket.title %></div>
 
     <% if current_user.id != @ticket.room.user_id %>
