@@ -90,42 +90,42 @@ puts "Room created"
 
 puts "Creating ticket"
 file = URI.open("https://i.redd.it/mll2k3n2fwlb1.jpg")
-ticket = Ticket.create!(title: "Boiler not working", description: "Hi, despite the buttons being turned and the light being on the boiler doesn't work... Please solve this as soon as possible. :)", status: "pending", priority: "high", room_id: usertenant.room.id)
+ticket = Ticket.create!(title: "Boiler not working", description: "Hi, despite the buttons being turned and the light being on the boiler doesn't work... Please solve this as soon as possible. :)", status: "Pending", priority: "high", room_id: usertenant.room.id)
 ticket.photos.attach(io: file, filename: "nes.png", content_type: "image/png")
 ticket.save
 
 puts "Creating ticket"
 file = URI.open("https://www.cnet.com/a/img/resize/490349daad3802e23721c574e126b622f1eae3d0/hub/2021/04/21/671e571b-6b66-4f86-978c-8c1394a8e0a6/screen-shot-2021-04-21-at-10-31-37-am.png?auto=webp&fit=crop&height=675&width=1200")
-ticket = Ticket.create!(title: "Broken pipe is leaking", description: "Greetings, the pipe broke and started to leak, we managed to temporarily fix it with some tape but i can't stress how important it is to get it fixed ASAP", status: "pending", priority: "high", room_id: usertenant.room.id)
+ticket = Ticket.create!(title: "Broken pipe is leaking", description: "Greetings, the pipe broke and started to leak, we managed to temporarily fix it with some tape but i can't stress how important it is to get it fixed ASAP", status: "Pending", priority: "high", room_id: usertenant.room.id)
 ticket.photos.attach(io: file, filename: "nes.png", content_type: "image/png")
 ticket.save
 
 
 puts "Creating ticket"
 file = URI.open("https://i.insider.com/5c1ab3dc01c0ea1233396b64?width=700")
-ticket = Ticket.create!(title: "Ceiling mold", description: "Hey! Like we've talked before the mold on the bedroom ceiling is getting worse. Could you send someone to check up on it? Thanks!", status: "pending", priority: "Medium", room_id: usertenant.room.id)
+ticket = Ticket.create!(title: "Ceiling mold", description: "Hey! Like we've talked before the mold on the bedroom ceiling is getting worse. Could you send someone to check up on it? Thanks!", status: "Pending", priority: "Medium", room_id: usertenant.room.id)
 ticket.photos.attach(io: file, filename: "nes.png", content_type: "image/png")
 ticket.save
 
 puts "Creating ticket"
-ticket = Ticket.create!(title: "Loud neighbours", description: "Hey, i have work at around 6 am in the morning and the neighbours(2º floor) have been doing a lot of noise all night. It gets very tiring so if you could talk to them i'd appreciate it. Have a good one.", status: "pending", priority: "Medium", room_id: usertenant.room.id)
+ticket = Ticket.create!(title: "Loud neighbours", description: "Hey, i have work at around 6 am in the morning and the neighbours(2º floor) have been doing a lot of noise all night. It gets very tiring so if you could talk to them i'd appreciate it. Have a good one.", status: "Pending", priority: "Medium", room_id: usertenant.room.id)
 ticket.save
 
 puts "Creating ticket"
 file = URI.open("https://www.aborrelli.com/hubfs/white-window-type-ac-outdoor-unit-1472035.jpg")
-ticket = Ticket.create!(title: "HVAC (Air Conditioning)", description: "Hey! I just got home and it seems like the air conditioning system stopped working, could you please check up on it?", status: "pending", priority: "Low", room_id: usertenant.room.id)
+ticket = Ticket.create!(title: "Air Conditioning", description: "Hey! I just got home and it seems like the air conditioning system stopped working, could you please check up on it?", status: "Pending", priority: "Low", room_id: usertenant.room.id)
 ticket.photos.attach(io: file, filename: "nes.png", content_type: "image/png")
 ticket.save
 
 puts "Creating ticket"
 file = URI.open("https://holeinonepest.com/wp-content/uploads/2011/12/Rats-e1400241706267.jpg")
-ticket = Ticket.create!(title: "RAT INFESTATION", description: "THERES RATS EVERYWHERE SINCE I GOT HOME, PLEASE SEND SOMEONE OVER!!!!!!", status: "pending", priority: "High", room_id: usertenant.room.id)
+ticket = Ticket.create!(title: "RAT INFESTATION", description: "THERES RATS EVERYWHERE SINCE I GOT HOME, PLEASE SEND SOMEONE OVER!!!!!!", status: "Pending", priority: "High", room_id: usertenant.room.id)
 ticket.photos.attach(io: file, filename: "nes.png", content_type: "image/png")
 ticket.save
 
 puts "Creating ticket"
 file = URI.open("https://media.istockphoto.com/id/1205308487/photo/mailbox-and-post-damaged-by-hurricane-michael.jpg?s=612x612&w=0&k=20&c=oODPlJIvsamaZdp9Ei4EBjTsJRUHRY7pS7IFtdsSGAQ=")
-ticket = Ticket.create!(title: "Mailbox is broken", description: "I think someone broke the mailbox in the middle of the night, maybe reply to this so we can discuss our options?", status: "pending", priority: "Medium", room_id: usertenant.room.id)
+ticket = Ticket.create!(title: "Mailbox is broken", description: "I think someone broke the mailbox in the middle of the night, maybe reply to this so we can discuss our options?", status: "Pending", priority: "Medium", room_id: usertenant.room.id)
 ticket.photos.attach(io: file, filename: "nes.png", content_type: "image/png")
 ticket.save
 

@@ -57,6 +57,11 @@ position: relative;
   margin-bottom: 30px;
 }
 
+#bg-grey{
+  background-color: #545454;
+
+}
+
 .my-float{
 	margin-top:22px;
 }
@@ -91,10 +96,25 @@ button {
 }
 
 .my-float-edit{
-	margin-top:13px;
+	margin-top:12px;
 }
 
 
 .houseButtons {
   margin-top: -35px;
+}
+
+.plus-room {
+  background-color: $our-orange;
+	color:#FFF;
+	border-radius:50px;
+	text-align:center;
+	box-shadow: 2px 2px 3px #999;
+
+  width:30px;
+  height:30px;
+}
+
+.plus-room-icon {
+margin-top: 7px;
 }
