@@ -46,8 +46,15 @@
     </div>
 
 
-
-    <h5 class="list_title pt-2">Tickets</h5>
+     <% all_tickets = 0 %>
+    <% house.rooms.each do |room| %>
+      <% all_tickets += room.tickets.where(status: "Pending").count %>
+    <% end %>
+      <% if  all_tickets != 0  %>
+        <h5 class="list_title pt-2">Tickets</h5>
+    <% else %>
+    <h5 class="list_title pt-2">No Tickets</h5>
+    <% end %>
 
     <%# check there are rooms - a não ser que não haja rooms corre isto %>
     <% unless @room.nil?  %>
