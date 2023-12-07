@@ -1,12 +1,12 @@
 <div class="container px-4" style="padding-bottom: 95px">
   <div class="list_title">My Houses</div>
-    <% @sorted_houses.each do |house| %>
+  <% @sorted_houses.each do |house| %>
 
-      <%= link_to house_path(house) do %>
+    <%= link_to house_path(house) do %>
 
-        <%= render "houses/houseCard", house: house %>
+      <%= render "houses/houseCard", house: house %>
 
-      <% end %>
+    <% end %>
 
   <% end %>
 
@@ -15,3 +15,4 @@
   <% end %>
 
 </div>
+
