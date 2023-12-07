@@ -40,8 +40,8 @@ class PagesController < ApplicationController
   end
 
   def tenanthistory
-    @tickets = current_user.room.present? ? Ticket.where(room_id: current_user.room.id) : []
-    if params[:query].present?
+    @tickets = current_user.room.present? ? Ticket.where(room_id: current_user.room.id) : Ticket.none
+    if params[:query].present? && current_user.room.present?
       sql_subquery = "title ILIKE :query OR description ILIKE :query"
       @tickets = @tickets.where(sql_subquery, query: "%#{params[:query]}%")
     end
@@ -49,13 +49,13 @@ class PagesController < ApplicationController
   end
 
   def ownerhistory
-    @house = House.find(params[:house_id])
-    @rooms = Room.where(house_id: @house.id)
+    @sorted_house = House.find(params[:house_id])
+    @rooms = Room.where(house_id: @sorted_house.id)
     @tickets = @rooms.map { |room| room.tickets }.flatten
     if params[:query].present?
-      sql_subquery = "title ILIKE :query OR description ILIKE :query"
-      @tickets = @tickets.where(sql_subquery, query: "%#{params[:query]}%")
+      @tickets = @tickets.select do |ticket|
+        ticket.title.include?(params[:query]) || ticket.description.include?(params[:query])
+      end
     end
   end
-
 end
