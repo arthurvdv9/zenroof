@@ -46,14 +46,14 @@ class PagesController < ApplicationController
     @room = current_user.room
   end
 
-  # def tenanthistory
-  #   @tickets = current_user.room.present? ? Ticket.where(room_id: current_user.room.id) : []
-  #   @room = current_user.room
-  # end
-
   def ownerhistory
     @house = House.find(params[:house_id])
     @rooms = Room.where(house_id: @house.id)
     @tickets = @rooms.map { |room| room.tickets }.flatten
+    if params[:query].present?
+      sql_subquery = "title ILIKE :query OR description ILIKE :query"
+      @tickets = @tickets.where(sql_subquery, query: "%#{params[:query]}%")
+    end
   end
+  
 end
