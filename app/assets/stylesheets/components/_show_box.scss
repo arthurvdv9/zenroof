@@ -8,27 +8,39 @@
   line-height: normal;
 }
 
+.address {
+  text-align: left;
+  color: #414141;
+  font-weight: 700;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 16px;
+  text-align: right;
+}
+
+.date-prio {
+  // margin: 0 20px;
+}
 
 
-  .description-box{
-    background: #888;
-    margin: 0px 20px;
-    padding: 15px;
-    border-radius: 4px;
-    max-width: 90%;
-    color: #000;
-    font-family: "Roboto Flex", sans-serif;
-    font-size: 16px;
-    font-style: normal;
-    font-weight: 400;
-    line-height: normal;
-  }
+.description-box{
+  background: #888;
+  // margin: 0px 20px;
+  padding: 15px;
+  border-radius: 4px;
+  max-width: 100%;
+  color: #000;
+  font-family: "Roboto Flex", sans-serif;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+}
 
   .paragraph-container {
     display:flex;
+    width: 100%;
     flex-direction: column;
     max-width: 400px;
-    margin: 50px 20px 20px;
     overflow: hidden;
     font-weight: 700;
     color:#545454
@@ -36,10 +48,10 @@
 
   .priority-field{
     font-weight: 700;
-    display:flex;
-    flex-direction: column;
-    margin: 20px;
+    display: flex;
     span {
+      margin-top: 3px;
+      margin-left: 3px;
       color: #FF7522;
       font-family: "Roboto Flex", sans-serif;
       font-size: 16px;
@@ -71,7 +83,7 @@
   }
 
   .pill-margin {
-    margin: 0 auto;
+    margin: 25px auto;
     display: block;
   }
 
@@ -87,7 +99,6 @@
     align-items: center;
     border-radius: 25px 25px 0px 0px;
     background: #777;
-
    }
 
     .attachment{
@@ -96,4 +107,14 @@
       flex-direction: column;
       margin: 20px;
       color: #545454;
+    }
+
+    .ticket-box-container{
+    background: linear-gradient(to bottom, #f0f0f0, #e0e0e0);
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    margin: 25px;
+    padding-bottom: 30px;
     }
