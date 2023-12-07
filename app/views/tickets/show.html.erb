@@ -48,9 +48,8 @@
         <% if current_user.id != @ticket.room.user_id %>
           <%= form_with(model: @ticket, url: ticket_path(@ticket), local: true, method: :patch) do |form| %>
             <div class="editable-field d-flex justify-content-center mt-5">
-              <div class=" status-pills  status-owner-<%= @ticket.status.split(" ").join.downcase %> d-flex justify-content-center mt-5">
+              <button class=" status-pills  status-owner-<%= @ticket.status.split(" ").join.downcase %> d-flex justify-content-center mt-5">
                 <%= @ticket.status %>
-              </div>
 
               <% if @ticket.status == 'Pending' %>
                 <%= form.hidden_field :status, value: 'Ongoing' %>
@@ -61,13 +60,11 @@
               <% else %>
                 <%= form.hidden_field :status, value: 'Pending' %>
               <% end %>
-
-              <%= form.submit "Pending", class: "btn btn-primary ml-2", name: "pending_button" %>
+              </button>
             </div>
           <% end %>
          <% else %>
-          <div class="d-flex justify-content-center mt-5"></div>
-          <button class="status-pills  status-owner-<%= @ticket.status.split(" ").join.downcase %>"><%= @ticket.status%></button>
+          <p class="status-pills  status-owner-<%= @ticket.status.split(" ").join.downcase %>"><%= @ticket.status%></p>
          <% end %>
 
       </div>
