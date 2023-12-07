@@ -1,7 +1,8 @@
 
 <div class="container" data-controller="create-house" style="background: #60D3AB; height:100vh;" >
 
-  <div class="title">Your New House</div>
+  <div class="title" style="margin-bottom: 40px">Your New House</div>
+  <div style="padding: 28px">
     <%= simple_form_for @house do |f|%>
       <%= f.input :name ,
           input_html: { class: "form-input" },
@@ -19,6 +20,9 @@
           input_html: { class: "form-input" },
           placeholder: "pic",
           label: false %>
+      <div style="text-align: center; padding-top: 30px">
       <%= f.submit "Save house", class: "btn btn-flat w-75" %>
+      </div>
     <% end %>
+    </div>
 </div>
