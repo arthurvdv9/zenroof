@@ -1,26 +1,28 @@
 class PagesController < ApplicationController
   skip_before_action :authenticate_user!, only: [ :home ]
 
-
   def home
   end
 
   def dashboard
     @houses = House.where(user_id: current_user)
 
-    @sorted_houses = @houses.sort_by { |house| house.rooms.each { |room| room.tickets.count } }.reverse
+    @sorted_houses = @houses.sort_by do |house|
+      house.rooms.map { |room| room.tickets.count }.sum
+    end.reverse
 
+    # @tickets = Ticket.all
 
     if params[:query].present?
       sql_subquery = "name ILIKE :query OR address ILIKE :query"
-      @houses = @houses.where(sql_subquery, query: "%#{params[:query]}%")
+      @sorted_houses = @houses.where(sql_subquery, query: "%#{params[:query]}%")
     end
     @ticket = Ticket.new
 
-    if params[:query].present?
-      sql_subquery = "title ILIKE :query OR description ILIKE :query"
-      @ticket = @tickets.where(sql_subquery, query: "%#{params[:query]}%")
-    end
+    # if params[:query].present?
+    #   sql_subquery = "title ILIKE :query OR description ILIKE :query"
+    #   @ticket = @tickets.where(sql_subquery, query: "%#{params[:query]}%")
+    # end
 
 
     # @tickets = current_user.room.present? ? Ticket.where(room_id: current_user.room.id) : []
@@ -37,25 +39,23 @@ class PagesController < ApplicationController
     # puts @houses
   end
 
-
   def tenanthistory
-    @tickets = current_user.room.present? ? Ticket.where(room_id: current_user.room.id) : []
-    if params[:query].present?
+    @tickets = current_user.room.present? ? Ticket.where(room_id: current_user.room.id) : Ticket.none
+    if params[:query].present? && current_user.room.present?
       sql_subquery = "title ILIKE :query OR description ILIKE :query"
       @tickets = @tickets.where(sql_subquery, query: "%#{params[:query]}%")
     end
     @room = current_user.room
   end
 
-  def tenanthistory
-    @tickets = current_user.room.present? ? Ticket.where(room_id: current_user.room.id) : []
-    @room = current_user.room
-  end
-
   def ownerhistory
-    @house = House.find(params[:house_id])
-    @rooms = Room.where(house_id: @house.id)
+    @sorted_house = House.find(params[:house_id])
+    @rooms = Room.where(house_id: @sorted_house.id)
     @tickets = @rooms.map { |room| room.tickets }.flatten
+    if params[:query].present?
+      @tickets = @tickets.select do |ticket|
+        ticket.title.include?(params[:query]) || ticket.description.include?(params[:query])
+      end
+    end
   end
-
 end

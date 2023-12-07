@@ -3,12 +3,12 @@
 
 
   <% if @tickets.any? { |ticket| ticket.status == "Fixed" } %>
-    <div class="list_title" style="margin-bottom: 30px; padding-top: 30px; text-align: center;">History of tickets for <%= @house.name %></div>
+    <div class="list_title" style="margin-bottom: 30px; padding-top: 30px; text-align: center;">History of tickets for <%= @sorted_house.name %></div>
 
     <%# search bar for history %>
     <div class="row justify-content-center">
       <div class="col-sm-8 my-3">
-        <%= form_with url: tenanthistory_path, method: :get, class: "p-4 d-flex" do %>
+        <%= form_with url: ownerhistory_path, method: :get, class: "p-4 d-flex" do %>
           <%= text_field_tag :query,
                 params[:query],
                 class: "form-control",
@@ -26,7 +26,7 @@
 
       <% @rooms.each do |room| %>
 
-        <% room.tickets.each do |ticket| %>
+        <% @tickets.each do |ticket| %>
           <% if ticket.status == "Fixed" %>
             <%= link_to ticket_path(ticket), class: "list-group-item list-group-item-action flex-column align-items-start bg-our-back-green", style: "border-color: #FFFFFF" do %>
               <div class="d-flex w-100 justify-content-between">
@@ -40,7 +40,7 @@
       <% end %>
 
     <% else %>
-      <p class="old-tickets" style="padding-top: 30px; text-align: center;">There are no past solved tickets for <%= "#{@house.name}" %></p>
+      <p class="old-tickets" style="padding-top: 30px; text-align: center;">There are no past solved tickets for <%= "#{@sorted_house.name}" %></p>
     <% end %>
 
 </div>
