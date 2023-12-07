@@ -11,16 +11,18 @@ class PagesController < ApplicationController
       house.rooms.map { |room| room.tickets.count }.sum
     end.reverse
 
+    # @tickets = Ticket.all
+
     if params[:query].present?
       sql_subquery = "name ILIKE :query OR address ILIKE :query"
-      @houses = @houses.where(sql_subquery, query: "%#{params[:query]}%")
+      @sorted_houses = @houses.where(sql_subquery, query: "%#{params[:query]}%")
     end
     @ticket = Ticket.new
 
-    if params[:query].present?
-      sql_subquery = "title ILIKE :query OR description ILIKE :query"
-      @ticket = @tickets.where(sql_subquery, query: "%#{params[:query]}%")
-    end
+    # if params[:query].present?
+    #   sql_subquery = "title ILIKE :query OR description ILIKE :query"
+    #   @ticket = @tickets.where(sql_subquery, query: "%#{params[:query]}%")
+    # end
 
 
     # @tickets = current_user.room.present? ? Ticket.where(room_id: current_user.room.id) : []
@@ -55,5 +57,5 @@ class PagesController < ApplicationController
       @tickets = @tickets.where(sql_subquery, query: "%#{params[:query]}%")
     end
   end
-  
+
 end
