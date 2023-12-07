@@ -15,7 +15,7 @@
 
   <%# JS target  and rooms form%>
   <div data-create-room-target="list" class="px-3" style="padding-bottom: 95px">
-    <h4 class="rooms-rented px-3">Rented rooms: <span id="rooms-number"><%= @house.rooms.count %> / <%= @house.capacity %></span></h4>
+    <h4 class="mediumtext address alignRight pb-2">Rented rooms: <span id="rooms-number"><%= @house.rooms.count %> / <%= @house.capacity %></span></h4>
 
     <%# <%= link_to "Rent a room", new_house_room_path(house), data: { action: "click->create-room#displayForm" } %>
 
@@ -26,10 +26,18 @@
         <%# <h4 class="rooms-rented mylink px-3">Rent a room</h4> %>
     <%# <% end %>
 
-    <details>
-      <summary class="rooms-rented px-3">Rent a room</summary>
-      <%= render "houses/formRoom", house: house, room:room %>
-    </details>
+
+    <% if @house.rooms.count < @house.capacity%>
+      <details class="ourDetailsTag my-3">
+        <summary class="rooms-rented alignCenter ourDetailsTag-sum mx-5">Rent a room</summary>
+        <%= render "houses/formRoom", house: house, room:room %>
+      </details>
+    <% end %>
+
+
+
+
+
 
 
 
@@ -39,7 +47,7 @@
 
 
 
-    <h5 class="list_title">Tickets</h5>
+    <h5 class="list_title pt-2">Tickets</h5>
 
     <%# check there are rooms - a não ser que não haja rooms corre isto %>
     <% unless @room.nil?  %>
@@ -50,7 +58,7 @@
           <%# display tickets of each room %>
           <% room.tickets.each do |ticket| %>
             <% if ticket.status != "Fixed" %>
-              <%= link_to ticket_path(ticket), class:"list-group-item list-group-item-action flex-column align-items-start bg-our-back-green", style:"border-color: white" do %>
+              <%= link_to ticket_path(ticket), class:"list-group-item list-group-item-action flex-column align-items-start bg-our-back-green", style:"border-top: 1px solid white;" do %>
                 <div class="d-flex w-100 justify-content-between">
                   <h5 class="mb-1 mt-2"><strong><%= ticket.title %></strong></h5>
                   <small class="mb-1 mt-2 status-pills status-owner-<%= ticket.status.split(" ").join.downcase %> "><%= ticket.status%></small>

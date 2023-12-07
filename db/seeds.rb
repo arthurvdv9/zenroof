@@ -44,7 +44,7 @@ puts "House created"
 
 puts "Creating house"
 file = URI.open("https://images.mansionglobal.com/im-47142150")
-house3 = House.create!(address:"Aldoar, rua do Farol, 233, Foz Velha", name: "Appartment T4", capacity: 4, user_id: userowner.id)
+house3 = House.create!(address:"Aldoar, rua do Farol, 233, Foz Velha", name: "Apartment T4", capacity: 4, user_id: userowner.id)
 house3.photo.attach(io: file, filename: "nes.png", content_type: "image/png")
 puts "House created"
 
@@ -100,13 +100,13 @@ puts "Room created"
 
 puts "Creating ticket"
 file = URI.open("https://i.redd.it/mll2k3n2fwlb1.jpg")
-ticket = Ticket.create!(title: "Boiler not working", description: "Hi, despite the buttons being turned and the light being on the boiler doesn't work... Please solve this as soon as possible. :)", status: "Pending", priority: "high", room_id: usertenant1.room.id)
+ticket = Ticket.create!(title: "Boiler not working", description: "Hi, despite the buttons being turned and the light being on the boiler doesn't work... Please solve this as soon as possible. :)", status: "Pending", priority: "High", room_id: usertenant1.room.id)
 ticket.photos.attach(io: file, filename: "nes.png", content_type: "image/png")
 ticket.save
 
 puts "Creating ticket"
 file = URI.open("https://www.cnet.com/a/img/resize/490349daad3802e23721c574e126b622f1eae3d0/hub/2021/04/21/671e571b-6b66-4f86-978c-8c1394a8e0a6/screen-shot-2021-04-21-at-10-31-37-am.png?auto=webp&fit=crop&height=675&width=1200")
-ticket = Ticket.create!(title: "Broken pipe is leaking", description: "Greetings, the pipe broke and started to leak, we managed to temporarily fix it with some tape but i can't stress how important it is to get it fixed ASAP", status: "Pending", priority: "high", room_id: usertenant2.room.id)
+ticket = Ticket.create!(title: "Broken pipe is leaking", description: "Greetings, the pipe broke and started to leak, we managed to temporarily fix it with some tape but i can't stress how important it is to get it fixed ASAP", status: "Pending", priority: "High", room_id: usertenant2.room.id)
 ticket.photos.attach(io: file, filename: "nes.png", content_type: "image/png")
 ticket.save
 
