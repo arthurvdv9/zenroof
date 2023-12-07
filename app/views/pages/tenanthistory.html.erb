@@ -3,7 +3,7 @@
 <div class = "bg-our-back-orange" style="height: 100vh">
 
   <% if @tickets.any? { |ticket| ticket.status == "Fixed" } %>
-    <div class="list_title" style="margin-bottom: 30px; padding-top: 30px; text-align: center;">History of tickets for room <%= @room.number %></div>
+    <div class="list_title" style="margin-bottom: 30px; padding-top: 30px; margin-top: 0px; text-align: center;">History of tickets for room <%= @room.number %></div>
 
     <% unless @room.nil? %>
 

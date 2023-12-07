@@ -1,9 +1,8 @@
 <%# overalll page %>
 <div class = "bg-our-back-green" style="height: 100vh">
 
-
   <% if @tickets.any? { |ticket| ticket.status == "Fixed" } %>
-    <div class="list_title" style="margin-bottom: 30px; padding-top: 30px; text-align: center;">History of tickets for <%= @sorted_house.name %></div>
+    <div class="list_title" style="margin-bottom: 30px; padding-top: 30px; margin-top: 0px; text-align: center;">History of tickets for <%= @sorted_house.name %></div>
 
     <%# search bar for history %>
     <div class="row justify-content-center">
