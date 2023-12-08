@@ -1,6 +1,5 @@
-<div class="container">
-
-
+<body style="background: #e9cd58">
+<div class="wrapper pb-4" style="background:#e9cd58;">
   <div class="ticket-title m-4 ">
     <div class="">
       <%= @ticket.title %>
@@ -9,12 +8,11 @@
     <p class="address"><%= @house.address %></p>
   </div>
 
-  <div class= ticket-box-container>
-
-         <!-- Bootstrap Carousel -->
+    <div class=ticket-box-container>
+          <!-- Bootstrap Carousel -->
 
     <% if @ticket.photos.attached? %>
-      <div id="carouselExampleIndicators" class="carousel slide mt-3" data-ride="carousel">
+      <div id="carouselExampleIndicators" class="carousel slide mt-3 mb-4" data-ride="carousel">
         <ol class="carousel-indicators">
           <% @ticket.photos.each_with_index do |photo, index| %>
             <li data-target="#carouselExampleIndicators" data-slide-to="<%= index %>" <%= 'class="active"' if index.zero? %>></li>
@@ -23,8 +21,7 @@
         <div class="carousel-inner">
           <% @ticket.photos.each_with_index do |photo, index| %>
             <div class="carousel-item <%= 'active' if index.zero? %>">
-              <%= cl_image_tag(photo.key, class: 'd-block w-75') %>
-            </div>
+          <%= cl_image_tag(photo.key, class: 'd-block w-100 carousel-image') %>            </div>
           <% end %>
         </div>
         <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
@@ -39,7 +36,7 @@
     <% end %>
 
 
-   <div class="paragraph-container">
+   <div class="paragraph-container mt-4">
       <div class="w-100 d-flex align-items-center justify-content-between">
         <div> Room <%= @ticket.room.number %></div>
 
@@ -64,7 +61,7 @@
             </div>
           <% end %>
          <% else %>
-          <p class="status-pills  status-owner-<%= @ticket.status.split(" ").join.downcase %>"><%= @ticket.status%></p>
+          <p class="status-pills status-owner-<%= @ticket.status.split(" ").join.downcase %>"><%= @ticket.status%></p>
          <% end %>
 
       </div>
@@ -85,11 +82,13 @@
     </div>
 
   </div>
-  </div>
+    </div>
+
+
 
  <%# ticket chat %>
 
-  <div class="chat-container"
+  <div class="chat-container pb-3"
   data-controller="ticket-subscription"
   data-ticket-subscription-ticket-id-value="<%= @ticket.id %>">
 
@@ -120,3 +119,5 @@
   <%# <%= render "messages/message" %>
 
 </div>
+
+</body>
