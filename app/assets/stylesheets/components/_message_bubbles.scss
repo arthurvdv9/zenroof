@@ -8,23 +8,21 @@ line-height: normal;
 }
 
 .current_user_message_details{
-color: #FFA772;
+color: #545454;
 font-family: 'Roboto Flex', sans-serif;
 font-size: 16px;
 font-style: normal;
 font-weight: 400;
 line-height: normal;
-align-self: flex-start;
   }
 
 .message_details {
-color: #12D08E;
+color: #545454;
 font-family: 'Roboto Flex', sans-serif;
 font-size: 16px;
 font-style: normal;
 font-weight: 400;
 line-height: normal;
-align-self: flex-end;
 }
 
 .chat-bubble {
@@ -35,29 +33,32 @@ align-self: flex-end;
 }
 
 .current_user_bubble{
-  align-self: flex-start;
-  float: left;
   background-color: #FFA772;
-  border-radius: 0px 20px 20px 20px;
+  border-radius: 20px 0px 20px 20px;
 }
 
 .bubble {
-  align-self: flex-end;
-  float: right;
   background-color: #12D08E;
-  border-radius: 20px 0px 20px 20px;
+  border-radius: 0px 20px 20px 20px;
 }
 
 .chat-container {
 max-width: 400px;
 margin: 25px 40px;
-// margin: 50px auto;
 overflow: hidden;
 }
 
-.message{
-display: flex;
-flex-direction: column;
-max-width: 400px;
-overflow: hidden;
-}
+.message_current_user{
+  display: flex;
+  flex-direction: column;
+  max-width: 400px;
+  overflow: hidden;
+  align-items: flex-end;
+ }
+
+  .message {
+    display: flex;
+    flex-direction: column;
+    max-width: 400px;
+    overflow: hidden;
+    }
