@@ -1,19 +1,19 @@
-
-<% if message.user == current_user %>
-<div class= "message_current_user" id="message-<%= message.id %>">
-  <small class= "current_user_message_details">
-    <strong><%= message.user.first_name %></strong>
-    <i><%= message.created_at.strftime("%a %b %e at %l:%M %p") %></i>
-  </small>
-  <p class="chat-bubble current_user_bubble message_content"><%= message.content %></p>
+<div hidden data-controller="messages-styling" data-messages-styling-target="message" data-message-user-id="<%=message.user.id%>">
+  <div class= "message_current_user" id="message-<%= message.id %>">
+    <small class= "current_user_message_details">
+      <strong><%= message.user.first_name %></strong>
+      <i><%= message.created_at.strftime("%a %b %e at %l:%M %p") %></i>
+    </small>
+    <p class="chat-bubble current_user_bubble message_content"><%= message.content %></p>
+  </div>
 </div>
-  <% else %>
+
+<div hidden data-controller="messages-hiding" data-messages-hiding-target="message" data-message-user-id="<%=message.user.id%>">
   <div class= "message" id="message-<%= message.id %>">
-  <small class= "message_details">
-    <strong ><%= message.user.first_name %></strong>
-    <i><%= message.created_at.strftime("%a %b %e at %l:%M %p") %></i>
-  </small>
-  <p class= "chat-bubble bubble message-content"><%= message.content %></p>
+    <small class= "message_details">
+      <strong ><%= message.user.first_name %></strong>
+      <i><%= message.created_at.strftime("%a %b %e at %l:%M %p") %></i>
+    </small>
+    <p class= "chat-bubble bubble message-content"><%= message.content %></p>
+  </div>
 </div>
-
-<% end %>

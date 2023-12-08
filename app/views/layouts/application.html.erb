@@ -10,7 +10,7 @@
     <%= javascript_importmap_tags %>
   </head>
 
-  <body>
+  <body data-current-user-id="<%= current_user.id unless current_user.nil?%>">
 
   <%= render "shared/myNavbar" %>
   <%= render "shared/flashes" %>

@@ -56,9 +56,13 @@ overflow: hidden;
   align-items: flex-end;
  }
 
-  .message {
-    display: flex;
-    flex-direction: column;
-    max-width: 400px;
-    overflow: hidden;
-    }
+.message {
+  display: flex;
+  flex-direction: column;
+  max-width: 400px;
+  overflow: hidden;
+  }
+
+[hidden] {
+  display: none !important;
+}
